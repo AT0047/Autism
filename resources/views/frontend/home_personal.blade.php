@@ -154,7 +154,6 @@
                             communication.</p>
                     </div>
                 </div>
-
             </div>
         </section>
         <section id="about" class="section pb-0">
@@ -172,12 +171,8 @@
                         </div>
                         <a href= "about me/index.html"><button type="submit" class="btn"
                                 style="border-radius: 10%; margin: 100px;">take a look</button></a>
-
                     </div>
-
-
                 </div>
-
             </section>
         </section>
         <!-- Latest Works -->
@@ -206,7 +201,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                     <!-- Panel #2 -->
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="feature-panel">
@@ -222,7 +216,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                     <!-- Panel #3 -->
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="feature-panel">
@@ -238,7 +231,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                     <!-- Panel #4 -->
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="feature-panel">
@@ -254,7 +246,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                     <!-- Panel #5 -->
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="feature-panel">
@@ -270,7 +261,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                     <!-- Panel #6 -->
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="feature-panel">
@@ -286,7 +276,6 @@
                         <!-- .feature-panel end -->
                     </div>
                     <!-- .col-md-4 end -->
-
                 </div>
                 <!-- .row end -->
             </div>
@@ -407,7 +396,6 @@
                     </div>
                 </div>
                 <!-- Testimonial Area End -->
-
             </section>
         </section>
         <section id="news" class="section ">
@@ -430,7 +418,6 @@
                             <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
                             </p>
                         </div>
-
                     </div>
                     <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
                         <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
@@ -444,7 +431,6 @@
                             <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
                             </p>
                         </div>
-
                     </div>
                     <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
                         <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
@@ -458,15 +444,11 @@
                             <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
                             </p>
                         </div>
-
                     </div>
                 </section>
             </div>
         </section>
-
-
     </div>
-
     <!--======  footer area =======-->
     <footer class="footer-area footer-five">
         <div class="footer-top-area">
@@ -496,7 +478,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div style="margin-left: 70px;" class="col-lg-5">
                         <div class="footer-menu-widget">
                             <div class="single-footer-menu">
