@@ -9,8 +9,8 @@
 
     <title>Autism&ME</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700' rel='stylesheet' type='text/css'>
-    <link href="{{asset('ourserveses/css/external.css')}}" rel="stylesheet">
-    <link href="{{asset('ourserveses/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('our_serveses_assets/css/external.css')}}" rel="stylesheet">
+    <link href="{{asset('our_serveses_assests/css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('home_assets/css/vendor/bootstrap.min.css')}}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -633,7 +633,7 @@
 
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
 </body>
 
