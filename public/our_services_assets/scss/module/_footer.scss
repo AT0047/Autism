@@ -1,0 +1,124 @@
+/*------------------------------------*\
+    #Footer
+\*------------------------------------*/
+/* Parallax Effect */
+#wrapperParallax {
+	position: relative;
+	z-index: 1060;
+	min-height: 100vh;
+}
+
+#footerParallax {
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 767px) {
+	#wrapperParallax {
+		margin-bottom: 0 !important;
+	}
+
+	#footerParallax {
+		position: relative;
+	}
+}
+
+
+.footer {
+	background-color: $color-white;
+	padding-top: 0;
+	padding-bottom: 0;
+
+	.footer-top {
+		padding-top: 100px;
+		padding-bottom: 90px;
+	}
+
+	.widget-info-box {
+		.info-img {
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			@include rounded(50%);
+			margin: 0 auto 15px auto;
+			display: block;
+			background-color: #eff8ff;
+		}
+
+		h4 {
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 28px;
+			margin-bottom: 10px;
+			text-transform: capitalize;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	.footer-bar {
+		hr {
+			border-top-color: #e0e0e0;
+			margin: 0
+		}
+	}
+
+	.footer-bottom {
+		padding: 30px 0;
+
+		.footer-copyright {
+			color: $color-body;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 19px;
+			text-transform: capitalize;
+		}
+
+		.footer-social {
+			text-align: right;
+
+			a {
+				font-size: 14px;
+				color: $color-body;
+				margin-right: 20px;
+				display: inline-block;
+
+				&:hover {
+					color: $color-theme;
+				}
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+		}
+
+	}
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.footer {
+		.widget-info-box {
+			margin-bottom: 20px;
+		}
+
+		.footer-bottom {
+			text-align: center;
+
+			.footer-social {
+				margin-top: 20px;
+				text-align: center;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    #BACKGROUNDS
+\*------------------------------------*/
+.bg-shape {
+	position: relative;
+	overflow: visible;
+
+
+	&:before {
+		position: absolute;
+		top: -150px;
+		right: 0;
+		content: "";
+		width: 480px;
+		height: 830px;
+		background: url(../images/background/shape-right.svg);
+	}
+
+}
+
+
+.bg-shape-left {
+	&:before {
+		left: 0;
+		right:auto;
+		@include prefix (transform, rotate(180deg),moz webkit);
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 991px) {
+	.bg-shape {}
+}
+
+.bg-theme {
+	background-color: $color-theme !important
+}
+
+.bg-gray {
+	background-color: $color-gray !important;
+}
+
+.bg-white {
+	background-color: $color-white !important
+}
+
+.bg-dark {
+	background-color: $color-heading !important
+}
+
+.bg-gradient {
+	background-image: linear-gradient(268deg, #a87efb 0%, #7160ff 100%);
+}
+
+/* Background Image */
+.bg-section {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.bg-overlay:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.bg-overlay-light:before {
+	background-color: $color-white;
+	opacity: 0.8;
+}
+
+.bg-overlay-dark:before {
+	background-color: $color-heading;
+	opacity: 0.3;
+}
+
+.bg-overlay-theme:before {
+	background-color: $color-theme;
+	opacity: 0.7;
+}
+
+.bg-parallex {
+	background-attachment: fixed;
+}

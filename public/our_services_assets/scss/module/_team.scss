@@ -1,0 +1,109 @@
+/*------------------------------------*\
+    #Team
+\*------------------------------------*/
+.member {
+  text-align: center;
+  overflow: hidden;
+
+  .member-img {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    &:hover {
+      .member-overlay {
+        .member-social {
+          @include prefix (transform, scale(1), moz webkit);
+        }
+      }
+    }
+
+  }
+
+  .member-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    top: 0;
+    left: 0;
+
+    .member-social {
+      border-radius: 2px;
+      background-color: $color-theme;
+      opacity: 0.9;
+      width: 100%;
+      height: 100%;
+      @include prefix (transition, all 0.35s, moz webkit);
+      @include prefix (transform, scale(0), moz webkit);
+
+      a {
+        color: $color-white;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        margin-right: 20px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          color: $color-heading;
+        }
+
+      }
+    }
+  }
+
+  .member-info {
+    h5 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+
+      span {
+        color: $color-theme;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+        margin-left: 10px;
+      }
+    }
+
+    h6 {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 500;
+
+      a {
+        color: $color-body;
+
+        i {
+          color: $color-theme;
+          margin-right: 8px;
+        }
+
+        &:hover {
+          color: $color-theme;
+        }
+      }
+    }
+
+  }
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .member {
+    margin-bottom: 30px;
+  }
+}
