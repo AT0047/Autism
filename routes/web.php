@@ -32,4 +32,14 @@ Route::get('/home', function () {
     return view('frontend.home_personal');
 });
 
+Route::get('/backend/dashboard', function () {
+    return view('backend.dashboard.dashboard');
+});
+Route::get('/backend/dashboard/index', function () {
+    return view('backend.add.index');
+});
+Route::get('/backend/dashboard/create', function () {
+    return view('backend.add.create');
+});
+
 require __DIR__.'/auth.php';
