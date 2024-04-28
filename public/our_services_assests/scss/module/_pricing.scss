@@ -1,0 +1,183 @@
+/*------------------------------------*\
+    #PRICING-SECTION
+\*------------------------------------*/
+.pricing-filter {
+  margin: 0 auto 100px auto;
+  text-align: center;
+  width: 260px;
+  height: 45px;
+  border: 1px solid $color-theme;
+  @include rounded(4px);
+  position: relative;
+  overflow: hidden;
+
+  a {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 50%;
+    line-height: 43px;
+    color: $color-theme;
+    float: left;
+    position: relative;
+    z-index: 1;
+
+    &.is-active {
+      color: $color-white
+    }
+  }
+
+  .switch {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 43px;
+    width: 135px;
+    background-color: $color-theme;
+    content: "";
+    @include prefix(transition, all 300ms linear, moz webkit ms o);
+
+    &.switch-yearly {
+      @include prefix(transform, translateX(135px), moz webkit ms o);
+    }
+
+    &.switch-monthly {
+      @include prefix(transform, translateX(0), moz webkit ms o);
+    }
+  }
+}
+
+.pricing-panel {
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  @include prefix(transition, all 300ms linear, moz webkit ms o);
+
+  .pricing-heading {
+    margin-bottom: 30px;
+
+    h4 {
+      color: $color-heading;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 17px;
+      text-transform: uppercase;
+    }
+
+    .pricing-switcher {
+      height: 70px;
+      overflow: hidden;
+
+      &.active-yearly {
+        .pricing-yealry {
+          @include prefix(transform, translateY(-70px), moz webkit ms o);
+        }
+
+        .pricing-monthly {
+          @include prefix(transform, translateY(-140px), moz webkit ms o);
+        }
+      }
+
+      &.active-monthly {
+        .pricing-yealry {
+          @include prefix(transform, translateY(70px), moz webkit ms o);
+        }
+
+        .pricing-monthly {
+          @include prefix(transform, translateY(0), moz webkit ms o);
+        }
+      }
+    }
+
+    p {
+
+      color: $color-heading;
+      font-size: 70px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      @include prefix(transition, transform 300ms ease-in-out, moz webkit ms o);
+
+      .period {
+        padding-left: 15px;
+        color: $color-body;
+        font-size: 22px;
+        font-weight: 400;
+        text-transform: none
+      }
+    }
+
+  }
+
+  .pricing-body {
+    padding: 0 65px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 34px;
+    text-align: center;
+
+    ul {
+      margin-bottom: 33px;
+    }
+
+  }
+
+  &.pricing-active {
+    @include prefix(box-shadow, 0 10px 35px rgba(0, 0, 0, 0.05), moz webkit ms o);
+    @include rounded(6px);
+    background-color: $color-white;
+  }
+
+  &:hover {
+    .btn:not(.btn--gradient) {
+      background-color: $color-theme;
+      color: $color-white;
+    }
+  }
+
+  .pricing-footer {
+    padding: 0 65px;
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 20px;
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 991px) {
+
+  .pricing-filter {
+    margin-bottom: 50px;
+  }
+
+  .pricing-panel {
+    max-width: 390px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px;
+
+
+    .pricing-footer {
+      padding: 0
+    }
+  }
+
+}
+
+@media only screen and (min-width : 992px) and (max-width :1200px) {
+
+  .pricing-panel {
+    .pricing-footer {
+      padding: 10px
+    }
+  }
+}

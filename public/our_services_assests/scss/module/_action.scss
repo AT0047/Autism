@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    #Call To Action
+\*------------------------------------*/
+.cta {
+	h3 {
+		font-size: 50px;
+		font-weight: 500;
+		line-height: 65px;
+		margin-bottom: 23px;
+		text-transform: capitalize;
+	}
+
+	p {
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 28px;
+		margin-bottom: 48px;
+	}
+}
+
+.cta .btn {
+	height: 70px;
+	width: 280px;
+	font-size: 24px;
+	line-height: 70px;
+}
+
+.form-wrapper {
+	padding: 50px;
+	@include rounded(4px);
+	@include prefix('box-shadow', 0 10px 40px 0 rgba(32, 62, 84, 0.08), moz webkit);
+	background-color: $color-white;
+
+	.heading {
+		margin-bottom: 45px;
+		text-align: center;
+
+		h3 {
+			font-size: 20px;
+			font-weight: 500;
+			margin-bottom: 0;
+
+		}
+	}
+
+	.btn {
+		margin-bottom: 10px;
+	}
+
+	.agreement {
+		font-size: 12px;
+		text-align: center;
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 992px) {
+	.form-wrapper {
+		padding: 30px;
+
+		.heading {
+			h3 {
+				font-size: 18px;
+
+			}
+		}
+	}
+}
