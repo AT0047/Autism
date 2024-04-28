@@ -1,45 +1,33 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Simone - Creative Personal CV/Resume HTML Template">
     <meta name="author" content="Paul">
-
     <title>Autism&ME</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700' rel='stylesheet' type='text/css'>
-    <link href="{{asset('comment_and_news_assets/css/external.css')}}" rel="stylesheet">
-    <link href="{{asset('comment_and_news_assets/css/style.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('home_assets/css/vendor/bootstrap.min.css')}}">
-
+    <link href="{{ asset('comment_and_news_assets/css/external.css') }}" rel="stylesheet">
+    <link href="{{ asset('comment_and_news_assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('home_assets/css/vendor/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Icofont CSS -->
-    <link rel="stylesheet" href="{{asset('home_assets/css/vendor/icofont.min.css')}}" />
-
+    <link rel="stylesheet" href="{{ asset('home_assets/css/vendor/icofont.min.css') }}" />
     <!-- Light gallery CSS -->
-    <link rel="stylesheet" href="{{asset('home_assets/css/plugins/lightgallery.min.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('home_assets/css/plugins/lightgallery.min.css') }}">
     <!-- Swiper bundle CSS -->
-    <link rel="stylesheet" href="{{asset('home_assets/css/plugins/swiper-bundle.min.css')}}" />
-
+    <link rel="stylesheet" href="{{ asset('home_assets/css/plugins/swiper-bundle.min.css') }}" />
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="{{asset('home_assets/css/plugins/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('home_assets/css/style.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('home_assets/css/plugins/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('home_assets/css/style.css') }}">
     <!-- CSS -->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('home_assets/css/style.css') }}">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{asset('favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 </head>
-
 <body class="fixed-footer">
-
     <!-- Loader -->
     <div class="loader">
         <div class="spinner">
@@ -47,31 +35,20 @@
             <div class="double-bounce2"></div>
         </div>
     </div>
-
     <!-- Click capture -->
-
     <!-- Navbar -->
     <nav id="scrollspy" class="navbar navbar-desctop">
-
         <div class="d-flex align-items-center position-relative overflow: hidden; w-100">
-
             <!-- Brand-->
             <div><img src="favicon.png" style="width: 60px; margin: 10px;" alt=""></div>
-
-
-
             <div class="container">
                 <ul class="navbar-nav navbar-nav-desctop  d-none d-lg-block">
                     <li><a class="nav-link" href="home-personal.html">Home</a></li>
-
                     <li><a class="nav-link" href="about me/index.html">About us</a></li>
                     <li><a class="nav-link" href="#mystory">my story</a></li>
-
                     <li><a class="nav-link" href="Articles.html">Articles</a></li>
                     <li><a class="nav-link" href="#services">Our service</a></li>
-
                 </ul>
-
                 <!-- Social -->
                 <ul class="social-icons d-none d-lg-block">
                     <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
@@ -80,10 +57,8 @@
                     <li><a href="#">
                             <img src="img/eng.png" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
                     </li>
-
                 </ul>
             </div>
-
             <!-- Toggler -->
             <button class="toggler d-block d-lg-none">
                 <span class="toggler-icon"></span>
@@ -92,28 +67,19 @@
             </button>
         </div>
     </nav>
-
     <!-- Navbar Mobile -->
     <nav class="navbar navbar-mobile d-lg-none">
         <ion-icon class="close" name="close-outline"></ion-icon>
-
-
-
         <ul class="navbar-nav navbar-nav-mobile">
             <li><a class="nav-link" href="home-personal.html">Home</a></li>
             <li><a class="nav-link" href="#mystory">my story</a></li>
             <li><a class="nav-link" href="about me/index.html">About us</a></li>
-
             <li><a class="nav-link" href="Articles.html">Articles</a></li>
             <li><a class="nav-link" href="#services">Our service</a></li>
-
         </ul>
     </nav>
-
-
     <!-- Masthead -->
     <main id="home" class="masthead jarallax" style="background-image:url('img/bg/autism1.jpg');" role="main">
-
         <!-- Lines -->
         <div class="lines">
             <div class="container">
@@ -124,7 +90,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Opener -->
         <div class="opener blur-scroll">
             <div class="container">
@@ -137,10 +102,8 @@
             </div>
         </div>
     </main>
-
     <!-- Content -->
     <div class="content">
-
         <!-- Lines -->
         <div class="lines">
             <div class="container">
@@ -151,7 +114,6 @@
                 </div>
             </div>
         </div>
-
         <!-- About -->
         <section id="mystory" class="section pb-0">
             <section class="container">
@@ -171,10 +133,8 @@
                         <img alt="" class="w-100" style="border-radius: 10px;" src="img/about1.jpg">
                     </div>
                 </div>
-
             </section>
         </section>
-
         <!-- Specialization -->
         <section id="specialization" class="section py-0">
             <div class="container">
@@ -580,61 +540,43 @@
                 </div>
             </div>
         </div>
-
     </footer>
     <!--=====  End of footer area ========-->
-
-
     <!-- End of .container -->
-
-    <script src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{asset('js/popper.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/jarallax.min.js')}}"></script>
-    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+    <script src="{{ asset('home_assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/jarallax.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/jquery.validate.min.js') }}"></script>
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    <script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
-    <script src="{{asset('js/aos.js')}}"></script>
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/interface.js')}}"></script>
-    <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
-
+    <script src="{{ asset('home_assets/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/aos.js') }}"></script>
+    <script src="{{ asset('home_assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('home_assets/js/interface.js') }}"></script>
+    <script src="{{ asset('comment_and_news_assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
     <!-- jQuery JS -->
-    <script src="{{asset('comment_and_news_assets/js/vendor/jquery-3.5.1.min.js')}}"></script>
-    <script src="{{asset('comment_and_news_assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/vendor/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('comment_and_news_assets/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
     <!-- Bootstrap JS -->
-    <script src="{{asset('comment_and_news_assets/js/vendor/bootstrap.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/vendor/bootstrap.min.js') }}"></script>
     <!-- Light gallery JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/lightgallery.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/lightgallery.min.js') }}"></script>
     <!-- Isotope JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/isotope.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/isotope.min.js') }}"></script>
     <!-- Masonry JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/masonry.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/masonry.min.js') }}"></script>
     <!-- ImagesLoaded JS -->
-    <script src="{{asset('comment_and_news_assetsjs/plugins/images-loaded.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assetsjs/plugins/images-loaded.min.js') }}"></script>
     <!-- Swiper Bundle JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/swiper-bundle.min.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- AOS JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/aos.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/aos.js') }}"></script>
     <!-- Ajax JS -->
-    <script src="{{asset('comment_and_news_assets/js/plugins/ajax.mail.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/plugins/ajax.mail.js') }}"></script>
     <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
     <!-- <script src="assets/js/vendor/vendor.min.js"></script>
     <script src="assets/js/plugins/plugins.min.js"></script> -->
-
-
     <!-- Main JS -->
-    <script src="{{asset('comment_and_news_assets/js/main.js')}}"></script>
-
+    <script src="{{ asset('comment_and_news_assets/js/main.js') }}"></script>
 </body>
-
 </html>
