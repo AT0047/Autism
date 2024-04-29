@@ -38,6 +38,10 @@ Route::get('/frontend/articles', function () {
     return view('frontend.articles.articles');
 });
 
+Route::get('/frontend/articles/blog_details', function () {
+    return view('frontend.articles.blog_details');
+});
+
 Route::get('/frontend/about_me', function () {
     return view('frontend.about_me.about_me');
 });

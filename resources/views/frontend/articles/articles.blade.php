@@ -19,14 +19,12 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="hero-five-text text-left">
-
                                     <h1 class="title">
                                         <span class="hero-five-title">Unlimited</span>
                                         Advice & Resource
                                     </h1>
                                     <p class="hero-text-dec">That necessitates a robust ecommerce platform that
                                         optimizes your store & products</p>
-
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -44,9 +42,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div><!-- Hero Area End -->
-
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-12">
@@ -54,12 +50,10 @@
                                 <div class="section-title" data-aos="fade-up">
                                     <h2>Recent Article</h2>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <div class="row row--30">
-
                         <div class="col-lg-6 col-md-6">
                             <!-- Single Most Populer Item Start -->
                             <div class="single-most-populer-item" data-aos="fade-up">
@@ -135,7 +129,6 @@
                                 </div>
                             </div><!-- Single Most Populer Item End -->
                         </div>
-
                         <div class="col-lg-6 col-md-6">
                             <!-- Single Most Populer Item Start -->
                             <div class="single-most-populer-item" data-aos="fade-up">
@@ -241,7 +234,6 @@
                                 </div>
                             </div><!-- Single Most Populer Item End -->
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -290,7 +282,6 @@
                                     </div>
                                 </div>
                             </div><!-- Single Archive Post End -->
-
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
                                 <div class="archive-post-thum">
@@ -313,7 +304,6 @@
                                     </div>
                                 </div>
                             </div><!-- Single Archive Post End -->
-
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
                                 <div class="archive-post-thum">
@@ -336,7 +326,6 @@
                                     </div>
                                 </div>
                             </div><!-- Single Archive Post End -->
-
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
                                 <div class="archive-post-thum">
@@ -359,7 +348,6 @@
                                     </div>
                                 </div>
                             </div><!-- Single Archive Post End -->
-
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
                                 <div class="archive-post-thum">
@@ -382,10 +370,7 @@
                                     </div>
                                 </div>
                             </div><!-- Single Archive Post End -->
-
                         </div>
-
-
                         <!-- Add Banner Area Start -->
                         <div class="add-banner-area mt-5" data-aos="fade-up">
                             <a href="Articles.html">
@@ -393,9 +378,7 @@
                             </a>
                         </div>
                         <!-- Add Banner Area End -->
-
                     </div> <!-- Latest Post Area End -->
-
                 </div>
                 <!-- Special For Beginner Area Start -->
                 <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
@@ -407,7 +390,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row row--30">
                             <div class="col-lg-4">
                                 <!-- Single Most Populer Item Start -->
@@ -479,7 +461,6 @@
                     </div>
                 </div>
                 <!-- Special For Beginner Area End -->
-
                 <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
                     <div class="col content-div" id="content1">
                         <section id="about" class="section pb-0">
@@ -489,7 +470,7 @@
                                         <img alt="" class="w-100" style="border-radius: 10px; "
                                             src="img/doctor.jpg">
                                     </div>
-                                    <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0  px-0" data-aos="fade-right">
+                                    <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                                         <div
                                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
                                             <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
@@ -498,12 +479,8 @@
                                         </div>
                                         <a href= "about me/index.html"><button type="submit" class="btn"
                                                 style="border-radius: 10%; margin: 100px;">take a look</button></a>
-
                                     </div>
-
-
                                 </div>
-
                             </section>
                         </section>
                     </div>
@@ -533,7 +510,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                     <!-- Panel #2 -->
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <div class="feature-panel">
@@ -549,7 +525,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                     <!-- Panel #3 -->
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <div class="feature-panel">
@@ -565,7 +540,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                     <!-- Panel #4 -->
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <div class="feature-panel">
@@ -581,7 +555,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                     <!-- Panel #5 -->
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <div class="feature-panel">
@@ -597,7 +570,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                     <!-- Panel #6 -->
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <div class="feature-panel">
@@ -613,7 +585,6 @@
                                         <!-- .feature-panel end -->
                                     </div>
                                     <!-- .col-md-4 end -->
-
                                 </div>
                                 <!-- .row end -->
                             </div>
@@ -635,7 +606,6 @@
                                     <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
                                         06, 2020</p>
                                 </div>
-
                             </div>
                             <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
                                 <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
@@ -650,7 +620,6 @@
                                     <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
                                         06, 2020</p>
                                 </div>
-
                             </div>
                             <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
                                 <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
@@ -665,19 +634,13 @@
                                     <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
                                         06, 2020</p>
                                 </div>
-
                             </div>
                         </section>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
     </div>
-
     <!-- Remove the container if you want to extend the Footer to full width. -->
 @endsection

@@ -17,7 +17,7 @@
                 <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
                 <li><a href="#">
-                    <img src="img/eng.png" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
+                    <img src="{{asset('home_assets/eng.png')}}" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
                 </li>
             </ul>
         </div>
