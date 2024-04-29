@@ -2,7 +2,7 @@
 <nav id="scrollspy" class="navbar navbar-desctop">
     <div class="d-flex align-items-center position-relative overflow: hidden; w-100">
         <!-- Brand-->
-        <div><img src="favicon.png" style="width: 60px; margin: 10px;" alt=""></div>
+        <div><img src="{{asset('home_assets/favicon.png')}}" style="width: 60px; margin: 10px;" alt=""></div>
         <div class="container">
             <ul class="navbar-nav navbar-nav-desctop  d-none d-lg-block">
                 <li><a class="nav-link" href="home-personal.html">Home</a></li>
@@ -17,7 +17,7 @@
                 <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
                 <li><a href="#">
-                        <img src="img/eng.png" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
+                    <img src="img/eng.png" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
                 </li>
             </ul>
         </div>

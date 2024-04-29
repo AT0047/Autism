@@ -28,10 +28,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/home', function () {
+
+
+Route::get('/frontend/home', function () {
     return view('frontend.home_personal');
 });
 
+Route::get('/frontend/articles', function () {
+    return view('frontend.articles.articles');
+});
+
+Route::get('/frontend/about_me', function () {
+    return view('frontend.about_me.about_me');
+});
+
+Route::get('/backend/login', function () {
+    return view('auth.login');
+});
 Route::get('/backend/dashboard', function () {
     return view('backend.dashboard.dashboard');
 });
@@ -41,5 +54,7 @@ Route::get('/backend/dashboard/index', function () {
 Route::get('/backend/dashboard/create', function () {
     return view('backend.add.create');
 });
+
+
 
 require __DIR__.'/auth.php';
