@@ -114,7 +114,6 @@
                         </button>
                     </form>
                     <!-- Navbar links -->
-
                 </div>
             </div>
         </nav>
@@ -226,14 +225,14 @@
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
-    <script src="{{asset('dashboard/vendor/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('dashboard/plugins/froala/js/froala_editor.pkgd.min.js')}}"></script>
-    <script src="{{asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}} "></script>
-    <script src="{{asset('dashboard/vendor/js-cookie/js.cookie.js ')}}"></script>
-    <script src="{{asset('dashboard/vendor/jquery.scrollbar/jquery.scrollbar.min.js ')}}"></script>
-    <script src="{{asset('dashboard/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js ')}}"></script>
+    <script src="{{ asset('dashboard/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/froala/js/froala_editor.pkgd.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }} "></script>
+    <script src="{{ asset('dashboard/vendor/js-cookie/js.cookie.js ') }}"></script>
+    <script src="{{ asset('dashboard/vendor/jquery.scrollbar/jquery.scrollbar.min.js ') }}"></script>
+    <script src="{{ asset('dashboard/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js ') }}"></script>
     <!-- Argon JS -->
-    <script src="{{asset('dashboard/js/argon.js?v=1.2.0')}} "></script>
+    <script src="{{ asset('dashboard/js/argon.js?v=1.2.0') }} "></script>
 
     <script>
         var editor = new FroalaEditor('#postContent', {

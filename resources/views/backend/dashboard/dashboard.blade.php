@@ -45,7 +45,7 @@
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="{{ asset('dashboard/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+                    <img src="{{ asset('dashboard/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
                 </a>
             </div>
             <div class="navbar-inner">
@@ -60,9 +60,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../posts/">
+                            <a class="nav-link" href="{{route('mystory.index')}}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">Posts</span>
+                                <span class="nav-link-text">My Story Section</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -78,10 +78,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                                 <i class="ni ni-key-25 text-info"></i>
                                 <span class="nav-link-text">Logout</span>
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                     <!-- Divider -->
@@ -149,7 +154,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('dashboard/img/theme/team-1.jpg')}}"
+                                                    src="{{ asset('dashboard/img/theme/team-1.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -212,7 +217,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('dashboard/img/theme/team-4.jpg')}}"
+                                                    src="{{ asset('dashboard/img/theme/team-4.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -262,7 +267,8 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{ asset('dashboard/img/theme/team-1.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('dashboard/img/theme/team-1.jpg') }}">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
@@ -290,10 +296,16 @@
                                     <span>Support</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#!" class="dropdown-item">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                                     <i class="ni ni-user-run"></i>
-                                    <span>Logout</span>
+                                    <span>{{ __('Logout') }}</span>
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -424,7 +436,6 @@
             </div>
         </div> --}}
         @yield('content')
-        
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
