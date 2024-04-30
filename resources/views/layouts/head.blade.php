@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ asset('comment_and_news_assets/css/plugins/swiper-bundle.min.css') }}" />
     <!-- AOS CSS -->
     <link rel="stylesheet" href="{{ asset('comment_and_news_assets/css/plugins/aos.css') }}">
-    
     <link rel="stylesheet" href="{{ asset('comment_and_news_assets/css/style.css') }}">
     <!-- Favicons -->
     <link rel="shortcut icon" href="{{asset('about_me_assets/favicon.png')}}">
@@ -29,4 +28,4 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('home_assets/css/style.css') }}">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('home_assets/favicon.png') }}">
