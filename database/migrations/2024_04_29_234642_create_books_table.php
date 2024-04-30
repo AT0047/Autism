@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('content');
-            $table->foreignId('library_id')->constrained('libraries')->onDelete('cascade');
+            // $table->foreignId('library_id')->constrained('libraries')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->boolean('prefer');
             $table->string('video')->nullable();
