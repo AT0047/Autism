@@ -303,7 +303,7 @@
 
         <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6" style="height:100vh">
+        {{-- <div class="header bg-primary pb-6" style="height:100vh">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
@@ -422,7 +422,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @yield('content')
+        
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
