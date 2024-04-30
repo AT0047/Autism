@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <!-- Masthead -->
-    <main id="home" class="masthead jarallax" style="background-image:url('img/bg/autism1.jpg');" role="main">
+    <main id="home" class="masthead jarallax" style="background-image:url('{{asset('home_assets/autism1.jpg')}}');" role="main">
         <!-- Lines -->
         <div class="lines">
             <div class="container">
@@ -43,7 +43,7 @@
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div
                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                            <img alt="" class="w-100" style="border-radius: 10px;" src="img/about2.jpg">
+                            <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about2.jpg')}}">
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0">
@@ -52,7 +52,7 @@
                                 class="text-primary">around</span></h2>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="img/about1.jpg">
+                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about1.jpg')}}">
                     </div>
                 </div>
             </section>
@@ -67,7 +67,7 @@
                             that a reader</h2>
                     </div>
                     <div class="col-md-6 order-md-1 order-lg-2 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="img/about3.jpg">
+                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about3.jpg')}}">
                     </div>
                     <div class="col-md-6 offset-md-6 offset-lg-0 order-md-3 order-lg-3 col-lg-4 mt-5 pl-0 pl-md-30 mt-md-0"
                         data-aos="fade-up">
@@ -82,7 +82,7 @@
             <section class="container">
                 <div class="row mx-0 align-items-center">
                     <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px; " src="img/doctor.jpg">
+                        <img alt="" class="w-100" style="border-radius: 10px; " src="{{asset('home_assets/doctor.jpg')}}">
                     </div>
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div

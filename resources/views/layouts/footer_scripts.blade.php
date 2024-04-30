@@ -29,21 +29,11 @@
     <!-- Ajax JS -->
     <script src="{{ asset('comment_and_news_assets/js/plugins/ajax.mail.js') }}"></script>
     <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
-    <!-- <script src="assets/js/vendor/vendor.min.js"></script>
-    <script src="assets/js/plugins/plugins.min.js"></script> -->
-    <script src="{{asset('about_me_assets/js/jquery.min.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/wow.min.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/smoothscroll.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/animsition.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('about_me_assets/js/jquery.pagepiling.min.js')}}"></script>
+    <script src="{{ asset('comment_and_news_assets/js/vendor/vendor.min.js') }}"></script>
+    <script src="{{ asset('comment_and_news_assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Scripts -->
-
-    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons">
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js" type="module"  data-stencil-namespace="ionicons"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js" nomodule="" data-stencil-namespace="ionicons">
     </script>
     <!-- Main JS -->
     <script src="{{ asset('comment_and_news_assets/js/main.js') }}"></script>
-    <script src="{{asset('about_me_assets/js/scripts.js')}}"></script>

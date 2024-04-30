@@ -15,17 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.home_personal');
+    return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('backend/dashboard', function () {
+    return view('backend.dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/backend/dashboard/index', function () {
+        return view('backend.add.index');
+    });
+    Route::get('/backend/dashboard/create', function () {
+        return view('backend.add.create');
+    });
 });
 
 
@@ -46,18 +53,7 @@ Route::get('/frontend/about_me', function () {
     return view('frontend.about_me.about_me');
 });
 
-Route::get('/backend/login', function () {
-    return view('auth.login');
-});
-Route::get('/backend/dashboard', function () {
-    return view('backend.dashboard.dashboard');
-});
-Route::get('/backend/dashboard/index', function () {
-    return view('backend.add.index');
-});
-Route::get('/backend/dashboard/create', function () {
-    return view('backend.add.create');
-});
+
 
 
 

@@ -45,7 +45,7 @@
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="../../assets/backend/img/brand/blue.png" class="navbar-brand-img" alt="...">
+                    <img src="{{ asset('dashboard/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
                 </a>
             </div>
             <div class="navbar-inner">
@@ -149,7 +149,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="../../assets/backend/img/theme/team-1.jpg"
+                                                    src="{{ asset('dashboard/img/theme/team-1.jpg')}}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -212,7 +212,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="../../assets/backend/img/theme/team-4.jpg"
+                                                    src="{{ asset('dashboard/img/theme/team-4.jpg')}}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -262,7 +262,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="../../assets/backend/img/theme/team-4.jpg">
+                                        <img alt="Image placeholder" src="{{ asset('dashboard/img/theme/team-1.jpg')}}">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
