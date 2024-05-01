@@ -30,12 +30,13 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::prefix('/backend/dashboard')->group(function () {
+    Route::prefix('/dashboard')->group(function () {
 
         // <--------------------------My Story Start------------------------------------->
         Route::prefix('mystory')->as('mystory.')->group(function () {
             Route::get('/', [MyStoryController::class, 'index'])->name('index');
             Route::get('/create', [MyStoryController::class, 'create'])->name('create');
+            Route::post('/store', [MyStoryController::class, 'store'])->name('store');
         });
     });
 });

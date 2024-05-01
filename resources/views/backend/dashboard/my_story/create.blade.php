@@ -18,15 +18,16 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="" method ="POST" enctype="multipart/form-data">
-                            <h6 class="heading-small text-muted mb-4">information</h6>
+                        <form action ="{{route('mystory.store')}}" method ="POST" enctype="multipart/form-data">
+                            @csrf
+                            <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 1</label>
-                                            <input type="text" name="post_title" class="form-control"
-                                                placeholder="Post Title">
+                                            <input type="text" name="title1" class="form-control"
+                                                placeholder="Write your title here">
                                         </div>
                                     </div>
                                 </div>
@@ -36,8 +37,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 2</label>
-                                            <input type="text" name="post_title" class="form-control"
-                                                placeholder="Post Title">
+                                            <input type="text" name="title2" class="form-control"
+                                                placeholder="Write your title here">
                                         </div>
                                     </div>
                                 </div>
@@ -62,13 +63,13 @@
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
                                     <label class="form-control-label ">Content</label>
-                                    <textarea id="postContent" name="post_content" rows="19" class="form-control " placeholder="Enter post title"></textarea>
+                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter post title"></textarea>
                                 </div>
                             </div>
                             <div class="pl-lg-4 ">
                                 <label class="form-control-label ">Upload image</label>
                                 <div class="input-group">
-                                    <input type="file" name = "post_image" class="form-control" id="inputGroupFile04"
+                                    <input type="file" name="photo" class="form-control" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                 </div>
                             </div>
@@ -81,4 +82,4 @@
                 </div>
             </div>
         </div>
-    @endsection
+@endsection
