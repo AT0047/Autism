@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\AboutUsController;
 use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,8 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-
+//start about us
+Route::resource('about-us', AboutUsController::class);
 
 
 
