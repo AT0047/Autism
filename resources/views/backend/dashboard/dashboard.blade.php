@@ -78,7 +78,7 @@
                                                 <a class="nav-link" href="{{ route('about-us.create') }}">About Doctor</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">About Education</a>
+                                                <a class="nav-link" href="{{ route('about-education.index') }}">About Education</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">About Experience</a>

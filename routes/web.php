@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\AboutEducationController;
 use App\Http\Controllers\dashboard\AboutUsController;
 use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
 //start about us
 Route::resource('about-us', AboutUsController::class);
+Route::resource('about-education', AboutEducationController::class);
 
 
 
