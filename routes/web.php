@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [MyStoryController::class, 'index'])->name('index');
             Route::get('/create', [MyStoryController::class, 'create'])->name('create');
             Route::post('/store', [MyStoryController::class, 'store'])->name('store');
+            Route::get('/edit/{id}', [MyStoryController::class, 'edit'])->name('edit');
+            Route::patch('/update/{id}', [MyStoryController::class, 'update'])->name('update');
+            Route::delete('/destroy/{id}', [MyStoryController::class, 'destroy'])->name('destroy');
         });
     });
 });

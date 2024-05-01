@@ -26,7 +26,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 1</label>
-                                            <input type="text" name="title1" class="form-control"
+                                            <input type="text" value="{{old('title1')}}" name="title1" class="form-control"
                                                 placeholder="Write your title here">
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 2</label>
-                                            <input type="text" name="title2" class="form-control"
+                                            <input type="text"  value="{{old('title2')}}" name="title2" class="form-control"
                                                 placeholder="Write your title here">
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
                                     <label class="form-control-label ">Content</label>
-                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter post title"></textarea>
+                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter post title">{{old('content')}}</textarea>
                                 </div>
                             </div>
                             <div class="pl-lg-4 ">

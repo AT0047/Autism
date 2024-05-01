@@ -29,6 +29,11 @@
                 <div class="card-header border-0">
                     <h3 class="mb-0">My Store Section</h3>
                 </div>
+                @if (session()->has('message'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{ session('message') }}</strong>
+                    </div>
+                @endif
                 <!-- Light table -->
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -50,7 +55,8 @@
                                     <th scope="row">
                                         <div class="media align-items-center">
                                             <a href="#" class="avatar  mr-3">
-                                                <img width = '60' height = '48' src="{{asset('dashboard/img/'. $mystory->photo)}}" />
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/' . $mystory->photo) }}" />
                                             </a>
                                         </div>
                                     </th>
@@ -76,13 +82,13 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="edit.php?post-id=19">Edit</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                                <a class="dropdown-item" href="?action=mark-as-featured&post-id=19">Mark as
-                                                    featured</a>
-                                                <a class="dropdown-item" href="?action=mark-as-unfeatured&post-id=19">Mark
-                                                    as
-                                                    unfeatured</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('mystory.edit', $mystory->id) }}">Edit</a>
+                                                <form method="post" action="{{ route('mystory.destroy', $mystory->id) }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="dropdown-item" href="#">Delete</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
@@ -97,7 +103,7 @@
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{$mystorys->links('vendor.pagination.custom_pagination')}}
+                    {{ $mystorys->links('vendor.pagination.custom_pagination') }}
                 </div>
             </div>
         </div>
