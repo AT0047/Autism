@@ -27,18 +27,20 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Section 1 Video</label>
-                                            <input type="text" name="sec1_video" class="form-control" placeholder="Enter Section 1 Video URL" value="{{ $aboutPhoto->sec1_video }}" required>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <video controls>
-                                                    <source src="{{ $aboutPhoto->sec1_video }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            </div>                            
+                                            <input type="file" name="sec1_video" accept="video/mp4,video/x-m4v,video/*" class="form-control">
                                             @error('sec1_video')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
+                                            @if ($aboutPhoto->sec1_video)
+                                                <div class="embed-responsive embed-responsive-16by9 mt-2">
+                                                    <video controls>
+                                                        <source src="{{ asset('storage/'.$aboutPhoto->sec1_video) }}" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                </div>
+                                            @endif
                                         </div>
-                                    </div>
+                                    </div>                                    
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Section 1 Photo</label>
