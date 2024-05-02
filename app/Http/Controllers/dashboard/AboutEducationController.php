@@ -51,7 +51,8 @@ class AboutEducationController extends Controller
      */
     public function edit(AboutEducation $aboutEducation)
     {
-        //
+        return view('backend.dashboard.about-us.about-education.edit',compact('aboutEducation'));
+
     }
 
     /**
@@ -59,7 +60,9 @@ class AboutEducationController extends Controller
      */
     public function update(Request $request, AboutEducation $aboutEducation)
     {
-        //
+        $aboutEducation->update($request->all());
+
+        return redirect()->route('about-education.index')->with('success', 'Data saved successfully');
     }
 
     /**
@@ -67,6 +70,7 @@ class AboutEducationController extends Controller
      */
     public function destroy(AboutEducation $aboutEducation)
     {
-        //
+        $aboutEducation->delete();
+        return redirect()->route('about-education.index')->with('success', 'Data deleted successfully');
     }
 }

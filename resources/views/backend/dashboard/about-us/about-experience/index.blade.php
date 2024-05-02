@@ -5,17 +5,17 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">About Education Section</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">About Experience Section</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                <li class="breadcrumb-item active" aria-current="page">About Education Section</li>
+                                <li class="breadcrumb-item active" aria-current="page">About Experience Section</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('about-education.create') }}" class="btn btn-sm btn-neutral">Add New</a>
+                        <a href="{{ route('about-experience.create') }}" class="btn btn-sm btn-neutral">Add New</a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">About Education Section</h3>
+                    <h3 class="mb-0">About Experience Section</h3>
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
@@ -43,16 +43,16 @@
                             </tr>
                         </thead>
                         <tbody class="list">
-                            @forelse($about_education as $education)
+                            @forelse($about_experiences as $experience)
                                 <tr>
-                                    <td>{{ $education->title }}</td>
-                                    <td>{{ $education->place }}</td>
-                                    <td>{{ $education->description }}</td>
+                                    <td>{{ $experience->title }}</td>
+                                    <td>{{ $experience->place }}</td>
+                                    <td>{{ $experience->description }}</td>
                                     <td class="Created At">
-                                        {{ $education->created_at->diffForHumans() }}
+                                        {{ $experience->created_at->diffForHumans() }}
                                     </td>
                                     <td class="Updated At">
-                                        {{ $education->updated_at->diffForHumans() }}
+                                        {{ $experience->updated_at->diffForHumans() }}
                                     </td>
                                     <td>
                                         <div class="btn-group">
@@ -62,8 +62,8 @@
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('about-education.edit', $education->id) }}">Edit</a>
-                                                <form action="{{ route('about-education.destroy', $education->id) }}"
+                                                    href="{{ route('about-experience.edit', $experience->id) }}">Edit</a>
+                                                <form action="{{ route('about-experience.destroy', $experience->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -83,7 +83,7 @@
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{-- {{$about_education->links('vendor.pagination.custom_pagination')}} --}}
+                    {{-- {{$about_experience->links('vendor.pagination.custom_pagination')}} --}}
                 </div>
             </div>
         </div>

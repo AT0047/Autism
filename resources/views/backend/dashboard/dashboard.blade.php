@@ -81,13 +81,13 @@
                                                 <a class="nav-link" href="{{ route('about-education.index') }}">About Education</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">About Experience</a>
+                                                <a class="nav-link" href="{{ route('about-experience.index') }}">About Experience</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">About Section 3</a>
+                                                <a class="nav-link" href="{{ route('about-sec3.index') }}">About (Section three)</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">About Photos</a>
+                                                <a class="nav-link" href="{{ route('about-photos.index') }}">About Photos</a>
                                             </li>
                                         </ul>
                                     </div>
