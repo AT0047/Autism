@@ -55,8 +55,10 @@
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
-                                            <img width = '60' height = '48'
-                                                src="{{ asset('dashboard/img/' . $peopleStory->photo) }}" />
+                                            <a class="avatar  mr-3">
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/'.$peopleStory->photo) }}" />
+                                            </a>
                                         </div>
                                     </th>
                                     <td class="name">
@@ -69,7 +71,7 @@
                                         {{ $peopleStory->title }}
                                     </td>
                                     <td class="content">
-                                        {{ $peopleStory->content }}
+                                        {!! Str::limit($peopleStory->content, 15)  !!}
                                     </td>
                                     <td class="Created At">
                                         {{ $peopleStory->created_at->diffForHumans() }}
@@ -90,7 +92,7 @@
                                                     action="{{ route('people-stories.destroy', $peopleStory->id) }}">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="dropdown-item" type='button'>Delete</button>
+                                                    <button class="dropdown-item">Delete</button>
                                                 </form>
                                             </div>
                                         </div>

@@ -54,7 +54,10 @@
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
-                                                <img width = '60' height = '48' src="{{ asset('dashboard/img/' . $mystory->photo) }}" />
+                                            <a class="avatar  mr-3">
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/' . $mystory->photo) }}" />
+                                            </a>
                                         </div>
                                     </th>
                                     <td class="Title 1">
@@ -84,7 +87,7 @@
                                                 <form method="post" action="{{ route('mystory.destroy', $mystory->id) }}">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="dropdown-item" type="button">Delete</button>
+                                                    <button class="dropdown-item">Delete</button>
                                                 </form>
                                             </div>
                                         </div>

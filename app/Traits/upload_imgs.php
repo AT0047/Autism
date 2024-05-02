@@ -20,5 +20,4 @@ trait upload_imgs{
     public function deleteImg($disk, $path){
         Storage::disk($disk)->delete($path);
     }
-    
 }

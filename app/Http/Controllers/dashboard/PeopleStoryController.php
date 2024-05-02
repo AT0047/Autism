@@ -34,13 +34,19 @@ class PeopleStoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'photo' => 'required',
+        ]);
         try{
             PeopleStory::create([
                 'name' => $request->name,
                 'job' => $request->job,
-                'title,' => $request->title,
+                'title' => $request->title,
                 'content' => $request->content,
-                'photo' =>  $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories','upload_imgs')
+                'photo' =>  $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs')
             ]);
             return redirect()->route('people-stories.index')->with(['message' => 'Entery Added Successfully']);
         }catch(Exception $e){
@@ -50,34 +56,62 @@ class PeopleStoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $peopleStory = PeopleStory::findOrFail($id);
+        return view('backend.dashboard.people_stories.edit', compact('peopleStory'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'photo' => 'required',
+        ]);
+
+        try{
+            $peopleStory = PeopleStory::findOrFail($id);
+            $peopleStory->name = $request->name;
+            $peopleStory->title = $request->title;
+            $peopleStory->content = $request->content;
+            if($request->has('photo')){
+                if($peopleStory->photo){
+                    $oldImg = $peopleStory->photo;
+                    $peopleStory->photo = $this->deleteImg('upload_imgs', $oldImg);
+                }
+            $peopleStory->photo = $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs');
+            }
+            $peopleStory->save();
+            return redirect()->route('people-stories.index')->with(['message' => 'Entery Added Successfully']);
+        }catch(Exception $e){
+            Log::info($e->getMessage());
+            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        try{
+            $peopleStory = PeopleStory::findOrFail($id);
+            if($peopleStory->photo){
+                $oldImg = $peopleStory->photo;
+                $this->deleteImg('upload_imgs', $oldImg);
+            }
+            $peopleStory->delete();
+            return redirect()->route('people-stories.index')->with(['message' => 'Entery is Deleted Successfully']);
+        }catch(Exception $e){
+            Log::info($e->getMessage());
+            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);
+        }
     }
 }

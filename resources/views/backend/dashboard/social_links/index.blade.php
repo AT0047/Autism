@@ -74,7 +74,7 @@
                                                 <form method="post" action="{{ route('social-links.destroy', $socialLink->id) }}">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="dropdown-item" type="button">Delete</button>
+                                                    <button class="dropdown-item">Delete</button>
                                                 </form>
                                             </div>
                                         </div>

@@ -18,7 +18,13 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/argon.css?v=1.2.0') }}" type="text/css">
-
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/froala/css/froala_editor.pkgd.min.css') }}"
+        type="text/css">
+    <style>
+        #fr-logo {
+            display: none;
+        }
+    </style>
     <style>
         .notification-circle {
             height: 18px;
@@ -450,6 +456,7 @@
     <!-- Argon Scripts -->
     <!-- Core -->
     <script src="{{ asset('dashboard/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/froala/js/froala_editor.pkgd.min.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
@@ -459,6 +466,11 @@
     <script src="{{ asset('dashboard/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('dashboard/js/argon.js?v=1.2.0') }}"></script>
+    <script>
+        var editor = new FroalaEditor('#postContent', {
+            heightMin: 350
+        });
+    </script>
 </body>
 
 </html>
