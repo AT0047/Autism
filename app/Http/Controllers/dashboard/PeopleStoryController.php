@@ -89,7 +89,7 @@ class PeopleStoryController extends Controller
             $peopleStory->photo = $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs');
             }
             $peopleStory->save();
-            return redirect()->route('people-stories.index')->with(['message' => 'Entery Added Successfully']);
+            return redirect()->route('people-stories.index')->with(['message' => 'Entery Updated Successfully']);
         }catch(Exception $e){
             Log::info($e->getMessage());
             return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);

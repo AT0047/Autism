@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\MyStoryController;
+use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\ProfileController;
@@ -35,8 +36,19 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/dashboard')->group(function () {
         // <--------------------------My Story Start------------------------------------->
         Route::resource('mystory', MyStoryController::class);
+        // <--------------------------My Story End------------------------------------->
+
+        // <--------------------------Social-Links Start------------------------------------->
         Route::resource('social-links', SocialLinksController::class);
+        // <--------------------------Social-Links End------------------------------------->
+
+        // <--------------------------People Stories Start------------------------------------->
         Route::resource('people-stories', PeopleStoryController::class);
+        // <--------------------------People Stories End------------------------------------->
+        
+        // <--------------------------Our Services Start------------------------------------->
+        Route::resource('our-services', OurServiceController::class);
+        // <--------------------------Our Services End------------------------------------->
     });
 });
 

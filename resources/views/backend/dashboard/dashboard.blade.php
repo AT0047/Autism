@@ -84,9 +84,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../comments/">
+                            <a class="nav-link" href="{{route('our-services.index')}}">
                                 <i class="ni fa fa-comment text-default"></i>
-                                <span class="nav-link-text">Comments</span>
+                                <span class="nav-link-text">Our Services</span>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -55,7 +55,7 @@ class MyStoryController extends Controller
             $mystory->photo = $this->uploadImg($request, 'photo', 'myStoryImgs', 'my_story', 'upload_imgs');
             }
             $mystory->save();
-            return redirect()->route('mystory.index')->with(['message' => 'Entery Edit is Successfull']);
+            return redirect()->route('mystory.index')->with(['message' => 'Entery Updated Successfull']);
         }catch(Exception $e){
             Log::info($e->getMessage());
             return redirect()->route('mystory.index')->with(['message' => $e->getMessage() ]);
