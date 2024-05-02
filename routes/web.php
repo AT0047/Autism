@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\dashboard\MyStoryController;
+use App\Http\Controllers\dashboard\PeopleStoryController;
+use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,16 +33,10 @@ Route::middleware('auth')->group(function () {
 
 
     Route::prefix('/dashboard')->group(function () {
-
         // <--------------------------My Story Start------------------------------------->
-        Route::prefix('mystory')->as('mystory.')->group(function () {
-            Route::get('/', [MyStoryController::class, 'index'])->name('index');
-            Route::get('/create', [MyStoryController::class, 'create'])->name('create');
-            Route::post('/store', [MyStoryController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [MyStoryController::class, 'edit'])->name('edit');
-            Route::patch('/update/{id}', [MyStoryController::class, 'update'])->name('update');
-            Route::delete('/destroy/{id}', [MyStoryController::class, 'destroy'])->name('destroy');
-        });
+        Route::resource('mystory', MyStoryController::class);
+        Route::resource('social-links', SocialLinksController::class);
+        Route::resource('people-stories', PeopleStoryController::class);
     });
 });
 

@@ -13,20 +13,20 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Add To My Story Section</h3>
+                                <h3 class="mb-0">Add To People Stories Section</h3>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{route('mystory.store')}}" method ="POST" enctype="multipart/form-data">
+                        <form action ="{{route('people-stories.store')}}" method ="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title 1</label>
-                                            <input type="text" value="{{old('title1')}}" name="title1" class="form-control"
+                                            <label class="form-control-label" for="input-username">name</label>
+                                            <input type="text" value="{{old('name')}}" name="name" class="form-control"
                                                 placeholder="Write your title here">
                                         </div>
                                     </div>
@@ -36,8 +36,8 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title 2</label>
-                                            <input type="text"  value="{{old('title2')}}" name="title2" class="form-control"
+                                            <label class="form-control-label" for="input-username">Title</label>
+                                            <input type="text"  value="{{old('title')}}" name="title" class="form-control"
                                                 placeholder="Write your title here">
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">
-                                <a href="{{route('mystory.index')}}" class="btn btn-secondary">Back</a>
+                                <a href="{{route('people-stories.index')}}" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-success">Add</button>
                             </div>
                         </form>

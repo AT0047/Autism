@@ -60,15 +60,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('mystory.index')}}">
+                            <a class="nav-link" href="{{ route('mystory.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
                                 <span class="nav-link-text">My Story Section</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../categories/">
+                            <a class="nav-link" href="{{ route('social-links.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
-                                <span class="nav-link-text">Categories</span>
+                                <span class="nav-link-text">Social Links</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('people-stories.index') }}">
+                                <i class="ni fa fa-comment text-default"></i>
+                                <span class="nav-link-text">People Stories</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -116,6 +122,10 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </form>
+                    <div class="col-lg-6 col-5 text-right" style="margin-left: 17%;">
+                        <a href="{{ url('/frontend/home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
+                            Site</a>
+                    </div>
                     <!-- Navbar links -->
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
@@ -271,7 +281,7 @@
                                             src="{{ asset('dashboard/img/theme/team-1.jpg') }}">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
                                     </div>
                                 </div>
                             </a>
