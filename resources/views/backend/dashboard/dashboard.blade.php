@@ -18,7 +18,13 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/argon.css?v=1.2.0') }}" type="text/css">
-
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/froala/css/froala_editor.pkgd.min.css') }}"
+        type="text/css">
+    <style>
+        #fr-logo {
+            display: none;
+        }
+    </style>
     <style>
         .notification-circle {
             height: 18px;
@@ -60,9 +66,46 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('mystory.index')}}">
+                            <a class="nav-link" href="{{ route('mystory.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
                                 <span class="nav-link-text">My Story Section</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('social-links.index') }}">
+                                <i class="ni fa fa-list-alt text-default"></i>
+                                <span class="nav-link-text">Social Links</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('people-stories.index') }}">
+                                <i class="ni fa fa-comment text-default"></i>
+                                <span class="nav-link-text">People Stories</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('our-services.index') }}">
+                                <i class="ni fa fa-comment text-default"></i>
+                                <span class="nav-link-text">Our Services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('libraries.index') }}">
+                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <span class="nav-link-text">Libraries</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categories.index') }}">
+                                <i class="ni fa fa-list-alt text-default"></i>
+                                <span class="nav-link-text">Categories</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('books.index') }}">
+                                <i class="ni fa fa-list-alt text-default"></i>
+                                <span class="nav-link-text">Books</span>
                             </a>
                         </li>
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -95,12 +138,6 @@
                             </ul>
                         </nav>
                     
-                        <li class="nav-item">
-                            <a class="nav-link" href="../comments/">
-                                <i class="ni fa fa-comment text-default"></i>
-                                <span class="nav-link-text">Comments</span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -140,6 +177,10 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </form>
+                    <div class="col-lg-6 col-5 text-right" style="margin-left: 17%;">
+                        <a href="{{ url('/frontend/home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
+                            Site</a>
+                    </div>
                     <!-- Navbar links -->
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
@@ -295,7 +336,7 @@
                                             src="{{ asset('dashboard/img/theme/team-1.jpg') }}">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
                                     </div>
                                 </div>
                             </a>
@@ -469,6 +510,7 @@
     <!-- Argon Scripts -->
     <!-- Core -->
     <script src="{{ asset('dashboard/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/froala/js/froala_editor.pkgd.min.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
@@ -478,6 +520,11 @@
     <script src="{{ asset('dashboard/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('dashboard/js/argon.js?v=1.2.0') }}"></script>
+    <script>
+        var editor = new FroalaEditor('#postContent', {
+            heightMin: 350
+        });
+    </script>
 </body>
 
 </html>

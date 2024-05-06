@@ -32,8 +32,7 @@
         type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/argon.css?v=1.2.0') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('dashboard/plugins/froala/css/froala_editor.pkgd.min.css') }}"
-        type="text/css">
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/froala/css/froala_editor.pkgd.min.css') }}" type="text/css">
     <style>
         #fr-logo {
             display: none;
@@ -233,7 +232,6 @@
     <script src="{{ asset('dashboard/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js ') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('dashboard/js/argon.js?v=1.2.0') }} "></script>
-
     <script>
         var editor = new FroalaEditor('#postContent', {
             heightMin: 350

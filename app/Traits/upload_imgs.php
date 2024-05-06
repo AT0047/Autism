@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Storage;
 
 trait upload_imgs{
 
-    public function uploadImg(Request $request, $inputname, $foldername, $disk){
+    public function uploadImg(Request $request, $inputname, $foldername,  $photoname, $disk){
         if($request->hasFile($inputname)){
             $photo = $request->file($inputname);
-            $name = \Str::slug(now().'myStory');
+            $name = \Str::slug(now(). $photoname);
             $filename = $name.'.'.$photo->getClientOriginalExtension();
             return $request->file($inputname)->storeAs($foldername, $filename, $disk);
         }
@@ -20,5 +20,4 @@ trait upload_imgs{
     public function deleteImg($disk, $path){
         Storage::disk($disk)->delete($path);
     }
-    
 }

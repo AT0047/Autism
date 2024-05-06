@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\dashboard\BookController;
+use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\LibraryController;
 use App\Http\Controllers\dashboard\AboutEducationController;
 use App\Http\Controllers\dashboard\AboutExperienceController;
 use App\Http\Controllers\dashboard\AboutPhotoController;
 use App\Http\Controllers\dashboard\AboutSec3Controller;
 use App\Http\Controllers\dashboard\AboutUsController;
 use App\Http\Controllers\dashboard\MyStoryController;
+use App\Http\Controllers\dashboard\OurServiceController;
+use App\Http\Controllers\dashboard\PeopleStoryController;
+use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,16 +42,33 @@ Route::middleware('auth')->group(function () {
 
 
     Route::prefix('/dashboard')->group(function () {
-
         // <--------------------------My Story Start------------------------------------->
-        Route::prefix('mystory')->as('mystory.')->group(function () {
-            Route::get('/', [MyStoryController::class, 'index'])->name('index');
-            Route::get('/create', [MyStoryController::class, 'create'])->name('create');
-            Route::post('/store', [MyStoryController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [MyStoryController::class, 'edit'])->name('edit');
-            Route::patch('/update/{id}', [MyStoryController::class, 'update'])->name('update');
-            Route::delete('/destroy/{id}', [MyStoryController::class, 'destroy'])->name('destroy');
-        });
+        Route::resource('mystory', MyStoryController::class);
+        // <--------------------------My Story End------------------------------------->
+
+        // <--------------------------Social-Links Start------------------------------------->
+        Route::resource('social-links', SocialLinksController::class);
+        // <--------------------------Social-Links End------------------------------------->
+
+        // <--------------------------People Stories Start------------------------------------->
+        Route::resource('people-stories', PeopleStoryController::class);
+        // <--------------------------People Stories End------------------------------------->
+
+        // <--------------------------Our Services Start------------------------------------->
+        Route::resource('our-services', OurServiceController::class);
+        // <--------------------------Our Services End------------------------------------->
+
+        // <--------------------------Libraries Start------------------------------------->
+        Route::resource('libraries', LibraryController::class);
+        // <--------------------------Libraries End------------------------------------->
+
+        // <--------------------------Categories Start------------------------------------->
+        Route::resource('categories', CategoryController::class);
+        // <--------------------------Categories End------------------------------------->
+
+        // <--------------------------Books Start------------------------------------->
+        Route::resource('books', BookController::class);
+        // <--------------------------Books End------------------------------------->
     });
 });
 

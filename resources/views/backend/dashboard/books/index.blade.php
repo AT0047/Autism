@@ -5,18 +5,18 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">My Store Section</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">Books</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                <li class="breadcrumb-item active" aria-current="page">My Store Section</li>
+                                <li class="breadcrumb-item active" aria-current="page">Books</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('mystory.create') }}" class="btn btn-sm btn-neutral">Add New</a>
+                        <a href="{{ route('books.create') }}" class="btn btn-sm btn-neutral">Add New</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">My Store Section</h3>
+                    <h3 class="mb-0">Books</h3>
                 </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success" role="alert">
@@ -39,41 +39,67 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th class="sort" data-sort="name">Photo</th>
-                                <th scope="col" class="sort" data-sort="Title 1">Title 1</th>
-                                <th scope="col" class="sort" data-sort="Title 2">Title 2</th>
-                                <th scope="col" class="sort" data-sort="Contant">Contant</th>
+                                <th scope="col" class="sort" data-sort="Name">Name</th>
+                                <th scope="col" class="sort" data-sort="content">Content</th>
+                                <th scope="col" class="sort" data-sort="categories">Categories</th>
+                                <th scope="col" class="sort" data-sort="prefer">Prefer Stauts</th>
+                                <th scope="col" class="sort" data-sort="video">Video</th>
+                                <th scope="col" class="sort" data-sort="publication_date">Publication Date</th>
+                                <th scope="col" class="sort" data-sort="author_name">Author Name</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody class="list">
-                            @forelse($mystories as $key => $mystory)
+                            @forelse($books as $key => $book)
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
-                                            <a class="avatar  mr-3">
+                                            <a href="#" class="avatar  mr-3">
                                                 <img width = '60' height = '48'
-                                                    src="{{ asset('dashboard/img/' . $mystory->photo) }}" />
+                                                    src="{{ asset('dashboard/img/' . $book->photo) }}" />
                                             </a>
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">{{ $book->name }}</span>
+                                            </div>
                                         </div>
                                     </th>
-                                    <td class="Title 1">
-                                        {{ $mystory->title1 }}
+                                    <td class="content">
+                                        {!! Str::limit($book->content, 15)  !!}
                                     </td>
-                                    <td class="Title 2">
-                                        {{ $mystory->title2 }}
+                                    <td class="Categories">
+                                        {{ $book->category->name }}
                                     </td>
-                                    <td class="Contant">
-                                        {{ $mystory->content }}
+                                    @if ($book->prefer)
+                                        <td style="column-width: 50px;">
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-success"></i>
+                                                <span class="status">Yes</span>
+                                            </span>
+                                        </td>
+                                    @else
+                                        <td style="column-width: 50px;">
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-danger"></i>
+                                                <span class="status">No</span>
+                                            </span>
+                                        </td>
+                                    @endif
+                                    <td class="video">
+                                        {{ $book->video }}
+                                    </td>
+                                    <td class="publication_date">
+                                        {{ $book->publication_date }}
+                                    </td>
+                                    <td class="author_name">
+                                        {{ $book->author_name }}
                                     </td>
                                     <td class="Created At">
-                                        {{ $mystory->created_at->diffForHumans() }}
+                                        {{ $book->created_at->diffForHumans() }}
                                     </td>
                                     <td class="Updated At">
-                                        {{ $mystory->updated_at->diffForHumans() }}
+                                        {{ $book->updated_at->diffForHumans() }}
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
@@ -83,8 +109,8 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('mystory.edit', $mystory->id) }}">Edit</a>
-                                                <form method="post" action="{{ route('mystory.destroy', $mystory->id) }}">
+                                                    href="{{ route('books.edit', $book->id) }}">Edit</a>
+                                                <form method="post" action="{{ route('books.destroy', $book->id) }}">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="dropdown-item">Delete</button>
@@ -94,7 +120,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <td class="Updated At" colspan='7' style='text-align: center;'>
+                                <td class="Updated At" colspan='10' style='text-align: center;'>
                                     No Data Yet....
                                 </td>
                             @endforelse
@@ -103,7 +129,7 @@
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{ $mystories->links('vendor.pagination.custom_pagination') }}
+                    {{ $books->links('vendor.pagination.custom_pagination') }}
                 </div>
             </div>
         </div>

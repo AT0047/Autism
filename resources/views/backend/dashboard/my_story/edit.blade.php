@@ -49,7 +49,7 @@
                             <img width = "150" height = "100" src="{{asset('dashboard/img/'. $mystory->photo)}}"/>
                         </div>
                         <div class="d-flex mt-3 justify-content-end">
-                            <a href="posts.php" class="btn btn-secondary">Back</a>
+                            <a href="{{route('mystory.index')}}" class="btn btn-secondary">Back</a>
                             <button type="submit" class="btn btn-success">Update</button>
                         </div>
                     </form>

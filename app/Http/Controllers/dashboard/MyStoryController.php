@@ -14,8 +14,8 @@ class MyStoryController extends Controller
     use upload_imgs;
 
     public function index(){
-        $mystorys = MyStory::orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.dashboard.my_story.index', compact('mystorys'));
+        $mystories = MyStory::orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.dashboard.my_story.index', compact('mystories'));
     }
     
     public function create(){
@@ -27,7 +27,7 @@ class MyStoryController extends Controller
                 'title1' => $request->title1,
                 'title2' => $request->title2,
                 'content' => $request->content,
-                'photo' =>  $this->uploadImg($request, 'photo', 'myStoryImgs', 'upload_imgs')
+                'photo' =>  $this->uploadImg($request, 'photo', 'myStoryImgs', 'my_story','upload_imgs')
             ]);
             return redirect()->route('mystory.index')->with(['message' => 'Entery Added Successfully']);
         }catch(Exception $e){
@@ -52,10 +52,10 @@ class MyStoryController extends Controller
                     $oldImg = $mystory->photo;
                     $mystory->photo = $this->deleteImg('upload_imgs', $oldImg);
                 }
-            $mystory->photo = $this->uploadImg($request, 'photo', 'myStoryImgs', 'upload_imgs');
+            $mystory->photo = $this->uploadImg($request, 'photo', 'myStoryImgs', 'my_story', 'upload_imgs');
             }
             $mystory->save();
-            return redirect()->route('mystory.index')->with(['message' => 'Entery Edit is Successfull']);
+            return redirect()->route('mystory.index')->with(['message' => 'Entery Updated Successfull']);
         }catch(Exception $e){
             Log::info($e->getMessage());
             return redirect()->route('mystory.index')->with(['message' => $e->getMessage() ]);
@@ -65,7 +65,12 @@ class MyStoryController extends Controller
 
     public function destroy($id){
         try{
-            MyStory::findOrFail($id)->delete();
+            $mystory = MyStory::findOrFail($id);
+            if($mystory->photo){
+                $oldImg = $mystory->photo;
+                $this->deleteImg('upload_imgs', $oldImg);
+            }
+            $mystory->delete();
             return redirect()->route('mystory.index')->with(['message' => 'Entery is Deleted Successfully']);
         }catch(Exception $e){
             Log::info($e->getMessage());
