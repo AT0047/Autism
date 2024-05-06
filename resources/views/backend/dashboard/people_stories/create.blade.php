@@ -1,7 +1,7 @@
 @extends('backend.dashboard.dashboard')
 @section('content')
     <div class="header pb-6 d-flex align-items-center"
-        style="min-height: 150px; background-image: url(../assets/backend/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+        style="min-height: 150px; background-image: url({{asset('dashboard/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
         <!-- Mask -->
         <span class="mask bg-gradient-default opacity-8"></span>
     </div>

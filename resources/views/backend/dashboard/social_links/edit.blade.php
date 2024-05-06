@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('mystory.update', $socialLink->id)}}" method ="POST" enctype="multipart/form-data">
+                    <form action="{{route('social-links.update', $socialLink->id)}}" method ="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <h6 class="heading-small text-muted mb-4">Information</h6>

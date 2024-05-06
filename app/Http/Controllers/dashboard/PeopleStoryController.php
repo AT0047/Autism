@@ -73,7 +73,6 @@ class PeopleStoryController extends Controller
             'name' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'photo' => 'required',
         ]);
 
         try{
@@ -86,7 +85,7 @@ class PeopleStoryController extends Controller
                     $oldImg = $peopleStory->photo;
                     $peopleStory->photo = $this->deleteImg('upload_imgs', $oldImg);
                 }
-            $peopleStory->photo = $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs');
+                $peopleStory->photo = $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs');
             }
             $peopleStory->save();
             return redirect()->route('people-stories.index')->with(['message' => 'Entery Updated Successfully']);

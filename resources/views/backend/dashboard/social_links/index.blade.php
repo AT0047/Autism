@@ -44,7 +44,6 @@
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody class="list">

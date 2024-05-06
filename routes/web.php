@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\dashboard\BookController;
+use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\LibraryController;
 use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
@@ -45,10 +48,22 @@ Route::middleware('auth')->group(function () {
         // <--------------------------People Stories Start------------------------------------->
         Route::resource('people-stories', PeopleStoryController::class);
         // <--------------------------People Stories End------------------------------------->
-        
+
         // <--------------------------Our Services Start------------------------------------->
         Route::resource('our-services', OurServiceController::class);
         // <--------------------------Our Services End------------------------------------->
+
+        // <--------------------------Libraries Start------------------------------------->
+        Route::resource('libraries', LibraryController::class);
+        // <--------------------------Libraries End------------------------------------->
+
+        // <--------------------------Categories Start------------------------------------->
+        Route::resource('categories', CategoryController::class);
+        // <--------------------------Categories End------------------------------------->
+
+        // <--------------------------Books Start------------------------------------->
+        Route::resource('books', BookController::class);
+        // <--------------------------Books End------------------------------------->
     });
 });
 
