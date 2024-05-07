@@ -71,6 +71,7 @@
                                 <span class="nav-link-text">My Story Section</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('social-links.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
@@ -107,6 +108,36 @@
                                 <span class="nav-link-text">Books</span>
                             </a>
                         </li>
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="collapse" href="#aboutSubMenu" aria-expanded="false" aria-controls="aboutSubMenu">
+                                        <i class="ni fa fa-list-alt text-default"></i>
+                                        <span class="nav-link-text">About us</span>
+                                    </a>
+                                    <div class="collapse" id="aboutSubMenu">
+                                        <ul class="nav flex-column ml-3">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-us.create') }}">About Doctor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-education.index') }}">About Education</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-experience.index') }}">About Experience</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-sec3.index') }}">About (Section three)</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-photos.index') }}">About Photos</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    
                         <li class="nav-item">
                             <a class="nav-link" href="">
                                 <i class="ni fa fa-list-alt text-default"></i>
@@ -475,6 +506,11 @@
                 </div>
             </div>
         </div> --}}
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+       @endif
         @yield('content')
     </div>
     <!-- Argon Scripts -->

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('sec1_photo');
             $table->string('sec2_photo');
             $table->string('sec4_photo');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
