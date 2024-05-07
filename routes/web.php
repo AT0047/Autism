@@ -85,9 +85,9 @@ Route::middleware('auth')->group(function () {
 
         // <--------------------------Book Questions Start------------------------------------->
         Route::prefix('book-questions')->as('book-questions.')->group(function (){
-            Route::get('/{book_id}/edit' , [BookQuestionController::class, 'edit'])->name('edit');
-            Route::patch('/{book_id}/update' , [BookQuestionController::class, 'update'])->name('update');
-            Route::delete('/{book_id}/destroy' , [BookQuestionController::class, 'destroy'])->name('destroy');
+            Route::get('/{id}/edit' , [BookQuestionController::class, 'edit'])->name('edit');
+            Route::patch('/update/{id}' , [BookQuestionController::class, 'update'])->name('update');
+            Route::delete('/{id}/destroy' , [BookQuestionController::class, 'destroy'])->name('destroy');
         });
         // <--------------------------Book Questions End------------------------------------->
     });

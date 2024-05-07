@@ -71,7 +71,6 @@
                                 <span class="nav-link-text">My Story Section</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('social-links.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
@@ -108,7 +107,7 @@
                                 <span class="nav-link-text">Books</span>
                             </a>
                         </li>
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white !important;">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="collapse" href="#aboutSubMenu" aria-expanded="false" aria-controls="aboutSubMenu">
@@ -137,13 +136,6 @@
                                 </li>
                             </ul>
                         </nav>
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="ni fa fa-list-alt text-default"></i>
-                                <span class="nav-link-text">Book Questions</span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

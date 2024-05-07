@@ -27,7 +27,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Book - {{$questions->first()->book->name}} - Questions</h3>
+                    <h3 class="mb-0">Book - {{$book}} - Questions</h3>
                 </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success" role="alert">

@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('book-questions.update', $bookQuestion->book_id)}}" method ="POST">
+                    <form action="{{route('book-questions.update', $bookQuestion->id)}}" method ="POST">
                         @csrf
                         @method('patch')
                         <h6 class="heading-small text-muted mb-4">Information</h6>
@@ -21,7 +21,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Question</label>
                                             <input type="text" value="{{ old('question',$bookQuestion->question) }}" name="question"
-                                                class="form-control" placeholder="Paste your Question here">
+                                                class="form-control" placeholder="Write your Question here">
                                             @error('question')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>

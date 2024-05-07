@@ -17,7 +17,8 @@ class BookQuestionController extends Controller
     public function index($id)
     {
         $questions = Book::findOrFail($id)->questions()->orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.dashboard.book_questions.index', compact('questions', 'id'));
+        $book = Book::findOrFail($id)->getAttribute('name');
+        return view('backend.dashboard.book_questions.index', compact('questions', 'id', 'book'));
     }
 
     /**
