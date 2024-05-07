@@ -108,6 +108,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="">
+                                <i class="ni fa fa-list-alt text-default"></i>
+                                <span class="nav-link-text">Book Questions</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

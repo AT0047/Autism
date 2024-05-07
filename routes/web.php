@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\BookController;
+use App\Http\Controllers\dashboard\BookQuestionController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\dashboard\LibraryController;
 use App\Http\Controllers\dashboard\MyStoryController;
@@ -62,8 +63,28 @@ Route::middleware('auth')->group(function () {
         // <--------------------------Categories End------------------------------------->
 
         // <--------------------------Books Start------------------------------------->
-        Route::resource('books', BookController::class);
+        Route::prefix('books')->as('books.')->group(function (){
+            Route::get('/' , [BookController::class, 'index'])->name('index');
+            Route::get('/create' , [BookController::class, 'create'])->name('create');
+            Route::post('/store' , [BookController::class, 'store'])->name('store');
+            Route::get('/edit/{id}' , [BookController::class, 'edit'])->name('edit');
+            Route::patch('/update/{id}' , [BookController::class, 'update'])->name('update');
+            Route::delete('/destroy/{id}' , [BookController::class, 'destroy'])->name('destroy');
+            Route::prefix('book-questions')->as('book-questions.')->group(function (){
+                Route::get('/{book_id}' , [BookQuestionController::class, 'index'])->name('index');
+                Route::get('/{book_id}/create' , [BookQuestionController::class, 'create'])->name('create');
+                Route::post('/{book_id}/store' , [BookQuestionController::class, 'store'])->name('store');
+            });
+        });
         // <--------------------------Books End------------------------------------->
+
+        // <--------------------------Book Questions Start------------------------------------->
+        Route::prefix('book-questions')->as('book-questions.')->group(function (){
+            Route::get('/{book_id}/edit' , [BookQuestionController::class, 'edit'])->name('edit');
+            Route::patch('/{book_id}/update' , [BookQuestionController::class, 'update'])->name('update');
+            Route::delete('/{book_id}/destroy' , [BookQuestionController::class, 'destroy'])->name('destroy');
+        });
+        // <--------------------------Book Questions End------------------------------------->
     });
 });
 
