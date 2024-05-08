@@ -109,7 +109,7 @@
                         </li>
                         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white !important;">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
+                                <li class="nav-item" style="margin-left: 7px;margin-top: -13px;">
                                     <a class="nav-link" data-toggle="collapse" href="#aboutSubMenu" aria-expanded="false" aria-controls="aboutSubMenu">
                                         <i class="ni fa fa-list-alt text-default"></i>
                                         <span class="nav-link-text">About us</span>
