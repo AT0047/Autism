@@ -5,10 +5,10 @@
         <div><img src="{{asset('home_assets/favicon.png')}}" style="width: 60px; margin: 10px;" alt=""></div>
         <div class="container">
             <ul class="navbar-nav navbar-nav-desctop  d-none d-lg-block">
-                <li><a class="nav-link" href="home-personal.html">Home</a></li>
+                <li><a class="nav-link" href="{{route('Autism&Me.home')}}">Home</a></li>
                 <li><a class="nav-link" href="about me/index.html">About us</a></li>
                 <li><a class="nav-link" href="#mystory">my story</a></li>
-                <li><a class="nav-link" href="Articles.html">Articles</a></li>
+                <li><a class="nav-link" href="{{route('Autism&Me.articles')}}">Articles</a></li>
                 <li><a class="nav-link" href="#services">Our service</a></li>
             </ul>
             <!-- Social -->
@@ -33,10 +33,10 @@
 <nav class="navbar navbar-mobile d-lg-none">
     <ion-icon class="close" name="close-outline"></ion-icon>
     <ul class="navbar-nav navbar-nav-mobile">
-        <li><a class="nav-link" href="home-personal.html">Home</a></li>
+        <li><a class="nav-link" href="{{route('Autism&Me.home')}}">Home</a></li>
         <li><a class="nav-link" href="#mystory">my story</a></li>
         <li><a class="nav-link" href="about me/index.html">About us</a></li>
-        <li><a class="nav-link" href="Articles.html">Articles</a></li>
+        <li><a class="nav-link" href="{{route('Autism&Me.articles')}}">Articles</a></li>
         <li><a class="nav-link" href="#services">Our service</a></li>
     </ul>
 </nav>

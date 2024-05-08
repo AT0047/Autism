@@ -14,6 +14,8 @@ use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\website\ArticleController;
+use App\Http\Controllers\website\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,25 +92,23 @@ Route::middleware('auth')->group(function () {
             Route::delete('/{id}/destroy' , [BookQuestionController::class, 'destroy'])->name('destroy');
         });
         // <--------------------------Book Questions End------------------------------------->
+        //start about us
+        Route::resource('about-us', AboutUsController::class);
+        Route::resource('about-education', AboutEducationController::class);
+        Route::resource('about-experience', AboutExperienceController::class);
+        Route::resource('about-sec3', AboutSec3Controller::class);
+        Route::resource('about-photos', AboutPhotoController::class);
     });
 });
 
-//start about us
-Route::resource('about-us', AboutUsController::class);
-Route::resource('about-education', AboutEducationController::class);
-Route::resource('about-experience', AboutExperienceController::class);
-Route::resource('about-sec3', AboutSec3Controller::class);
-Route::resource('about-photos', AboutPhotoController::class);
-
-
-
-Route::get('/frontend/home', function () {
-    return view('frontend.home_personal');
+Route::prefix('Autism&Me')->as('Autism&Me.')->group(function(){
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
+    Route::get('/articles', [ArticleController::class, 'articles'])->name('articles');
 });
 
-Route::get('/frontend/articles', function () {
-    return view('frontend.articles.articles');
-});
+
+
+
 
 Route::get('/frontend/articles/blog_details', function () {
     return view('frontend.articles.blog_details');

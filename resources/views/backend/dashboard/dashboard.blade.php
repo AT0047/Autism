@@ -68,7 +68,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mystory.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">My Story Section</span>
+                                <span class="nav-link-text">My Story</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -176,8 +176,7 @@
                         </button>
                     </form>
                     <div class="col-lg-6 col-5 text-right" style="margin-left: 17%;">
-                        <a href="{{ url('/frontend/home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
-                            Site</a>
+                        <a href="{{route('Autism&Me.home')}}" target="_blank" class="btn btn-sm btn-neutral">Go To Site</a>
                     </div>
                     <!-- Navbar links -->
                     <ul class="navbar-nav align-items-center  ml-md-auto ">

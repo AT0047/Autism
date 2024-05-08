@@ -29,15 +29,9 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="hero-five-category" data-aos="fade-up">
-                                    <a href="#Category" class="btn-large woocommerce">WooCommerce</a>
-                                    <a href="#Category" class="btn-large wordpress">WordPress</a>
-                                    <a href="#Category" class="btn-large magento">Magento</a>
-                                    <a href="#Category" class="btn-large laravel">Laravel</a>
-                                    <a href="#Category" class="btn-large ux-design">UX Design</a>
-                                    <a href="#Category" class="btn-large online-tutorial">Online Tutorial</a>
-                                    <a href="#Category" class="btn-large marketing">Marketing</a>
-                                    <a href="#Category" class="btn-large javaScript">JavaScript</a>
-                                    <a href="#Category" class="btn-large lifestyle">Lifestyle</a>
+                                    @foreach($libraries as $library)
+                                            <a href="#Category" class="btn-large woocommerce">{{$library->name}}</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

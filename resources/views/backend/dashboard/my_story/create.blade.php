@@ -46,7 +46,7 @@
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
                                     <label class="form-control-label ">Content</label>
-                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter post title">{{old('content')}}</textarea>
+                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter Content Here">{{old('content')}}</textarea>
                                 </div>
                             </div>
                             <div class="pl-lg-4 ">
