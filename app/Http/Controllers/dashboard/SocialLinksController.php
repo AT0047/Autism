@@ -37,7 +37,6 @@ class SocialLinksController extends Controller
             'platform' => 'required',
             'link' => 'required',
         ]);
-        dd($request);
         try{
             SocialLinks::create([
                 'platform' => $request->platform,
