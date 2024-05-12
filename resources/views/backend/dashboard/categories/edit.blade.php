@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('categories.update', $categories->id) }}" method ="POST">
+                    <form action="{{ route('categories.update', $categories->id) }}" method ="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <h6 class="heading-small text-muted mb-4">Information</h6>
@@ -37,7 +37,9 @@
                                         <select name="library_id" class ="form-control">
                                             <option disabled selected value="">Select Library</option>
                                             @foreach ($libraries as $id => $name)
-                                                <option value="{{ $id }}"{{$id == $categories->library_id ? 'selected' : ''}}>{{ $name }}</option>
+                                                <option
+                                                    value="{{ $id }}"{{ $id == $categories->library_id ? 'selected' : '' }}>
+                                                    {{ $name }}</option>
                                             @endforeach
                                         </select>
                                         @error('library_id')
@@ -46,6 +48,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="pl-lg-4 ">
+                            <label class="form-control-label ">Upload Image</label>
+                            <div class="input-group">
+                                <input type="file" name="photo" class="form-control">
+                            </div>
+                            <img width = "150" height = "100" src="{{ asset('dashboard/img/' . $categories->photo) }}" />
                         </div>
                         <div class="d-flex mt-3 justify-content-end">
                             <a href="{{ route('categories.index') }}" class="btn btn-secondary">Back</a>

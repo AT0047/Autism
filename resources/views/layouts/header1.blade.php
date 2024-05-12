@@ -13,9 +13,12 @@
             </ul>
             <!-- Social -->
             <ul class="social-icons d-none d-lg-block">
-                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
+                <li><a href="{{$facebook}}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                @php($twitter = App\Models\SocialLinks::where('platform', 'twitter')->pluck('link')->first())
+                <li><a href="{{$twitter}}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                @php($linkedin = App\Models\SocialLinks::where('platform', 'linkedin')->pluck('link')->first())
+                <li><a href="{{$linkedin}}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
                 <li><a href="#">
                     <img src="{{asset('home_assets/eng.png')}}" style="width: 20px;border-radius: 5px;" alt="الوضع الفاتح"></a>
                 </li>

@@ -16,14 +16,14 @@
                                 text ever since.
                             </p>
                             <ul class="footer-socail-share">
-                                <li><a href="#" style="background-color: black;"><i style="color: white; "
-                                            class="icofont-facebook"></i></a></li>
-                                <li><a href="#" style="background-color: black;"><i style="color: white; "
-                                            class="icofont-skype"></i></a></li>
-                                <li><a href="#" style="background-color: black;"><i style="color: white; "
-                                            class="icofont-twitter"></i></a></li>
-                                <li><a href="#" style="background-color: black;"><i style="color: white; "
-                                            class="icofont-linkedin"></i></a></li>
+                                @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
+                                <li><a href="{{$facebook}}" target="_blank" style="background-color: black;"><i style="color: white; " class="icofont-facebook"></i></a></li>
+                                @php($youtube = App\Models\SocialLinks::where('platform', 'youtube')->pluck('link')->first())
+                                <li><a href="{{$youtube}}" target="_blank" style="background-color: black;"><i style="color: white; " class="icofont-youtube"></i></a></li>
+                                @php($twitter = App\Models\SocialLinks::where('platform', 'twitter')->pluck('link')->first())
+                                <li><a href="{{$twitter}}" target="_blank" style="background-color: black;"><i style="color: white; " class="icofont-twitter"></i></a></li>
+                                @php($linkedin = App\Models\SocialLinks::where('platform', 'linkedin')->pluck('link')->first())
+                                <li><a href="{{$linkedin}}" target="_blank" style="background-color: black;"><i style="color: white; " class="icofont-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,11 +58,10 @@
                                     <h4 style="color: black;" class="title">Category</h4>
                                 </div>
                                 <ul class="footer-widget-menu-list">
-                                    <li><a style="color: black;" href="#!">Lefestyle</a></li>
-                                    <li><a style="color: black;" href="#!">Healthy</a></li>
-                                    <li><a style="color: black;" href="#!">Restaurent</a></li>
-                                    <li><a style="color: black;" href="#!">Travel Tips</a></li>
-                                    <li><a style="color: black;" href="#!">Marketing</a></li>
+                                    @php($categories = App\Models\Category::all())
+                                    @foreach($categories as $category)
+                                    <li><a style="color: black;" href="#!">{{$category->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

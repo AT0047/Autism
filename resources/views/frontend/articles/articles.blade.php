@@ -20,11 +20,9 @@
                             <div class="col-lg-7">
                                 <div class="hero-five-text text-left">
                                     <h1 class="title">
-                                        <span class="hero-five-title">Unlimited</span>
-                                        Advice & Resource
+                                        <span class="hero-five-title">{{$title->title}}
                                     </h1>
-                                    <p class="hero-text-dec">That necessitates a robust ecommerce platform that
-                                        optimizes your store & products</p>
+                                    <p class="hero-text-dec">{!! $title->description !!}</p>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -257,112 +255,24 @@
                             </div>
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
-                                <div class="archive-post-thum">
-                                    <a href="Articles.html">
-                                        <img src="assets/images/archive-post/01.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="archive-post-content">
-                                    <h6 class="title"><a href="Articles.html">WooLentor is a powerful
-                                            WordPress plugin for...</a>
-                                    </h6>
-                                    <div class="archive-post-meta">
-                                        <span class="post-date">
-                                            <i class="icofont-ui-calendar"></i>
-                                            <a href="Articles.html">
-                                                03-04-2023</a>
-                                        </span>
-                                        <span>10 min read</span>
+                                @foreach($categories as $category)
+                                    <div class="archive-post-thum">
+                                        <a href="Articles.html">
+                                            <img src="{{asset('dashboard/img/'. $category->photo)}}" alt="">
+                                        </a>
                                     </div>
-                                </div>
-                            </div><!-- Single Archive Post End -->
-                            <!-- Single Archive Post Start -->
-                            <div class="single-archive-post" data-aos="fade-up">
-                                <div class="archive-post-thum">
-                                    <a href="Articles.html">
-                                        <img src="assets/images/archive-post/02.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="archive-post-content">
-                                    <h6 class="title"> <a href="Articles.html">
-                                            Make your store stand out
-                                            from the others...</a>
-                                    </h6>
-                                    <div class="archive-post-meta">
-                                        <span class="post-date">
-                                            <i class="icofont-ui-calendar"></i>
-                                            <a href="Articles.html">
-                                                03-04-2023</a>
-                                        </span>
-                                        <span>10 min read</span>
+                                    <div class="archive-post-content">
+                                        <h6 class="title"><a href="Articles.html">{{$category->name}}</a>
+                                        </h6>
+                                        <div class="archive-post-meta">
+                                            <span class="post-date">
+                                                <i class="icofont-ui-calendar"></i>
+                                                <a href="Articles.html">{{$category->created_at}}</a>
+                                            </span>
+                                            {{-- <span>10 min read</span> --}}
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- Single Archive Post End -->
-                            <!-- Single Archive Post Start -->
-                            <div class="single-archive-post" data-aos="fade-up">
-                                <div class="archive-post-thum">
-                                    <a href="Articles.html">
-                                        <img src="assets/images/archive-post/03.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="archive-post-content">
-                                    <h6 class="title"> <a href="Articles.html">
-                                            Create a custom checkout
-                                            page in minutes and...</a>
-                                    </h6>
-                                    <div class="archive-post-meta">
-                                        <span class="post-date">
-                                            <i class="icofont-ui-calendar"></i>
-                                            <a href="Articles.html">
-                                                03-04-2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Archive Post End -->
-                            <!-- Single Archive Post Start -->
-                            <div class="single-archive-post" data-aos="fade-up">
-                                <div class="archive-post-thum">
-                                    <a href="Articles.html">
-                                        <img src="assets/images/archive-post/04.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="archive-post-content">
-                                    <h6 class="title"> <a href="Articles.html">
-                                            WooCommerce comes
-                                            with an intuitive drag...</a>
-                                    </h6>
-                                    <div class="archive-post-meta">
-                                        <span class="post-date">
-                                            <i class="icofont-ui-calendar"></i>
-                                            <a href="Articles.html">
-                                                03-04-2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Archive Post End -->
-                            <!-- Single Archive Post Start -->
-                            <div class="single-archive-post" data-aos="fade-up">
-                                <div class="archive-post-thum">
-                                    <a href="Articles.html">
-                                        <img src="assets/images/archive-post/06.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="archive-post-content">
-                                    <h6 class="title"> <a href="Articles.html">
-                                            Create beautiful designs
-                                            that will help convert...</a>
-                                    </h6>
-                                    <div class="archive-post-meta">
-                                        <span class="post-date">
-                                            <i class="icofont-ui-calendar"></i>
-                                            <a href="Articles.html">
-                                                03-04-2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div><!-- Single Archive Post End -->
                         </div>
                         <!-- Add Banner Area Start -->

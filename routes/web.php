@@ -13,6 +13,7 @@ use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
+use App\Http\Controllers\dashboard\TitleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\website\ArticleController;
 use App\Http\Controllers\website\HomeController;
@@ -59,6 +60,10 @@ Route::middleware('auth')->group(function () {
 
         // <--------------------------Our Services Start------------------------------------->
         Route::resource('our-services', OurServiceController::class);
+        // <--------------------------Our Services End------------------------------------->
+
+        // <--------------------------Our Services Start------------------------------------->
+        Route::resource('titles', TitleController::class);
         // <--------------------------Our Services End------------------------------------->
 
         // <--------------------------Libraries Start------------------------------------->

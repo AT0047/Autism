@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <!-- Masthead -->
-    <main id="home" class="masthead jarallax" style="background-image:url('{{asset('home_assets/autism1.jpg')}}');" role="main">
+    <main id="home" class="masthead jarallax" style="background-image:url('{{asset('dashboard/img/'. $homeTitle->photo)}}');" role="main">
         <!-- Lines -->
         <div class="lines">
             <div class="container">
@@ -17,8 +17,7 @@
             <div class="container">
                 <div class="row mx-0">
                     <div class="col-md-4 px-0">
-                        <h1 class="my-0"><span class="text-primary">Autism&ME,</span> Training to transform
-                            children’s lives</h1>
+                        <h1 class="my-0"><span class="text-primary">{{$homeTitle->title}}</h1>
                     </div>
                 </div>
             </div>
@@ -43,7 +42,11 @@
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div
                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                            <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory1->photo)}}">
+                            @if($myStory1->photo == null)
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about1.jpg')}}">
+                            @else
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory1->photo )}}">
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0">
