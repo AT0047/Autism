@@ -20,15 +20,15 @@
                             <div class="col-lg-7">
                                 <div class="hero-five-text text-left">
                                     <h1 class="title">
-                                        <span class="hero-five-title">{{$title->title}}
+                                        <span class="hero-five-title">{{ $title->title }}
                                     </h1>
                                     <p class="hero-text-dec">{!! $title->description !!}</p>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="hero-five-category" data-aos="fade-up">
-                                    @foreach($libraries as $library)
-                                            <a href="#Category" class="btn-large woocommerce">{{$library->name}}</a>
+                                    @foreach ($libraries as $library)
+                                        <a href="#Category" class="btn-large woocommerce">{{ $library->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -48,184 +48,29 @@
                     <div class="row row--30">
                         <div class="col-lg-6 col-md-6">
                             <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/01-recent-article.jpg" alt="" />
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
+                            @foreach ($books as $book)
+                                <div class="single-most-populer-item" data-aos="fade-up">
+                                    <a href="{{route('Autism&Me.bookDetails', $book->id)}}" class="most-populer-thum">
+                                        <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
+                                    </a>
+                                    <div class="most-populer-content">
+                                        <div class="most-populer-post-author">
+                                            By <a href="{{route('Autism&Me.bookDetails', $book->id)}}">{{ $book->author_name }}</a>
+                                        </div>
+                                        <h3 class="title"><a href="{{route('Autism&Me.bookDetails', $book->id)}}">{{ $book->name }}</a>
+                                        </h3>
+                                        <p class="dec mt-2">{!! Str::limit($book->content, 15)  !!}</p>
+                                        <div class="most-populer-post-meta">
+                                            <span class="post-date">
+                                                <a href="{{route('Autism&Me.bookDetails', $book->id)}}">{{ $book->publication_date }}</a>
+                                            </span>
+                                            {{-- <span>10 min read</span> --}}
+                                        </div>
                                     </div>
-                                    <h3 class="title"><a href="blog-details.html">All of these amazing features
-                                            come at an affordable price!</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="blog-details.html">03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
+                                </div><!-- Single Most Populer Item End -->
+                            @endforeach
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/02-recent-article.jpg" alt="">
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"><a href="blog-details.html">Create beautiful designs that
-                                            will help convert more...</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="blog-details.html">03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/03-recent-article.jpg" alt="">
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"><a href="blog-details.html">WooCommerce comes with
-                                            an intuitive drag-and-drop...</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="blog-details.html">03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/04-recent-article.jpg" alt="" />
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"><a href="blog-details.html">Create beautiful designs that
-                                            will help convert more...</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="blog-details.html">03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/05-recent-article.jpg" alt="">
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"><a href="blog-details.html">WooCommerce comes with
-                                            an intuitive drag-and-drop...</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="b.html">
-                                                03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/06-recent-article.jpg" alt="">
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">
-                                            Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"> <a href="blog-details.html">
-                                            All of these amazing features
-                                            come at an affordable price!</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="blog-details.html">
-                                                03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
-                        <div id="additional-content" class="col-lg-6 col-md-6 hidden">
-                            <!-- Single Most Populer Item Start -->
-                            <div class="single-most-populer-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="most-populer-thum">
-                                    <img src="assets/images/recent-article/05-recent-article.jpg" alt="">
-                                </a>
-                                <div class="most-populer-content">
-                                    <div class="most-populer-post-author">
-                                        By <a href="blog-details.html">Andrew Hoffman</a>
-                                    </div>
-                                    <h3 class="title"><a href="blog-details.html">WooCommerce comes with
-                                            an intuitive drag-and-drop...</a>
-                                    </h3>
-                                    <p class="dec mt-2">Lorem Ipsum is simply dummy text themes print
-                                        industry orem psum has been them industry spa
-                                        also the loep into type setting.</p>
-                                    <div class="most-populer-post-meta">
-                                        <span class="post-date">
-                                            <a href="b.html">
-                                                03 April, 2023</a>
-                                        </span>
-                                        <span>10 min read</span>
-                                    </div>
-                                </div>
-                            </div><!-- Single Most Populer Item End -->
-                        </div>
+                        <livewire:show_books>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -255,19 +100,20 @@
                             </div>
                             <!-- Single Archive Post Start -->
                             <div class="single-archive-post" data-aos="fade-up">
-                                @foreach($categories as $category)
+                                @foreach ($categories as $category)
                                     <div class="archive-post-thum">
                                         <a href="Articles.html">
-                                            <img src="{{asset('dashboard/img/'. $category->photo)}}" alt="">
+                                            <img src="{{ asset('dashboard/img/' . $category->photo) }}" alt="">
                                         </a>
                                     </div>
                                     <div class="archive-post-content">
-                                        <h6 class="title"><a href="Articles.html">{{$category->name}}</a>
+                                        <h6 class="title"><a
+                                                wire:click='loadBooks({{ $category->id }})'>{{ $category->name }}</a>
                                         </h6>
                                         <div class="archive-post-meta">
                                             <span class="post-date">
                                                 <i class="icofont-ui-calendar"></i>
-                                                <a href="Articles.html">{{$category->created_at}}</a>
+                                                <a href="Articles.html">{{ $category->created_at }}</a>
                                             </span>
                                             {{-- <span>10 min read</span> --}}
                                         </div>

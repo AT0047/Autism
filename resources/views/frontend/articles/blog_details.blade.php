@@ -18,174 +18,68 @@
                     <div class="blog-details-wrapper section-space--ptb_80">
                         <div class="container">
                             <div class="row">
-                                <!-- Latest Post Area End -->
-                                <div class="row">
-                                    <div class="blog-details-thum">
-                                        <img src="{{ asset('home_assets/blog-details-1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="blog-details-post-content">
-                                        <div class="blog-details-meta-box">
-                                            <div class="post-meta-left-side mb-2">
-                                                <div class="trending-blog-post-category">
-                                                    <a href="#">Business</a>
-                                                </div>
-                                                <div class="following-blog-post-author">
-                                                    By <a href="#">Kathy Ramirez</a>
-                                                </div>
-                                            </div>
-                                            <div class="post-mid-side mb-2">
-                                                <span class="post-meta-left-side">
-                                                    <span class="post-date">
-                                                        <i class="icofont-ui-calendar"></i>
-                                                        <a href="#">03 April, 2023</a>
-                                                    </span>
-                                                </span>
-                                                <span>10 min read</span>
-                                            </div>
-                                            <div class="post-meta-right-side mb-2">
-                                                <a href="#"><img src="{{ asset('home_assets/small-bookmark.png') }}"
-                                                        alt="" /></a>
-                                                <a href="#"><img src="{{ asset('home_assets/heart.png') }}"
-                                                        alt="" /></a>
-                                            </div>
+                                @foreach($books as $book)
+                                    <!-- Latest Post Area End -->
+                                    <div class="row">
+                                        <div class="blog-details-thum">
+                                            <img src="{{ asset('dashboard/img/'. $book->photo) }}" alt="">
                                         </div>
-                                        <h3 class="following-blog-post-title">
-                                            <a href="#">Create a custom checkout page in minutes and Increase
-                                                your
-                                                sales with WooLentor
-                                            </a>
-                                        </h3>
-                                        <div class="post-details-text">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the indu
-                                                stry's standard dummy text ever since the 1500s when an unknown printer
-                                                took a galley of type and scramb
-                                                led it to make a type specimen book.
-                                            </p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <h3 class="title mb-3">WooLentor is a powerful WordPress plugin for
-                                                WooCommerce</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the indu
-                                                stry's standard dummy text ever since the 1500s when an unknown printer
-                                                took a galley of type and scramb
-                                                led it to make a type specimen book.
-                                            </p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <h3 class="title mb-3"> Create a custom checkout page in minutes and
-                                                Increase yoursales with WooLentor</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <div class="video-banner-area video-popup mb-4">
-                                                <a href="https://www.youtube.com/watch?v=9No-FiEInLA"
-                                                    class="video-link mt-30">
-                                                    <div class="single-popup-wrap">
-                                                        <img class="img-fluid"
-                                                            src="{{ asset('home_assets/blog-details-video.jpg') }}"
-                                                            alt="">
-                                                        <div class="ht-popup-video video-button">
-                                                            <div class="video-mark">
-                                                                <div class="wave-pulse wave-pulse-1"></div>
-                                                                <div class="wave-pulse wave-pulse-2"></div>
-                                                            </div>
-                                                            <div class="video-button__two">
-                                                                <div class="video-play">
-                                                                    <span class="video-play-icon"></span>
+                                        <div class="blog-details-post-content">
+                                            <div class="blog-details-meta-box">
+                                                <div class="post-meta-left-side mb-2">
+                                                    <div class="trending-blog-post-category">
+                                                        <a href="#">{{$book->category->name}}</a>
+                                                    </div>
+                                                    <div class="following-blog-post-author">
+                                                        By <a href="#">{{ $book->author_name }}</a>
+                                                    </div>
+                                                </div>
+                                                <div class="post-mid-side mb-2">
+                                                    <span class="post-meta-left-side">
+                                                        <span class="post-date">
+                                                            <i class="icofont-ui-calendar"></i>
+                                                            <a href="#">{{ $book->publication_date }}</a>
+                                                        </span>
+                                                    </span>
+                                                    {{-- <span>10 min read</span> --}}
+                                                </div>
+                                                <div class="post-meta-right-side mb-2">
+                                                    <a href="#"><img src="{{ asset('home_assets/small-bookmark.png') }}"
+                                                            alt="" /></a>
+                                                    <a href="#"><img src="{{ asset('home_assets/heart.png') }}"
+                                                            alt="" /></a>
+                                                </div>
+                                            </div>
+                                            <h3 class="following-blog-post-title">
+                                                <a href="#">{{ $book->name }}</a>
+                                            </h3>
+                                            <div class="post-details-text">
+                                                <p>{!! $book->content !!}</p>
+                                                <div class="video-banner-area video-popup mb-4">
+                                                    <a href="{{asset('dashboard/img/'. $book->video)}}"
+                                                        class="video-link mt-30">
+                                                        <div class="single-popup-wrap">
+                                                            <img class="img-fluid"
+                                                                src="{{ asset('home_assets/blog-details-video.jpg') }}"
+                                                                alt="">
+                                                            <div class="ht-popup-video video-button">
+                                                                <div class="video-mark">
+                                                                    <div class="wave-pulse wave-pulse-1"></div>
+                                                                    <div class="wave-pulse wave-pulse-2"></div>
+                                                                </div>
+                                                                <div class="video-button__two">
+                                                                    <div class="video-play">
+                                                                        <span class="video-play-icon"></span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <h3 class="title mb-3">All of these amazing features come at an affordable
-                                                price!</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <blockquote class="blockquote-box">
-                                                <p class="blockquote-text">Lorem Ipsum is simply dummy text of the
-                                                    printing and
-                                                    types industry's standard dummy text ever and since the 1500s when
-                                                    scrambled it to make a type specimen book.</p>
-                                            </blockquote>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
-                                            <p>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the
-                                                industry's standard dummy text ever since the 1500s when anden unknown
-                                                printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has and survived not only
-                                                five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially and unchanged. It was
-                                                popularsed in the 1960 with release
-                                                containing Lorem Ipsum passages desktop publishing software.
-                                            </p>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                                 <div class="row">
                                     <div class="related-post-area section-space--pt_60">
                                         <div class="row">
