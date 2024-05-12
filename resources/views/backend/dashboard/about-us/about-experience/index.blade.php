@@ -35,6 +35,7 @@
                             <tr>
                                 <th class="sort" data-sort="title">Title</th>
                                 <th class="sort" data-sort="place">Place</th>
+                                <th class="sort" data-sort="place">Date</th>
                                 <th class="sort" data-sort="description">Description</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
@@ -47,6 +48,7 @@
                                 <tr>
                                     <td>{{ $experience->title }}</td>
                                     <td>{{ $experience->place }}</td>
+                                    <td>{{ $experience->date }}</td>
                                     <td>{{ $experience->description }}</td>
                                     <td class="Created At">
                                         {{ $experience->created_at->diffForHumans() }}

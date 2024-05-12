@@ -16,9 +16,9 @@
                         </nav>
                     </div>
                     @if (!isset($aboutPhoto))
-                    <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('about-photos.create') }}" class="btn btn-sm btn-neutral">Add New</a>
-                    </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="{{ route('about-photos.create') }}" class="btn btn-sm btn-neutral">Add New</a>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -43,23 +43,33 @@
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody>
                             @if (isset($aboutPhoto))
-                            <tr>
-                                    <td>{{ $aboutPhoto->sec1_video }}</td>
-                                    <td><img src="{{ asset('storage/'.$aboutPhoto->sec1_photo) }}" alt="Section 1 Photo" class="img-fluid" style="max-width: 100px;"></td>
-                                    <td><img src="{{ asset('storage/'.$aboutPhoto->sec2_photo) }}" alt="Section 2 Photo" class="img-fluid" style="max-width: 100px;"></td>
-                                    <td><img src="{{ asset('storage/'.$aboutPhoto->sec4_photo) }}" alt="Section 4 Photo" class="img-fluid" style="max-width: 100px;"></td>
-                                    <td><img src="{{ asset('storage/'.$aboutPhoto->logo) }}" alt="Logo" class="img-fluid" style="max-width: 100px;"></td>
+                                <tr>
                                     <td>
-                                        <a href="{{ route('about-photos.edit', $aboutPhoto->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        <video controls width="150">
+                                            <source src="{{ asset('storage/' . $aboutPhoto->sec1_video) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </td>
+                                    <td><img src="{{ asset('storage/' . $aboutPhoto->sec1_photo) }}" alt="Section 1 Photo"
+                                            class="img-fluid" style="max-width: 100px;"></td>
+                                    <td><img src="{{ asset('storage/' . $aboutPhoto->sec2_photo) }}" alt="Section 2 Photo"
+                                            class="img-fluid" style="max-width: 100px;"></td>
+                                    <td><img src="{{ asset('storage/' . $aboutPhoto->sec4_photo) }}" alt="Section 4 Photo"
+                                            class="img-fluid" style="max-width: 100px;"></td>
+                                    <td><img src="{{ asset('storage/' . $aboutPhoto->logo) }}" alt="Logo"
+                                            class="img-fluid" style="max-width: 100px;"></td>
+                                    <td>
+                                        <a href="{{ route('about-photos.edit', $aboutPhoto->id) }}"
+                                            class="btn btn-primary btn-sm">Edit</a>
                                     </td>
                                 </tr>
-                                @else
-                                <tr class="text-center" >
+                            @else
+                                <tr class="text-center">
                                     <td colspan="6">No data available.</td>
                                 </tr>
-                                @endif
+                            @endif
                         </tbody>
                     </table>
                 </div>

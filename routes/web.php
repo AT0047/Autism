@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboard\AboutEducationController;
 use App\Http\Controllers\dashboard\AboutExperienceController;
 use App\Http\Controllers\dashboard\AboutPhotoController;
 use App\Http\Controllers\dashboard\AboutSec3Controller;
+use App\Http\Controllers\dashboard\AboutSec4Controller;
 use App\Http\Controllers\dashboard\AboutUsController;
 use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\dashboard\OurServiceController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\website\AboutUsFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +79,7 @@ Route::resource('about-us', AboutUsController::class);
 Route::resource('about-education', AboutEducationController::class);
 Route::resource('about-experience', AboutExperienceController::class);
 Route::resource('about-sec3', AboutSec3Controller::class);
+Route::resource('about-sec4', AboutSec4Controller::class);
 Route::resource('about-photos', AboutPhotoController::class);
 
 
@@ -98,6 +101,7 @@ Route::get('/frontend/about_me', function () {
 });
 
 
+Route::get('/frontend/aboutUs', [AboutUsFrontController::class, 'index'])->name('frontend.aboutUs.index');
 
 
 

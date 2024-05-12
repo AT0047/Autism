@@ -13,12 +13,12 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Edit Experience Section</h3>
+                                <h3 class="mb-0">Edit About Section 4</h3>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('about-experience.update', $aboutExperience->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('about-sec4.update', $aboutSec4->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <h6 class="heading-small text-muted mb-4">Information</h6>
@@ -26,27 +26,20 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Name</label>
+                                            <input type="text" name="name" class="form-control"
+                                                value="{{ $aboutSec4->name }}" required>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" name="title" class="form-control" value="{{ old('title', $aboutExperience->title) }}">
+                                            <input type="text" name="title" class="form-control"
+                                                value="{{ $aboutSec4->title }}" required>
                                             @error('title')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Place</label>
-                                            <input type="text" name="place" class="form-control" value="{{ old('place', $aboutExperience->place) }}">
-                                            @error('place')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Date</label>
-                                            <input type="text" name="date" class="form-control" value="{{ old('date', $aboutExperience->date) }}">
-                                            @error('date')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -56,14 +49,14 @@
                             <div class="pl-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Description</label>
-                                    <textarea name="description" rows="6" class="form-control">{{ old('description', $aboutExperience->description) }}</textarea>
+                                    <textarea required name="description" rows="6" class="form-control">{{ $aboutSec4->description }}</textarea>
                                     @error('description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">
-                                <a href="{{ route('about-experience.index') }}" class="btn btn-secondary">Back</a>
+                                <a href="{{ route('about-sec4.index') }}" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-success">Update</button>
                             </div>
                         </form>

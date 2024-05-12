@@ -41,6 +41,16 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Date</label>
+                                            <input type="text" name="date" class="form-control"
+                                                placeholder="Enter the date" required>
+                                            @error('date')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="pl-lg-4">

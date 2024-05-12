@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AboutPhotosReuest;
+use App\Http\Requests\AboutPhotosRequest;
 use App\Models\AboutPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,8 +31,9 @@ class AboutPhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AboutPhotosReuest $request)
+    public function store(AboutPhotosRequest $request)
     {
+        $sec1_videoPath = $request->file('sec1_video')->store('about_photos', 'public');
         $sec1_photoPath = $request->file('sec1_photo')->store('about_photos', 'public');
         $sec2_photoPath = $request->file('sec2_photo')->store('about_photos', 'public');
         $sec4_photoPath = $request->file('sec4_photo')->store('about_photos', 'public');
@@ -41,7 +42,7 @@ class AboutPhotoController extends Controller
         }
     
         $aboutPhoto = new AboutPhoto([
-            'sec1_video' => $request->sec1_video,
+            'sec1_video' => $sec1_videoPath,
             'sec1_photo' => $sec1_photoPath,
             'sec2_photo' => $sec2_photoPath,
             'sec4_photo' => $sec4_photoPath,
@@ -74,11 +75,22 @@ class AboutPhotoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AboutPhotosReuest $request, AboutPhoto $aboutPhoto)
+    public function update(Request $request, AboutPhoto $aboutPhoto)
     {
-        $validatedData = $request->validated();
+        $validatedData = $request->validate([
+            'sec1_video' => 'required|file|mimes:mp4,mov,avi',
+            'sec1_photo' => 'image|mimes:jpeg,png,jpg,gif',
+            'sec2_photo' => 'image|mimes:jpeg,png,jpg,gif',
+            'sec4_photo' => 'image|mimes:jpeg,png,jpg,gif',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif',
+
+        ]);
         $aboutPhoto->sec1_video = $validatedData['sec1_video'];
 
+        if ($request->hasFile('sec1_video')) {
+            Storage::disk('public')->delete($aboutPhoto->sec1_video);
+            $aboutPhoto->sec1_video = $request->file('sec1_video')->store('about_photos', 'public');
+        }
         if ($request->hasFile('sec1_photo')) {
             Storage::disk('public')->delete($aboutPhoto->sec1_photo);
             $aboutPhoto->sec1_photo = $request->file('sec1_photo')->store('about_photos', 'public');

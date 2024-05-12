@@ -130,6 +130,9 @@
                                                 <a class="nav-link" href="{{ route('about-sec3.index') }}">About (Section three)</a>
                                             </li>
                                             <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('about-sec4.index') }}">About (Section four)</a>
+                                            </li>
+                                            <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('about-photos.index') }}">About Photos</a>
                                             </li>
                                         </ul>

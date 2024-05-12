@@ -10,7 +10,7 @@
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                <li class="breadcrumb-item active" aria-current="page">About Section 3</li>
+                                <li class="breadcrumb-item active" aria-current="page">About Section three</li>
                             </ol>
                         </nav>
                     </div>

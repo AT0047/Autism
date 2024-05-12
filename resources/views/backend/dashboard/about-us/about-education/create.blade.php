@@ -26,7 +26,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter the title" required>
+                                            <input type="text" name="title" class="form-control"
+                                                placeholder="Enter the title" required>
                                             @error('title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -35,8 +36,19 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Place</label>
-                                            <input type="text" name="place" class="form-control" placeholder="Enter the place" required>
+                                            <input type="text" name="place" class="form-control"
+                                                placeholder="Enter the place" required>
                                             @error('place')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Date</label>
+                                            <input type="text" name="date" class="form-control"
+                                                placeholder="Enter the date" required>
+                                            @error('date')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>

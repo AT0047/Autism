@@ -10,6 +10,6 @@ class AboutExperience extends Model
     use HasFactory;
     protected $table = 'about_experience';
 
-    protected $fillable = ['title', 'place', 'description'];
+    protected $fillable = ['title', 'place','date', 'description'];
 
 }

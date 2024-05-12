@@ -1,41 +1,38 @@
 @extends('backend.dashboard.dashboard')
 @section('content')
-    <div class="header bg-primary pb-6">
-        <div class="container-fluid">
-            <div class="header-body">
-                <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">About Education Section</h6>
-                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                <li class="breadcrumb-item active" aria-current="page">About Education Section</li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('about-education.create') }}" class="btn btn-sm btn-neutral">Add New</a>
-                    </div>
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">About Education Section</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item active" aria-current="page">About Section four</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="{{ route('about-sec4.create') }}" class="btn btn-sm btn-neutral">Add New</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
     <div class="row">
         <div class="col">
             <div class="card">
-                <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">About Education Section</h3>
+                    <h3 class="mb-0">About Section 4</h3>
                 </div>
-                <!-- Light table -->
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
+                                <th class="sort" data-sort="name">Name</th>
                                 <th class="sort" data-sort="title">Title</th>
-                                <th class="sort" data-sort="place">Place</th>
-                                <th class="sort" data-sort="place">Date</th>
                                 <th class="sort" data-sort="description">Description</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
@@ -44,17 +41,16 @@
                             </tr>
                         </thead>
                         <tbody class="list">
-                            @forelse($about_education as $education)
+                            @forelse($about_sec4 as $item)
                                 <tr>
-                                    <td>{{ $education->title }}</td>
-                                    <td>{{ $education->place }}</td>
-                                    <td>{{ $education->date }}</td>
-                                    <td>{{ $education->description }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->description }}</td>
                                     <td class="Created At">
-                                        {{ $education->created_at->diffForHumans() }}
+                                        {{ $item->created_at->diffForHumans() }}
                                     </td>
                                     <td class="Updated At">
-                                        {{ $education->updated_at->diffForHumans() }}
+                                        {{ $item->updated_at->diffForHumans() }}
                                     </td>
                                     <td>
                                         <div class="btn-group">
@@ -64,8 +60,8 @@
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('about-education.edit', $education->id) }}">Edit</a>
-                                                <form action="{{ route('about-education.destroy', $education->id) }}"
+                                                    href="{{ route('about-sec4.edit', $item->id) }}">Edit</a>
+                                                <form action="{{ route('about-sec4.destroy', $item->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -83,9 +79,8 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{-- {{$about_education->links('vendor.pagination.custom_pagination')}} --}}
+                    {{-- Pagination links or other footer content --}}
                 </div>
             </div>
         </div>

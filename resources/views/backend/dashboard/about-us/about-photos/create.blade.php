@@ -26,12 +26,12 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Section 1 Video</label>
-                                            <input type="text" name="sec1_video" class="form-control" placeholder="Enter Section 1 Video URL" required>
+                                            <input type="file" name="sec1_video" accept="video/mp4,video/x-m4v,video/*" class="form-control">
                                             @error('sec1_video')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div>                            
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Section 1 Photo</label>
