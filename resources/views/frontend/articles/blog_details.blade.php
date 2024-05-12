@@ -18,7 +18,7 @@
                     <div class="blog-details-wrapper section-space--ptb_80">
                         <div class="container">
                             <div class="row">
-                                @foreach($books as $book)
+                                @foreach($bookdetails as $book)
                                     <!-- Latest Post Area End -->
                                     <div class="row">
                                         <div class="blog-details-thum">
@@ -43,12 +43,12 @@
                                                     </span>
                                                     {{-- <span>10 min read</span> --}}
                                                 </div>
-                                                <div class="post-meta-right-side mb-2">
+                                                {{-- <div class="post-meta-right-side mb-2">
                                                     <a href="#"><img src="{{ asset('home_assets/small-bookmark.png') }}"
                                                             alt="" /></a>
                                                     <a href="#"><img src="{{ asset('home_assets/heart.png') }}"
                                                             alt="" /></a>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <h3 class="following-blog-post-title">
                                                 <a href="#">{{ $book->name }}</a>
@@ -198,132 +198,23 @@
                                 <div class="col-lg-6">
                                     <div class="faq-content-wrap">
                                         <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button faq-qustion" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                        aria-expanded="true" aria-controls="collapseOne">
-                                                        <span class="number-of-accordion">01</span> How do the
-                                                        different types of drawings work?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
+                                            @foreach($questions as $question)
+                                                <div class="accordion-item" data-aos="fade-up">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button faq-qustion" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                            aria-expanded="true" aria-controls="collapseOne">
+                                                            <span class="number-of-accordion">0{{ $loop->iteration }}</span>{{$question->question}}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body faq-ans">
+                                                            <p>{!! $question->answer !!}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingTwo">
-                                                    <button class="accordion-button faq-qustion collapsed" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                        aria-expanded="false" aria-controls="collapseTwo">
-                                                        <span class="number-of-accordion">02</span> How long do the
-                                                        records of drawings persist?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingThree">
-                                                    <button class="accordion-button faq-qustion collapsed" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                        aria-expanded="false" aria-controls="collapseThree">
-                                                        <span class="number-of-accordion">03</span> Why do I need to be
-                                                        careful public drawings?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseThree" class="accordion-collapse collapse"
-                                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingfour">
-                                                    <button class="accordion-button faq-qustion collapsed" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapsefour"
-                                                        aria-expanded="false" aria-controls="collapseThree">
-                                                        <span class="number-of-accordion">04</span> Can I use
-                                                        RANDOM.ORG to draw straws?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapsefour" class="accordion-collapse collapse"
-                                                    aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingfive">
-                                                    <button class="accordion-button faq-qustion collapsed" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapsefive"
-                                                        aria-expanded="false" aria-controls="collapseThree">
-                                                        <span class="number-of-accordion">05</span> Do the numbers
-                                                        exhibit Benford's Law?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapsefive" class="accordion-collapse collapse"
-                                                    aria-labelledby="headingfive" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item" data-aos="fade-up">
-                                                <h2 class="accordion-header" id="headingsix">
-                                                    <button class="accordion-button faq-qustion collapsed" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapsesix"
-                                                        aria-expanded="false" aria-controls="collapseThree">
-                                                        <span class="number-of-accordion">06</span> Are the numbers
-                                                        suitable for experiments?
-                                                    </button>
-                                                </h2>
-                                                <div id="collapsesix" class="accordion-collapse collapse"
-                                                    aria-labelledby="headingsix" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body faq-ans">
-                                                        <p>Lorem Ipsum is simply dummy text of printing and typesetting
-                                                            industry. Lorem psum has been the dustry standard dummy text
-                                                            since the printer into electronic.</p>
-                                                        <p>Lorem Ipsum is simply dummy text offer printing and
-                                                            typeseting
-                                                            industry since the printer into electronic.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

@@ -34,10 +34,12 @@ class ArticleController extends Controller
     }
 
     public function bookDetails($id){
+        $bookdetails = Book::findOrFail($id); 
         $books = Category::findOrFail($id)->books()->get();
         foreach($books as $book){
-            $questions = Book::findOrFail($book->id)->questions();
+        $bookQ = $book;
         }
-        return view('frontend.articles.blog_details', compact('books', 'questions'));
+        $questions = BookQuestion::where('book_id', $bookQ->id)->get();
+        return view('frontend.articles.blog_details', compact('books', 'questions', 'bookdetails'));
     }
 }
