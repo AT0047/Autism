@@ -67,6 +67,7 @@ class ArticleController extends Controller
         foreach ($libraryCategories as $libraryCategory){
             $cate_id = $libraryCategory->id;
         }
+
         // ----------------- Library Books ------------------
         $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
 

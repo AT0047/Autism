@@ -56,7 +56,11 @@
                         <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{$myStory1->title1}}</h2>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory2->photo)}}">
+                            @if($myStory2->photo == null)
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about2.jpg')}}">
+                            @else
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory2->photo )}}">
+                            @endif
                     </div>
                 </div>
             </section>
@@ -73,7 +77,11 @@
                             data-aos="fade-right">{{$myStory2->title2}}</h2>
                     </div>
                     <div class="col-md-6 order-md-1 order-lg-2 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory3->photo)}}">
+                            @if($myStory3->photo == null)
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about3.jpg')}}">
+                            @else
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory3->photo )}}">
+                            @endif
                     </div>
                     <div class="col-md-6 offset-md-6 offset-lg-0 order-md-3 order-lg-3 col-lg-4 mt-5 pl-0 pl-md-30 mt-md-0"
                         data-aos="fade-up">

@@ -16,6 +16,17 @@ class TitleSeeder extends Seeder
         Title::create([
             'title' => 'Autism&ME Training to transform children’s lives',
             'place' => 'home',
+            'photo' => fake()->imageUrl($width = 640, $height = 480), 
+            'created_at' => now(),
+            'updated_at' =>  now(),
+        ]);
+        Title::create([
+            'title' => 'Unlimited Advice & Resource ',
+            'place' => 'articles',
+            'description' => 'That necessitates a robust ecommerce platform that optimizes your store & products',
+            'photo' => fake()->imageUrl($width = 640, $height = 480), 
+            'created_at' => now(),
+            'updated_at' =>  now(),
         ]);
     }
 }

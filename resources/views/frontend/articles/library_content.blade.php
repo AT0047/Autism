@@ -55,7 +55,8 @@
                                         <div class="single-most-populer-item" data-aos="fade-up">
                                             <a href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}"
                                                 class="most-populer-thum">
-                                                <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}" alt="" />
+                                                <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}"
+                                                    alt="" />
                                             </a>
                                             <div class="most-populer-content">
                                                 <div class="most-populer-post-author">
@@ -76,84 +77,150 @@
                                             </div>
                                         </div><!-- Single Most Populer Item End -->
                                     </div>
-                                    @empty
-                                        No Books Yet...
-                                    @endforelse
-                                @endforeach
+                                @empty
+                                    No Books Yet...
+                                @endforelse
                             @endforeach
-                                    {{-- <livewire:show_books> --}}
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="button-box text-center mt-5" data-aos="fade-up">
+                                <button id="show-more-btn" class="btn-large btn-bg-5-primary  btn-primary"
+                                    style="background-color: red;"> Show More <i class="icofont-long-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Latest Post Area Start -->
+                    <div class="archive-post-inner-wrap">
+                        <div class="archive-search-wrap">
+                            <div class="section-title" data-aos="fade-up">
+                                <h4>Search Here</h4>
+                            </div>
+                            <div class="archive-search-box" data-aos="fade-up">
+                                <input class="search-input" type="text" placeholder="Search Here">
+                                <button class="search-button" type="submit"><i class="icofont-search-1"></i></button>
+                            </div>
+                        </div>
+                        <div class="archive-post-wrap mt-5" id="Category">
+                            <div class="section-title" data-aos="fade-up">
+                                <h4>Category</h4>
+                            </div>
+                            <!-- Single Archive Post Start -->
+                            @foreach ($libraryCategories as $libraryCategory)
+                                <div class="single-archive-post" data-aos="fade-up">
+                                    <div class="archive-post-thum">
+                                        <a href="Articles.html">
+                                            <img src="{{ asset('dashboard/img/' . $libraryCategory->photo) }}"
+                                                alt="">
+                                        </a>
+                                    </div>
+                                    <div class="archive-post-content">
+                                        <h6 class="title"><a wire:click='loadBooks({{ $libraryCategory->id }})'>{{ $libraryCategory->name }}</a></h6>
+                                        <div class="archive-post-meta">
+                                            <span class="post-date">
+                                                <i class="icofont-ui-calendar"></i>
+                                                <a href="Articles.html">{{ $libraryCategory->created_at }}</a>
+                                            </span>
+                                            {{-- <span>10 min read</span> --}}
+                                        </div>
+                                    </div>
+                                </div><!-- Single Archive Post End -->
+                            @endforeach
+                        </div>
+                        <!-- Add Banner Area Start -->
+                        <div class="add-banner-area mt-5" data-aos="fade-up">
+                            <a href="Articles.html">
+                                <img src="assets/images/archive-post/add-banner-01.jpg" alt="">
+                            </a>
+                        </div>
+                        <!-- Add Banner Area End -->
+                    </div> <!-- Latest Post Area End -->
+                </div>
+                <!-- Special For Beginner Area Start -->
+                <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
+                    <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="button-box text-center mt-5" data-aos="fade-up">
-                                    <button id="show-more-btn" class="btn-large btn-bg-5-primary  btn-primary"
-                                        style="background-color: red;"> Show More <i class="icofont-long-arrow-right"></i>
-                                    </button>
+                                <div class="section-title-three text-center" data-aos="fade-up">
+                                    <h2 class="title">Category</h2>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <!-- Latest Post Area Start -->
-                        <div class="archive-post-inner-wrap">
-                            <div class="archive-search-wrap">
-                                <div class="section-title" data-aos="fade-up">
-                                    <h4>Search Here</h4>
-                                </div>
-                                <div class="archive-search-box" data-aos="fade-up">
-                                    <input class="search-input" type="text" placeholder="Search Here">
-                                    <button class="search-button" type="submit"><i class="icofont-search-1"></i></button>
-                                </div>
-                            </div>
-                            <div class="archive-post-wrap mt-5" id="Category">
-                                <div class="section-title" data-aos="fade-up">
-                                    <h4>Category</h4>
-                                </div>
-                                <!-- Single Archive Post Start -->
-                                @foreach ($libraryCategories as $libraryCategory)
-                                    <div class="single-archive-post" data-aos="fade-up">
-                                        <div class="archive-post-thum">
-                                            <a href="Articles.html">
-                                                <img src="{{ asset('dashboard/img/' . $libraryCategory->photo) }}"
-                                                    alt="">
-                                            </a>
+                                            <livewire:show-books>
+                        <div class="row row--30">
+                            <div class="col-lg-4">
+                                <!-- Single Most Populer Item Start -->
+                                <div class="single-most-populer-item" data-aos="fade-up">
+                                    <a href="blog-details.html" class="most-populer-thum">
+                                        <img src="assets/images/banners/02-special-banner.jpg" alt="" />
+                                    </a>
+                                    <div class="most-populer-content">
+                                        <div class="most-populer-post-author">
+                                            By <a href="blog-details.html">Andrew Hoffman</a>
                                         </div>
-                                        <div class="archive-post-content">
-                                            <h6 class="title"><a
-                                                    wire:click='loadBooks({{ $libraryCategory->id }})'>{{ $libraryCategory->name }}</a>
-                                            </h6>
-                                            <div class="archive-post-meta">
-                                                <span class="post-date">
-                                                    <i class="icofont-ui-calendar"></i>
-                                                    <a href="Articles.html">{{ $libraryCategory->created_at }}</a>
-                                                </span>
-                                                {{-- <span>10 min read</span> --}}
-                                            </div>
+                                        <h3 class="title"><a href="blog-details.html">All of these amazing features
+                                                come at an affordable price!</a>
+                                        </h3>
+                                        <div class="most-populer-post-meta">
+                                            <span class="post-date">
+                                                <a href="blog-details.html">03 April, 2023</a>
+                                            </span>
+                                            <span>10 min read</span>
                                         </div>
-                                    </div><!-- Single Archive Post End -->
-                                @endforeach
-                            </div>
-                            <!-- Add Banner Area Start -->
-                            <div class="add-banner-area mt-5" data-aos="fade-up">
-                                <a href="Articles.html">
-                                    <img src="assets/images/archive-post/add-banner-01.jpg" alt="">
-                                </a>
-                            </div>
-                            <!-- Add Banner Area End -->
-                        </div> <!-- Latest Post Area End -->
-                    </div>
-                    <!-- Special For Beginner Area Start -->
-                    <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="section-title-three text-center" data-aos="fade-up">
-                                        <h2 class="title">Category</h2>
                                     </div>
-                                </div>
+                                </div><!-- Single Most Populer Item End -->
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- Single Most Populer Item Start -->
+                                <div class="single-most-populer-item" data-aos="fade-up">
+                                    <a href="blog-details.html" class="most-populer-thum">
+                                        <img src="assets/images/banners/03-special-banner.jpg" alt="" />
+                                    </a>
+                                    <div class="most-populer-content">
+                                        <div class="most-populer-post-author">
+                                            By <a href="blog-details.html">Andrew Hoffman</a>
+                                        </div>
+                                        <h3 class="title"><a href="blog-details.html">WooCommerce comes with an
+                                                intuitive drag-and-drop...</a>
+                                        </h3>
+                                        <div class="most-populer-post-meta">
+                                            <span class="post-date">
+                                                <a href="blog-details.html">03 April, 2023</a>
+                                            </span>
+                                            <span>10 min read</span>
+                                        </div>
+                                    </div>
+                                </div><!-- Single Most Populer Item End -->
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- Single Most Populer Item Start -->
+                                <div class="single-most-populer-item" data-aos="fade-up">
+                                    <a href="blog-details.html" class="most-populer-thum">
+                                        <img src="assets/images/banners/04-special-banner.jpg" alt="" />
+                                    </a>
+                                    <div class="most-populer-content">
+                                        <div class="most-populer-post-author">
+                                            By <a href="blog-details.html">Andrew Hoffman</a>
+                                        </div>
+                                        <h3 class="title"><a href="blog-details.html">Create beautiful designs that
+                                                will help convert more...</a>
+                                        </h3>
+                                        <div class="most-populer-post-meta">
+                                            <span class="post-date">
+                                                <a href="blog-details.html">03 April, 2023</a>
+                                            </span>
+                                            <span>10 min read</span>
+                                        </div>
+                                    </div>
+                                </div><!-- Single Most Populer Item End -->
                             </div>
                         </div>
                     </div>
+                </div>
                     <!-- Special For Beginner Area End -->
                     <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
                         <div class="col content-div" id="content1">
@@ -179,7 +246,7 @@
                             </section>
                         </div>
                         <div class="col content-div" id="content2">
-                            <section id="services" class="section feature feature-3 bg-white pb-80">
+                            <section id="" class="section feature feature-3 bg-white pb-80">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-12 col-md-12 col-lg-12">
@@ -220,7 +287,8 @@
                                             <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
                                                 <figure class="hover"><img alt="" class="w-100"
                                                         style="border-radius: 10px;"
-                                                        src="{{ asset('dashboard/img/' . $preferredBook->photo) }}"></figure>
+                                                        src="{{ asset('dashboard/img/' . $preferredBook->photo) }}">
+                                                </figure>
                                             </a>
                                         </div>
                                         <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
@@ -228,7 +296,8 @@
                                                     href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">{{ $preferredBook->name }}</a>
                                             </h4>
                                             <p><a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}"
-                                                    class="text-dark font-weight-bold">{{ $preferredBook->author_name }}</a> /
+                                                    class="text-dark font-weight-bold">{{ $preferredBook->author_name }}</a>
+                                                /
                                                 {{ $preferredBook->publication_date }}
                                             </p>
                                         </div>
@@ -240,6 +309,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        <!-- Remove the container if you want to extend the Footer to full width. -->
-    @endsection
+    </div>
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+@endsection
