@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('photo');
             $table->foreignId('library_id')->constrained('libraries')->onDelete('cascade');
             $table->timestamps();
         });

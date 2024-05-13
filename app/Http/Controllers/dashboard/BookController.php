@@ -95,8 +95,8 @@ class BookController extends Controller
         $books = Book::findOrFail($id);
         try {
             $books->name = $request->name;
-            $books->name = $request->content;
-            $books->name = $request->category_id;
+            $books->content = $request->content;
+            $books->category_id = $request->category_id;
             $books->prefer = $request->prefer;
             $books->publication_date = $request->publication_date;
             $books->author_name = $request->author_name;

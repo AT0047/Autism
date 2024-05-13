@@ -32,8 +32,9 @@ class SocialLinksController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'platform' => 'required|exists:social_links,platform',
+            'platform' => 'required',
             'link' => 'required',
         ]);
         try{
@@ -63,7 +64,7 @@ class SocialLinksController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'platform' => 'required|exists:social_links,platform',
+            'platform' => 'required',
             'link' => 'required',
         ]);
         $socialLink = SocialLinks::findOrFail($id);

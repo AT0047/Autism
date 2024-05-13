@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    public $fillable = ['name', 'library_id'];
+    public $fillable = ['name', 'library_id', 'photo'];
     public function library(){
         return $this->belongsTo(Library::class);
     }

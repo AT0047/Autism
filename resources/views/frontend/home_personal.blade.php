@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <!-- Masthead -->
-    <main id="home" class="masthead jarallax" style="background-image:url('{{asset('home_assets/autism1.jpg')}}');" role="main">
+    <main id="home" class="masthead jarallax" style="background-image:url('{{asset('dashboard/img/'. $homeTitle->photo)}}');" role="main">
         <!-- Lines -->
         <div class="lines">
             <div class="container">
@@ -17,8 +17,7 @@
             <div class="container">
                 <div class="row mx-0">
                     <div class="col-md-4 px-0">
-                        <h1 class="my-0"><span class="text-primary">Autism&ME,</span> Training to transform
-                            children’s lives</h1>
+                        <h1 class="my-0"><span class="text-primary">{{$homeTitle->title}}</h1>
                     </div>
                 </div>
             </div>
@@ -43,16 +42,21 @@
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div
                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                            <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about2.jpg')}}">
+                            @if($myStory1->photo == null)
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about1.jpg')}}">
+                            @else
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory1->photo )}}">
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0">
-                        <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">In Argentina, <span
+                        {{-- <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">In Argentina, <span
                                 class="text-primary">WHO and partner</span>Training (CST) programme.<br> <span
-                                class="text-primary">around</span></h2>
+                                class="text-primary">around</span></h2> --}}
+                        <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{$myStory1->title1}}</h2>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about1.jpg')}}">
+                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory2->photo)}}">
                     </div>
                 </div>
             </section>
@@ -62,18 +66,18 @@
             <div class="container">
                 <div class="row mx-0 align-items-center">
                     <div class="col-md-6 order-md-2 order-lg-1 col-lg-4 px-0">
-                        <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
+                        {{-- <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
                             data-aos="fade-right">I <span class="text-primary">use</span> is a long established fact
-                            that a reader</h2>
+                            that a reader</h2> --}}
+                        <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
+                            data-aos="fade-right">{{$myStory2->title2}}</h2>
                     </div>
                     <div class="col-md-6 order-md-1 order-lg-2 col-lg-4 px-0" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about3.jpg')}}">
+                        <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory3->photo)}}">
                     </div>
                     <div class="col-md-6 offset-md-6 offset-lg-0 order-md-3 order-lg-3 col-lg-4 mt-5 pl-0 pl-md-30 mt-md-0"
                         data-aos="fade-up">
-                        <p class="mb-0 pl-md-30px">We have experience in implementing projects for many large domestic
-                            and foreign corporations, enterprises in many elds such as nance, banking, F&B, education,
-                            communication.</p>
+                        <p class="mb-0 pl-md-30px">{{$myStory3->content}}</p>
                     </div>
                 </div>
             </div>
@@ -82,16 +86,15 @@
             <section class="container">
                 <div class="row mx-0 align-items-center">
                     <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
-                        <img alt="" class="w-100" style="border-radius: 10px; " src="{{asset('home_assets/doctor.jpg')}}">
+                        <img alt="" class="w-100" style="border-radius: 10px; " src="{{asset('storage/'.$aboutUs->dr_photo)}}">
                     </div>
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div
                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
-                                    class="text-primary">mission</span> is develope the best websites<br> <span
-                                    class="text-primary">around</span></h2>
+                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->dr_name }}</h2>
+                            <h5 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->job_specialization }}</h5>
                         </div>
-                        <a href= "about me/index.html"><button type="submit" class="btn"
+                        <a href= "{{ route('frontend.aboutUs.index') }}" target="_blank"><button type="submit" class="btn"
                                 style="border-radius: 10%; margin: 100px;">take a look</button></a>
                     </div>
                 </div>
@@ -109,95 +112,21 @@
                 </div>
                 <div class="row">
                     <!-- Panel #1 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/1.svg" alt="target">
+                    @foreach($ourServices as $ourService)
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <div class="feature-panel">
+                                <div class="feature-img">
+                                    <img src="{{asset('dashboard/img/'.$ourService->photo)}}" alt="target">
+                                </div>
+                                <div class="feature-content">
+                                    <h3>{{$ourService->title}}</h3>
+                                    <p>{!! $ourService->description !!}</p>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h3>Primary Care</h3>
-                                <p>Physicians provide comprehensive medical evaluations and primary care for patients of
-                                    all ages.</p>
-                            </div>
+                            <!-- .feature-panel end -->
                         </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
-                    <!-- Panel #2 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/2.svg" alt="target">
-                            </div>
-                            <div class="feature-content">
-                                <h3>Sport Medicine</h3>
-                                <p>Our team personalizes each athlete’s treatment based on his/her sport and age growing
-                                    bodies.</p>
-                            </div>
-                        </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
-                    <!-- Panel #3 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/3.svg" alt="target">
-                            </div>
-                            <div class="feature-content">
-                                <h3>Emergency Medicine</h3>
-                                <p>Our clinic is always ready for urgent care such as Fractures, Infections, Bites,
-                                    Minor Burns, Ear Aches, etc..</p>
-                            </div>
-                        </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
-                    <!-- Panel #4 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/4.svg" alt="target">
-                            </div>
-                            <div class="feature-content">
-                                <h3>Cardiology</h3>
-                                <p>Our cardiologists are skilled at diagnosing and treating diseases of the
-                                    cardiovascular system.</p>
-                            </div>
-                        </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
-                    <!-- Panel #5 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/5.svg" alt="target">
-                            </div>
-                            <div class="feature-content">
-                                <h3>General Surgery</h3>
-                                <p>New surgical latest technology allows us to provide minimally invasive options when
-                                    possible.</p>
-                            </div>
-                        </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
-                    <!-- Panel #6 -->
-                    <div class="col-12 col-md-4 col-lg-4">
-                        <div class="feature-panel">
-                            <div class="feature-img">
-                                <img src="ourserveses/images/icons/6.svg" alt="target">
-                            </div>
-                            <div class="feature-content">
-                                <h3>Infectious Disease</h3>
-                                <p>We have extra training in the diagnosis of illnesses and infections caused by
-                                    bacteria, viruses and fungi.</p>
-                            </div>
-                        </div>
-                        <!-- .feature-panel end -->
-                    </div>
-                    <!-- .col-md-4 end -->
+                    @endforeach
+                        <!-- .col-md-4 end -->
                 </div>
                 <!-- .row end -->
             </div>
@@ -218,94 +147,25 @@
                         <div class="testimonial-slider-area">
                             <div class="swiper-container testimonial-slider-active">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="single-testimonial-item" data-aos="fade-up">
-                                            <div class="testimonial-post-author">
-                                                <div class="testimonial-author-image">
-                                                    <img src="assets/images/author/testimonial-1.png" alt="">
+                                    @foreach($peopleStories as $peopleStory)
+                                        <div class="swiper-slide">
+                                            <div class="single-testimonial-item" data-aos="fade-up">
+                                                <div class="testimonial-post-author">
+                                                    <div class="testimonial-author-image">
+                                                        <img src="{{asset('dashboard/img/'.$peopleStory->photo)}}" alt="">
+                                                    </div>
+                                                    <div class="testimonial-author-info">
+                                                        <h4>{{$peopleStory->name}}</h4>
+                                                        <p>{{$peopleStory->job}}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="testimonial-author-info">
-                                                    <h4>Bansten Smith</h4>
-                                                    <p>WEB DEVELOPER</p>
+                                                <div class="testimonial-post-content">
+                                                    <h5 class="testimonial-post-title">{{$peopleStory->title}}</h5>
+                                                    <p>{!! $peopleStory->content !!}</p>
                                                 </div>
-                                            </div>
-                                            <div class="testimonial-post-content">
-                                                <h5 class="testimonial-post-title">Printer took a galley of type and
-                                                    scrambled to make book.</h5>
-                                                <p>Lorem has been them indust standard
-                                                    unknown printer took galley text printing
-                                                    and typesetting industry been industry
-                                                    standard dummy ever.
-                                                </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="single-testimonial-item" data-aos="fade-up">
-                                            <div class="testimonial-post-author">
-                                                <div class="testimonial-author-image">
-                                                    <img src="assets/images/author/testimonial-2.png" alt="">
-                                                </div>
-                                                <div class="testimonial-author-info">
-                                                    <h4>Rosario Ferraro</h4>
-                                                    <p>MARKETER</p>
-                                                </div>
-                                            </div>
-                                            <div class="testimonial-post-content">
-                                                <h5 class="testimonial-post-title">Printer took a galley of type and
-                                                    scrambled to make book.</h5>
-                                                <p>Lorem has been them indust standard
-                                                    unknown printer took galley text printing
-                                                    and typesetting industry been industry
-                                                    standard dummy ever.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="single-testimonial-item" data-aos="fade-up">
-                                            <div class="testimonial-post-author">
-                                                <div class="testimonial-author-image">
-                                                    <img src="assets/images/author/testimonial-3.png" alt="">
-                                                </div>
-                                                <div class="testimonial-author-info">
-                                                    <h4>Bansten Smith</h4>
-                                                    <p>UI/UX DESIGNER</p>
-                                                </div>
-                                            </div>
-                                            <div class="testimonial-post-content">
-                                                <h5 class="testimonial-post-title">Printer took a galley of type and
-                                                    scrambled to make book.</h5>
-                                                <p>Lorem has been them indust standard
-                                                    unknown printer took galley text printing
-                                                    and typesetting industry been industry
-                                                    standard dummy ever.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="single-testimonial-item" data-aos="fade-up">
-                                            <div class="testimonial-post-author">
-                                                <div class="testimonial-author-image">
-                                                    <img src="assets/images/author/testimonial-1.png" alt="">
-                                                </div>
-                                                <div class="testimonial-author-info">
-                                                    <h4>Bansten Smith</h4>
-                                                    <p>UI/UX DESIGNER</p>
-                                                </div>
-                                            </div>
-                                            <div class="testimonial-post-content">
-                                                <h5 class="testimonial-post-title">Printer took a galley of type and
-                                                    scrambled to make book.</h5>
-                                                <p>Lorem has been them indust standard
-                                                    unknown printer took galley text printing
-                                                    and typesetting industry been industry
-                                                    standard dummy ever.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="testimonial-slider-navigation">

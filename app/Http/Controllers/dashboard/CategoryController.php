@@ -5,12 +5,14 @@ namespace App\Http\Controllers\dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Library;
+use App\Traits\upload_imgs;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
+    use upload_imgs;
     /**
      * Display a listing of the resource.
      */
@@ -42,6 +44,7 @@ class CategoryController extends Controller
             Category::create([
                 'name' => $request->name,
                 'library_id' => $request->library_id,
+                'photo' =>  $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories','upload_imgs')
             ]);
             return redirect()->route('categories.index')->with('message', 'Entery Add Successfully');
         }catch(Exception $e){

@@ -39,6 +39,7 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
+                                <th scope="col" class="sort" data-sort="Photo">Photo</th>
                                 <th scope="col" class="sort" data-sort="Name">Name</th>
                                 <th scope="col" class="sort" data-sort="Libraries">Libraries</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
@@ -49,8 +50,16 @@
                         <tbody class="list">
                             @forelse($categories as $key => $category)
                                 <tr>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <a class="avatar  mr-3">
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/' . $category->photo) }}" />
+                                            </a>
+                                        </div>
+                                    </th>
                                     <td class="Name">
-                                        {{ $category->name }}
+                                    {{ $category->name }}
                                     </td>
                                     <td class="Libraries">
                                         {{ $category->library->name }}

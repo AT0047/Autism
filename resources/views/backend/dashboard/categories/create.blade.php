@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{ route('categories.store') }}" method ="POST">
+                        <form action ="{{ route('categories.store') }}" method ="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Name</label>
                                             <input type="text" value="{{ old('name') }}" name="name"
-                                                class="form-control" placeholder="Write Library Name Here">
+                                                class="form-control" placeholder="Write Category Name Here">
                                             @error('name')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
@@ -43,15 +43,23 @@
                                             <label class="form-control-label" for="input-username">Libraries</label>
                                             <select name="library_id" class ="form-control">
                                                 <option disabled selected value="">Select Library</option>
-                                                @foreach($libraries as $id => $name)
-                                                    <option value="{{$id}}">{{$name}}</option>
+                                                @foreach ($libraries as $id => $name)
+                                                    <option value="{{ $id }}">{{ $name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('library_id')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
+                                                </div>
                                             @enderror
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="pl-lg-4 ">
+                                <label class="form-control-label ">Upload Image</label>
+                                <div class="input-group">
+                                    <input type="file" name="photo" class="form-control" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                 </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">

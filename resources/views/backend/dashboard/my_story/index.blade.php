@@ -61,13 +61,13 @@
                                         </div>
                                     </th>
                                     <td class="Title 1">
-                                        {{ $mystory->title1 }}
+                                        {!! Str::limit($mystory->title1, 15)  !!}
                                     </td>
                                     <td class="Title 2">
-                                        {{ $mystory->title2 }}
+                                        {!! Str::limit($mystory->title2, 15)  !!}
                                     </td>
                                     <td class="Contant">
-                                        {{ $mystory->content }}
+                                        {!! Str::limit($mystory->content, 15)  !!}
                                     </td>
                                     <td class="Created At">
                                         {{ $mystory->created_at->diffForHumans() }}

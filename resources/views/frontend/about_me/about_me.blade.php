@@ -34,7 +34,7 @@
                 <div class="section-bg mask"
                     style="background-image:url({{ asset('storage/' . ($media->sec2_photo ?? '')) }});"></div>
                 <div class="scrollable-content">
-                    <div class="vertical-title d-none d-lg-block"><span>resume</span></div>
+                    <div class="vertical-title d-none d-lg-block"><span></span></div>
                     <div class="vertical-centred">
                         <div class="boxed boxed-inner">
                             <div class="boxed">
@@ -96,7 +96,7 @@
                     @endforeach
                 </div>
                 <div class="scrollable-content">
-                    <div class="vertical-title  d-none d-lg-block"><span>my works</span></div>
+                    <div class="vertical-title  d-none d-lg-block"><span></span></div>
                     <div class="vertical-centred">
                         <div class="boxed boxed-inner">
                             <div class="boxed">

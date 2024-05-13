@@ -46,11 +46,11 @@
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
                                     <label class="form-control-label ">Content</label>
-                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter post title">{{old('content')}}</textarea>
+                                    <textarea id="content" name="content" rows="19" class="form-control " placeholder="Enter Content Here">{{old('content')}}</textarea>
                                 </div>
                             </div>
                             <div class="pl-lg-4 ">
-                                <label class="form-control-label ">Upload image</label>
+                                <label class="form-control-label ">Upload Image</label>
                                 <div class="input-group">
                                     <input type="file" name="photo" class="form-control" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04" aria-label="Upload">

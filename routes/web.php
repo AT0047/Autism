@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\BookController;
+use App\Http\Controllers\dashboard\BookQuestionController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\dashboard\LibraryController;
 use App\Http\Controllers\dashboard\AboutEducationController;
@@ -13,7 +14,10 @@ use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
+use App\Http\Controllers\dashboard\TitleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\website\ArticleController;
+use App\Http\Controllers\website\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\website\AboutUsFrontController;
 
@@ -60,6 +64,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('our-services', OurServiceController::class);
         // <--------------------------Our Services End------------------------------------->
 
+        // <--------------------------Our Services Start------------------------------------->
+        Route::resource('titles', TitleController::class);
+        // <--------------------------Our Services End------------------------------------->
+
         // <--------------------------Libraries Start------------------------------------->
         Route::resource('libraries', LibraryController::class);
         // <--------------------------Libraries End------------------------------------->
@@ -69,8 +77,34 @@ Route::middleware('auth')->group(function () {
         // <--------------------------Categories End------------------------------------->
 
         // <--------------------------Books Start------------------------------------->
-        Route::resource('books', BookController::class);
+        Route::prefix('books')->as('books.')->group(function (){
+            Route::get('/' , [BookController::class, 'index'])->name('index');
+            Route::get('/create' , [BookController::class, 'create'])->name('create');
+            Route::post('/store' , [BookController::class, 'store'])->name('store');
+            Route::get('/edit/{id}' , [BookController::class, 'edit'])->name('edit');
+            Route::patch('/update/{id}' , [BookController::class, 'update'])->name('update');
+            Route::delete('/destroy/{id}' , [BookController::class, 'destroy'])->name('destroy');
+            Route::prefix('book-questions')->as('book-questions.')->group(function (){
+                Route::get('/{book_id}' , [BookQuestionController::class, 'index'])->name('index');
+                Route::get('/{book_id}/create' , [BookQuestionController::class, 'create'])->name('create');
+                Route::post('/{book_id}/store' , [BookQuestionController::class, 'store'])->name('store');
+            });
+        });
         // <--------------------------Books End------------------------------------->
+
+        // <--------------------------Book Questions Start------------------------------------->
+        Route::prefix('book-questions')->as('book-questions.')->group(function (){
+            Route::get('/{id}/edit' , [BookQuestionController::class, 'edit'])->name('edit');
+            Route::patch('/update/{id}' , [BookQuestionController::class, 'update'])->name('update');
+            Route::delete('/{id}/destroy' , [BookQuestionController::class, 'destroy'])->name('destroy');
+        });
+        // <--------------------------Book Questions End------------------------------------->
+        //start about us
+        Route::resource('about-us', AboutUsController::class);
+        Route::resource('about-education', AboutEducationController::class);
+        Route::resource('about-experience', AboutExperienceController::class);
+        Route::resource('about-sec3', AboutSec3Controller::class);
+        Route::resource('about-photos', AboutPhotoController::class);
     });
 });
 
@@ -88,9 +122,15 @@ Route::get('/frontend/home', function () {
     return view('frontend.home_personal');
 });
 
-Route::get('/frontend/articles', function () {
-    return view('frontend.articles.articles');
+Route::prefix('Autism&Me')->as('Autism&Me.')->group(function(){
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
+    Route::get('/articles', [ArticleController::class, 'articles'])->name('articles');
+    Route::get('/articles/{id}/book_detials', [ArticleController::class, 'bookDetails'])->name('bookDetails');
 });
+
+
+
+
 
 Route::get('/frontend/articles/blog_details', function () {
     return view('frontend.articles.blog_details');

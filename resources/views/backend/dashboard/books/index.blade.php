@@ -66,7 +66,7 @@
                                         </div>
                                     </th>
                                     <td class="content">
-                                        {!! Str::limit($book->content, 15)  !!}
+                                        {!! Str::limit($book->content, 15) !!}
                                     </td>
                                     <td class="Categories">
                                         {{ $book->category->name }}
@@ -115,6 +115,8 @@
                                                     @method('delete')
                                                     <button class="dropdown-item">Delete</button>
                                                 </form>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('books.book-questions.index', $book->id) }}">Q&As</a>
                                             </div>
                                         </div>
                                     </td>

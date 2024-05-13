@@ -66,12 +66,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('mystory.index') }}">
+                            <a class="nav-link" href="{{ route('titles.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">My Story Section</span>
+                                <span class="nav-link-text">Titles</span>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mystory.index') }}">
+                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <span class="nav-link-text">My Story</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('social-links.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
@@ -108,26 +113,32 @@
                                 <span class="nav-link-text">Books</span>
                             </a>
                         </li>
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light"
+                            style="background-color: white !important;">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="collapse" href="#aboutSubMenu" aria-expanded="false" aria-controls="aboutSubMenu">
+                                <li class="nav-item" style="margin-left: 7px;margin-top: -13px;">
+                                    <a class="nav-link" data-toggle="collapse" href="#aboutSubMenu"
+                                        aria-expanded="false" aria-controls="aboutSubMenu">
                                         <i class="ni fa fa-list-alt text-default"></i>
                                         <span class="nav-link-text">About us</span>
                                     </a>
                                     <div class="collapse" id="aboutSubMenu">
                                         <ul class="nav flex-column ml-3">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about-us.create') }}">About Doctor</a>
+                                                <a class="nav-link" href="{{ route('about-us.create') }}">About
+                                                    Doctor</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about-education.index') }}">About Education</a>
+                                                <a class="nav-link" href="{{ route('about-education.index') }}">About
+                                                    Education</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about-experience.index') }}">About Experience</a>
+                                                <a class="nav-link"
+                                                    href="{{ route('about-experience.index') }}">About Experience</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about-sec3.index') }}">About (Section three)</a>
+                                                <a class="nav-link" href="{{ route('about-sec3.index') }}">About
+                                                    (Section three)</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('about-sec4.index') }}">About (Section four)</a>
@@ -140,7 +151,6 @@
                                 </li>
                             </ul>
                         </nav>
-                    
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -181,7 +191,7 @@
                         </button>
                     </form>
                     <div class="col-lg-6 col-5 text-right" style="margin-left: 17%;">
-                        <a href="{{ url('/frontend/home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
+                        <a href="{{ route('Autism&Me.home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
                             Site</a>
                     </div>
                     <!-- Navbar links -->
@@ -504,10 +514,10 @@
             </div>
         </div> --}}
         @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-       @endif
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         @yield('content')
     </div>
     <!-- Argon Scripts -->

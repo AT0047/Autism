@@ -30,31 +30,41 @@
                 <span class="close-menu icon-cross2 right-boxed"></span>
                 <ul class="menu-list right-boxed">
                     <li data-menuanchor="page1">
-                        <a href="../home-personal.html">Home</a>
+                        <a href="{{ route('Autism&Me.home') }}">Home</a>
                     </li>
                     <li data-menuanchor="page1">
-                        <a href="../Articles.html">Articles</a>
+                        <a href="{{ route('Autism&Me.articles') }}">Articles</a>
                     </li>
                 </ul>
                 <div class="menu-footer right-boxed">
                     <div class="social-list">
-                        <a href="" class="icon ion-social-twitter"></a>
-                        <a href="" class="icon ion-social-facebook"></a>
-                        <a href="" class="icon ion-social-googleplus"></a>
-                        <a href="" class="icon ion-social-linkedin"></a>
-                        <a href="" class="icon ion-social-dribbble-outline"></a>
-                    </div>
-                    <div class="copy">© Ramsay 2019. All Rights Reseverd</div>
+                        @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
+                        <a href="{{ $facebook }}" target="_blank" class="icon ion-social-facebook"></a>
+                        @php($twitter = App\Models\SocialLinks::where('platform', 'twitter')->pluck('link')->first())
+                        <a href="{{ $twitter }}" target="_blank" class="icon ion-social-twitter"></a>
+                        @php($linkedin = App\Models\SocialLinks::where('platform', 'linkedin')->pluck('link')->first())
+                        <a href="{{ $linkedin }}" target="_blank" class="icon ion-social-linkedin"></a>
+                        @php($youtube = App\Models\SocialLinks::where('platform', 'youtube')->pluck('link')->first())
+                        <a href="{{ $youtube }}" target="_blank" class="icon ion-social-youtube"></a>
+                        @php($instagram = App\Models\SocialLinks::where('platform', 'instagram')->pluck('link')->first())
+                        <a href="{{ $instagram }}" target="_blank" class="icon ion-social-instagram"></a>
+                            </div>
+                    <div class="copy">© Autism {{ now()->year }}. All Rights Reserved</div>
                 </div>
             </div>
-            <div class="copy-bottom white boxed">© Ramsay 2019.</div>
+            <div class="copy-bottom white boxed">© Autism {{ now()->year }}.</div>
             <div class="social-list social-list-bottom boxed">
-                <a href="" class="icon ion-social-twitter"></a>
-                <a href="" class="icon ion-social-facebook"></a>
-                <a href="" class="icon ion-social-googleplus"></a>
-                <a href="" class="icon ion-social-linkedin"></a>
-                <a href="" class="icon ion-social-dribbble-outline"></a>
-            </div>
+                @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
+                <a href="{{ $facebook }}" target="_blank" class="icon ion-social-facebook"></a>
+                @php($twitter = App\Models\SocialLinks::where('platform', 'twitter')->pluck('link')->first())
+                <a href="{{ $twitter }}" target="_blank" class="icon ion-social-twitter"></a>
+                @php($linkedin = App\Models\SocialLinks::where('platform', 'linkedin')->pluck('link')->first())
+                <a href="{{ $linkedin }}" target="_blank" class="icon ion-social-linkedin"></a>
+                @php($youtube = App\Models\SocialLinks::where('platform', 'youtube')->pluck('link')->first())
+                <a href="{{ $youtube }}" target="_blank" class="icon ion-social-youtube"></a>
+                @php($instagram = App\Models\SocialLinks::where('platform', 'instagram')->pluck('link')->first())
+                <a href="{{ $instagram }}" target="_blank" class="icon ion-social-instagram"></a>
+    </div>
             @yield('content')
         </div>
         <script src="{{ asset('about_me_assets/js/jquery.min.js') }}"></script>
