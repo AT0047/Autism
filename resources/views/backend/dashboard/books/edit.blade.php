@@ -19,7 +19,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-username">Name</label>
+                                        <label class="form-control-label" for="input-username">Book Title</label>
                                         <input type="text" value="{{ old('name', $books->name) }}" name="name"
                                             class="form-control" placeholder="Write Book's Title Here">
                                         @error('name')
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-username">books</label>
+                                        <label class="form-control-label" for="input-username">Category Name</label>
                                         <select name="category_id" class ="form-control">
                                             <option disabled selected value="">Select Category</option>
                                             @foreach ($categories as $id => $name)
@@ -55,7 +55,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-username">Author Name</label>
+                                        <label class="form-control-label" for="input-username">Author's Name</label>
                                         <input type="text" value="{{ old('author_name', $books->author_name) }}"
                                             name="author_name" class="form-control" placeholder="Write Author Name Here">
                                         @error('author_name')

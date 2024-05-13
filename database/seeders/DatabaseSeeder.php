@@ -23,7 +23,11 @@ class DatabaseSeeder extends Seeder
             TitleSeeder::class,
             MyStorySeeder::class,
             OurServicesSeeder::class,
+            SocialLinksSeeder::class,
             PeopleStoriesSeeder::class,
+            LibrarySeeder::class,
+            CategorySeeder::class,
+            BookSeeder::class,
         ]);
     }
 }

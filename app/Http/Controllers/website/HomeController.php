@@ -4,6 +4,7 @@ namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\Book;
 use App\Models\MyStory;
 use App\Models\OurService;
 use App\Models\PeopleStory;
@@ -31,6 +32,10 @@ class HomeController extends Controller
 
 
 
+        // ----------------- News ------------------
+        $preferredBooks = Book::where('prefer',1)->get(); 
+
+
         return view('frontend.home_personal',[
             'myStory1' => $myStory1,
             'myStory2' => $myStory2,
@@ -39,6 +44,7 @@ class HomeController extends Controller
             'peopleStories' => $peopleStories,
             'homeTitle' => $homeTitle,
             'aboutUs' => $aboutUs,
+            'preferredBooks' => $preferredBooks
         ]);
     }
 }

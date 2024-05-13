@@ -7,9 +7,9 @@
             <ul class="navbar-nav navbar-nav-desctop  d-none d-lg-block">
                 <li><a class="nav-link" href="{{route('Autism&Me.home')}}">Home</a></li>
                 <li><a class="nav-link" href="{{ route('frontend.aboutUs.index') }}">About us</a></li>
-                <li><a class="nav-link" href="#mystory">my story</a></li>
+                <li><a class="nav-link" href="{{route('Autism&Me.home', '#mystory')}}">My Story</a></li>
                 <li><a class="nav-link" href="{{route('Autism&Me.articles')}}">Articles</a></li>
-                <li><a class="nav-link" href="#services">Our service</a></li>
+                <li><a class="nav-link" href="{{route('Autism&Me.home', '#services')}}">Our Service</a></li>
             </ul>
             <!-- Social -->
             <ul class="social-icons d-none d-lg-block">

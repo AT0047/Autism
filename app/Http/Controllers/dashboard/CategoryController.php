@@ -71,10 +71,16 @@ class CategoryController extends Controller
         ]);
         $Category = Category::findOrFail($id);
         try{
-            $Category->update([
-                'name' => $request->name,
-                'library_id' => $request->library_id,
-            ]);
+            $Category->name = $request->name;
+            $Category->library_id = $request->library_id;
+            if($request->has('photo')){
+                if($Category->photo){
+                    $oldImg = $Category->photo;
+                    $Category->photo = $this->deleteImg('upload_imgs', $oldImg);
+                }
+            $Category->photo = $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories','upload_imgs');
+            }
+            $Category->save();
             return redirect()->route('categories.index')->with('message', 'Entery Updated Successfully');
         }catch(Exception $e){
             Log::info($e->getMessage());
@@ -88,7 +94,12 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         try{
-            Category::findOrFail($id)->delete();
+            $Category = Category::findOrFail($id);
+            if($Category->photo){
+                $oldImg = $Category->photo;
+                $this->deleteImg('upload_imgs', $oldImg);
+            }
+            $Category->delete();
             return redirect()->route('categories.index')->with('message', 'Entery Deleted Successfully');
         }catch(Exception $e){
             Log::info($e->getMessage());
