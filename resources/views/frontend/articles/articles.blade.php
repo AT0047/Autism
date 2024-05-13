@@ -28,7 +28,7 @@
                             <div class="col-lg-5">
                                 <div class="hero-five-category" data-aos="fade-up">
                                     @foreach ($libraries as $library)
-                                        <a href="#Category" class="btn-large woocommerce">{{ $library->name }}</a>
+                                        <a href="{{route('Autism&Me.libraryDetails', $library->id)}}" class="btn-large woocommerce">{{ $library->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
                     <div class="row row--30">
+                            @foreach ($books as $book)
                         <div class="col-lg-6 col-md-6">
                             <!-- Single Most Populer Item Start -->
-                            @foreach ($books as $book)
                                 <div class="single-most-populer-item" data-aos="fade-up">
                                     <a href="{{route('Autism&Me.bookDetails', $book->id)}}" class="most-populer-thum">
                                         <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
@@ -59,7 +59,7 @@
                                         </div>
                                         <h3 class="title"><a href="{{route('Autism&Me.bookDetails', $book->id)}}">{{ $book->name }}</a>
                                         </h3>
-                                        <p class="dec mt-2">{!! Str::limit($book->content, 15)  !!}</p>
+                                        {{-- <p class="dec mt-2">{!! Str::limit($book->content, 15)  !!}</p> --}}
                                         <div class="most-populer-post-meta">
                                             <span class="post-date">
                                                 <a href="{{route('Autism&Me.bookDetails', $book->id)}}">{{ $book->publication_date }}</a>
@@ -68,9 +68,9 @@
                                         </div>
                                     </div>
                                 </div><!-- Single Most Populer Item End -->
-                            @endforeach
                         </div>
-                        <livewire:show_books>
+                            @endforeach
+                        {{-- <livewire:show_books> --}}
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -99,8 +99,8 @@
                                 <h4>Category</h4>
                             </div>
                             <!-- Single Archive Post Start -->
-                            <div class="single-archive-post" data-aos="fade-up">
                                 @foreach ($categories as $category)
+                            <div class="single-archive-post" data-aos="fade-up">
                                     <div class="archive-post-thum">
                                         <a href="Articles.html">
                                             <img src="{{ asset('dashboard/img/' . $category->photo) }}" alt="">
@@ -118,8 +118,8 @@
                                             {{-- <span>10 min read</span> --}}
                                         </div>
                                     </div>
-                                @endforeach
                             </div><!-- Single Archive Post End -->
+                                @endforeach
                         </div>
                         <!-- Add Banner Area Start -->
                         <div class="add-banner-area mt-5" data-aos="fade-up">
@@ -246,94 +246,20 @@
                                 </div>
                                 <div class="row">
                                     <!-- Panel #1 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/1.svg" alt="target">
+                                    @foreach($ourServices as $ourService)
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <div class="feature-panel">
+                                                <div class="feature-img">
+                                                    <img src="{{asset('dashboard/img/'.$ourService->photo)}}" alt="target">
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h3>{{$ourService->title}}</h3>
+                                                    <p>{!! $ourService->description !!}.</p>
+                                                </div>
                                             </div>
-                                            <div class="feature-content">
-                                                <h3>Primary Care</h3>
-                                                <p>Physicians provide comprehensive medical evaluations and primary care
-                                                    for patients of all ages.</p>
-                                            </div>
+                                            <!-- .feature-panel end -->
                                         </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
-                                    <!-- .col-md-4 end -->
-                                    <!-- Panel #2 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/2.svg" alt="target">
-                                            </div>
-                                            <div class="feature-content">
-                                                <h3>Sport Medicine</h3>
-                                                <p>Our team personalizes each athlete’s treatment based on his/her sport
-                                                    and age growing bodies.</p>
-                                            </div>
-                                        </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
-                                    <!-- .col-md-4 end -->
-                                    <!-- Panel #3 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/3.svg" alt="target">
-                                            </div>
-                                            <div class="feature-content">
-                                                <h3>Emergency Medicine</h3>
-                                                <p>Our clinic is always ready for urgent care such as Fractures,
-                                                    Infections, Bites, Minor Burns, Ear Aches, etc..</p>
-                                            </div>
-                                        </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
-                                    <!-- .col-md-4 end -->
-                                    <!-- Panel #4 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/4.svg" alt="target">
-                                            </div>
-                                            <div class="feature-content">
-                                                <h3>Cardiology</h3>
-                                                <p>Our cardiologists are skilled at diagnosing and treating diseases of
-                                                    the cardiovascular system.</p>
-                                            </div>
-                                        </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
-                                    <!-- .col-md-4 end -->
-                                    <!-- Panel #5 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/5.svg" alt="target">
-                                            </div>
-                                            <div class="feature-content">
-                                                <h3>General Surgery</h3>
-                                                <p>New surgical latest technology allows us to provide minimally
-                                                    invasive options when possible.</p>
-                                            </div>
-                                        </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
-                                    <!-- .col-md-4 end -->
-                                    <!-- Panel #6 -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <div class="feature-panel">
-                                            <div class="feature-img">
-                                                <img src="ourserveses/images/icons/6.svg" alt="target">
-                                            </div>
-                                            <div class="feature-content">
-                                                <h3>Infectious Disease</h3>
-                                                <p>We have extra training in the diagnosis of illnesses and infections
-                                                    caused by bacteria, viruses and fungi.</p>
-                                            </div>
-                                        </div>
-                                        <!-- .feature-panel end -->
-                                    </div>
+                                    @endforeach
                                     <!-- .col-md-4 end -->
                                 </div>
                                 <!-- .row end -->
@@ -343,48 +269,21 @@
                     </div>
                     <div class="col content-div" id="content3">
                         <section class="section pb-0">
-                            <div class="row mx-0 align-items-center" data-aos="fade-up">
-                                <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                                    <a href="#">
-                                        <figure class="hover"><img alt="" class="w-100"
-                                                style="border-radius: 10px;" src="img/news/news.jpg"></figure>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                                    <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a>
-                                    </h4>
-                                    <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
-                                        06, 2020</p>
-                                </div>
+                    @foreach($preferredBooks as $preferredBook)
+                        <div class="row mx-0 align-items-center" data-aos="fade-up">
+                            <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
+                                <a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}">
+                                    <figure class="hover"><img alt="" class="w-100"
+                                            style="border-radius: 10px;" src="{{asset('dashboard/img/'. $preferredBook->photo)}}"></figure>
+                                </a>
                             </div>
-                            <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
-                                <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                                    <a href="#">
-                                        <figure class="hover"><img alt="" style="border-radius: 10px;"
-                                                class="w-100" src="img/news/news.jpg"></figure>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                                    <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a>
-                                    </h4>
-                                    <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
-                                        06, 2020</p>
-                                </div>
+                            <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
+                                <h4 class="my-0 mb-2"><a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}">{{$preferredBook->name}}</a></h4>
+                                <p><a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}" class="text-dark font-weight-bold">{{$preferredBook->author_name}}</a> / {{$preferredBook->publication_date}}
+                                </p>
                             </div>
-                            <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
-                                <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                                    <a href="#">
-                                        <figure class="hover"><img alt="" style="border-radius: 10px;"
-                                                class="w-100" src="img/news/news.jpg"></figure>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                                    <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a>
-                                    </h4>
-                                    <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June
-                                        06, 2020</p>
-                                </div>
-                            </div>
+                        </div>
+                    @endforeach
                         </section>
                     </div>
                 </div>

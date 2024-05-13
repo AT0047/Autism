@@ -110,6 +110,7 @@ Route::prefix('Autism&Me')->as('Autism&Me.')->group(function(){
     Route::get('/home', [HomeController::class, 'home'])->name('home');
     Route::get('/articles', [ArticleController::class, 'articles'])->name('articles');
     Route::get('/articles/{id}/book_detials', [ArticleController::class, 'bookDetails'])->name('bookDetails');
+    Route::get('/articles/library/{id}', [ArticleController::class, 'libraryDetails'])->name('libraryDetails');
 });
 
 

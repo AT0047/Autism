@@ -40,7 +40,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="Name">Name</th>
-                                <th scope="col" class="sort" data-sort="content">Content</th>
+                                {{-- <th scope="col" class="sort" data-sort="content">Content</th> --}}
                                 <th scope="col" class="sort" data-sort="categories">Categories</th>
                                 <th scope="col" class="sort" data-sort="prefer">Prefer Stauts</th>
                                 <th scope="col" class="sort" data-sort="video">Video</th>
@@ -65,9 +65,9 @@
                                             </div>
                                         </div>
                                     </th>
-                                    <td class="content">
+                                    {{-- <td class="content">
                                         {!! Str::limit($book->content, 15) !!}
-                                    </td>
+                                    </td> --}}
                                     <td class="Categories">
                                         {{ $book->category->name }}
                                     </td>

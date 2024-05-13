@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\BookQuestion;
 use App\Models\Category;
 use App\Models\Library;
+use App\Models\OurService;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -25,21 +26,68 @@ class ArticleController extends Controller
         // ----------------- Books ------------------
         $books = Book::all();
 
+        // ----------------- Our Services ------------------
+        $ourServices = OurService::all();
+
+        // ----------------- News ------------------
+        $preferredBooks = Book::where('prefer',1)->get(); 
+
         return view('frontend.articles.articles',[
-            'libraries' => $libraries,
             'title' => $title,
+            'libraries' => $libraries,
             'categories' => $categories,
-            'books' => $books
+            'books' => $books,
+            'ourServices' => $ourServices,
+            'preferredBooks' => $preferredBooks
         ]);
     }
 
+
     public function bookDetails($id){
         $bookdetails = Book::findOrFail($id); 
-        $books = Category::findOrFail($id)->books()->get();
-        foreach($books as $book){
-        $bookQ = $book;
+        $category = Book::where('category_id', $bookdetails->category_id)->get();
+        $bookQuestions = BookQuestion::where('book_id', $id)->get();
+        return view('frontend.articles.blog_details', compact('bookdetails', 'category', 'bookQuestions'));
+    }
+
+
+    public function libraryDetails($id){
+        // ----------------- Title ------------------
+        $title = Title::where('place', 'articles')->first();
+
+        // ----------------- Library ------------------
+        $libraries = Library::all();
+        
+        // ----------------- Library Content ------------------
+        $libraryContent = Library::findOrFail($id);
+
+        // ----------------- Library Content ------------------
+        $libraryCategories = Category::where('library_id', $id)->get();
+
+        foreach ($libraryCategories as $libraryCategory){
+            $cate_id = $libraryCategory->id;
         }
-        $questions = BookQuestion::where('book_id', $bookQ->id)->get();
-        return view('frontend.articles.blog_details', compact('books', 'questions', 'bookdetails'));
+        // ----------------- Library Books ------------------
+        $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
+
+        // ----------------- Categories ------------------
+        $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+
+        // ----------------- Our Services ------------------
+        $ourServices = OurService::all();
+
+        // ----------------- News ------------------
+        $preferredBooks = Book::where('prefer',1)->get(); 
+
+        return view('frontend.articles.library_content',[
+            'title' => $title,
+            'libraries' => $libraries,
+            'libraryContent' => $libraryContent,
+            'libraryCategories' => $libraryCategories,
+            'libraryBooks' => $libraryBooks,
+            'preferred_Books' => $preferred_Books,
+            'ourServices' => $ourServices,
+            'preferredBooks' => $preferredBooks
+        ]); 
     }
 }

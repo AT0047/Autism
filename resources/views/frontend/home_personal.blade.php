@@ -189,45 +189,21 @@
                     </div>
                 </div>
                 <section class="section pb-0">
-                    <div class="row mx-0 align-items-center" data-aos="fade-up">
-                        <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                            <a href="#">
-                                <figure class="hover"><img alt="" class="w-100"
-                                        style="border-radius: 10px;" src="img/news/news.jpg"></figure>
-                            </a>
+                    @foreach($preferredBooks as $preferredBook)
+                        <div class="row mx-0 align-items-center" data-aos="fade-up">
+                            <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
+                                <a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}">
+                                    <figure class="hover"><img alt="" class="w-100"
+                                            style="border-radius: 10px;" src="{{asset('dashboard/img/'. $preferredBook->photo)}}"></figure>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
+                                <h4 class="my-0 mb-2"><a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}">{{$preferredBook->name}}</a></h4>
+                                <p><a href="{{route('Autism&Me.bookDetails', $preferredBook->id)}}" class="text-dark font-weight-bold">{{$preferredBook->author_name}}</a> / {{$preferredBook->publication_date}}
+                                </p>
+                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                            <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a></h4>
-                            <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
-                        <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                            <a href="#">
-                                <figure class="hover"><img alt="" style="border-radius: 10px;"
-                                        class="w-100" src="img/news/news.jpg"></figure>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                            <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a></h4>
-                            <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mx-0 align-items-center" style="margin-top: 30px; " data-aos="fade-up">
-                        <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                            <a href="#">
-                                <figure class="hover"><img alt="" style="border-radius: 10px;"
-                                        class="w-100" src="img/news/news.jpg"></figure>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                            <h4 class="my-0 mb-2"><a href="#">Top 20 Illustrations Winners: Academy</a></h4>
-                            <p><a href="#" class="text-dark font-weight-bold">Illustration</a> / June 06, 2020
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
                 </section>
             </div>
         </section>
