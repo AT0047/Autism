@@ -42,10 +42,10 @@
                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                         <div
                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                            @if($myStory1->photo == null)
+                            @if(!isset($myStory->photo1))
                                 <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about1.jpg')}}">
                             @else
-                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory1->photo )}}">
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory->photo1 )}}">
                             @endif
                         </div>
                     </div>
@@ -53,13 +53,13 @@
                         {{-- <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">In Argentina, <span
                                 class="text-primary">WHO and partner</span>Training (CST) programme.<br> <span
                                 class="text-primary">around</span></h2> --}}
-                        <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{$myStory1->title1}}</h2>
+                        <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{$myStory->title1}}</h2>
                     </div>
                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                            @if($myStory2->photo == null)
+                            @if(!isset($myStory->photo2))
                                 <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about2.jpg')}}">
                             @else
-                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory2->photo )}}">
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory->photo2 )}}">
                             @endif
                     </div>
                 </div>
@@ -74,18 +74,18 @@
                             data-aos="fade-right">I <span class="text-primary">use</span> is a long established fact
                             that a reader</h2> --}}
                         <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
-                            data-aos="fade-right">{{$myStory2->title2}}</h2>
+                            data-aos="fade-right">{{$myStory->title2}}</h2>
                     </div>
                     <div class="col-md-6 order-md-1 order-lg-2 col-lg-4 px-0" data-aos="blur">
-                            @if($myStory3->photo == null)
+                            @if(!isset($myStory->photo3))
                                 <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('home_assets/about3.jpg')}}">
                             @else
-                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory3->photo )}}">
+                                <img alt="" class="w-100" style="border-radius: 10px;" src="{{asset('dashboard/img/'. $myStory->photo3 )}}">
                             @endif
                     </div>
                     <div class="col-md-6 offset-md-6 offset-lg-0 order-md-3 order-lg-3 col-lg-4 mt-5 pl-0 pl-md-30 mt-md-0"
                         data-aos="fade-up">
-                        <p class="mb-0 pl-md-30px">{{$myStory3->content}}</p>
+                        <p class="mb-0 pl-md-30px">{{$myStory->content}}</p>
                     </div>
                 </div>
             </div>

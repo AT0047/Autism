@@ -18,9 +18,8 @@ class HomeController extends Controller
         $homeTitle = Title::where('place', 'home')->first();
 
         // ----------------- My Store ------------------
-        $myStory1 = MyStory::where('title1','!=', '')->lazy()->first();
-        $myStory2 = MyStory::where('title2','!=', '')->first();
-        $myStory3 = MyStory::where('content','!=', '')->first();
+        $myStory = MyStory::first();
+
 
         // ----------------- Our Services ------------------
         $ourServices = OurService::all();
@@ -37,9 +36,7 @@ class HomeController extends Controller
 
 
         return view('frontend.home_personal',[
-            'myStory1' => $myStory1,
-            'myStory2' => $myStory2,
-            'myStory3' => $myStory3,
+            'myStory' => $myStory,
             'ourServices' => $ourServices,
             'peopleStories' => $peopleStories,
             'homeTitle' => $homeTitle,

@@ -36,7 +36,7 @@ class TitleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'place' => 'required'
+            'place' => 'required|unique:titles',
         ]);
         try{
             Title::create([

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class MyStory extends Model
 {
     use HasFactory;
-    public $fillable = ['title1', 'title2', 'content', 'photo'];
+    public $fillable = ['title1', 'title2', 'content', 'photo1', 'photo2', 'photo3'];
 }

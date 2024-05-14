@@ -22,11 +22,11 @@
                                             <label class="form-control-label" for="input-username">Platform</label>
                                             <select name="platform" class ="form-control">
                                                 <option disabled selected value="">Select Platform</option>
-                                                <option value="facebook">Facebook</option>
-                                                <option value="instagram">Instagram</option>
-                                                <option value="twitter">Twitter</option>
-                                                <option value="linkedin">Linkedin</option>
-                                                <option value="youtube">youtube</option>
+                                                <option @selected($socialLink->platform =='facebook' ) value="facebook">Facebook</option>
+                                                <option @selected($socialLink->platform =='instagram' ) value="instagram">Instagram</option>
+                                                <option @selected($socialLink->platform =='twitter' ) value="twitter">Twitter</option>
+                                                <option @selected($socialLink->platform =='linkedin' ) value="linkedin">Linkedin</option>
+                                                <option @selected($socialLink->platform =='youtube' ) value="youtube">youtube</option>
                                             </select>
                                             @error('platform')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}

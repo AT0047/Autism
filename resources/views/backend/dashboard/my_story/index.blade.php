@@ -15,9 +15,11 @@
                             </ol>
                         </nav>
                     </div>
+                    @if ($mystories->count() == 0)
                     <div class="col-lg-6 col-5 text-right">
                         <a href="{{ route('mystory.create') }}" class="btn btn-sm btn-neutral">Add New</a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -39,7 +41,9 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th class="sort" data-sort="name">Photo</th>
+                                <th class="sort" data-sort="name">Photo 1</th>
+                                <th class="sort" data-sort="name">Photo 2</th>
+                                <th class="sort" data-sort="name">Photo 3</th>
                                 <th scope="col" class="sort" data-sort="Title 1">Title 1</th>
                                 <th scope="col" class="sort" data-sort="Title 2">Title 2</th>
                                 <th scope="col" class="sort" data-sort="Contant">Contant</th>
@@ -56,7 +60,23 @@
                                         <div class="media align-items-center">
                                             <a class="avatar  mr-3">
                                                 <img width = '60' height = '48'
-                                                    src="{{ asset('dashboard/img/' . $mystory->photo) }}" />
+                                                    src="{{ asset('dashboard/img/' . $mystory->photo1) }}" />
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <a class="avatar  mr-3">
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/' . $mystory->photo2) }}" />
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <a class="avatar  mr-3">
+                                                <img width = '60' height = '48'
+                                                    src="{{ asset('dashboard/img/' . $mystory->photo3) }}" />
                                             </a>
                                         </div>
                                     </th>
@@ -103,7 +123,7 @@
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
-                    {{ $mystories->links('vendor.pagination.custom_pagination') }}
+                    {{-- {{ $mystories->links('vendor.pagination.custom_pagination') }} --}}
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ class AboutSec3Request extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif',
 
         ];
     }

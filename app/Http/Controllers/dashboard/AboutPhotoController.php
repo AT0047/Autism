@@ -124,7 +124,7 @@ class AboutPhotoController extends Controller
      */
     public function destroy(AboutPhoto $aboutPhoto)
     {
-        Storage::disk('public')->delete([$aboutPhoto->sec1_photo, $aboutPhoto->sec2_photo, $aboutPhoto->sec4_photo, $aboutPhoto->logo]);
+        Storage::disk('public')->delete([$aboutPhoto->sec1_video, $aboutPhoto->sec1_photo, $aboutPhoto->sec2_photo, $aboutPhoto->sec4_photo, $aboutPhoto->logo]);
         $aboutPhoto->delete();
         return redirect()->route('about-photos.index')->with('success', 'Data deleted successfully');
 

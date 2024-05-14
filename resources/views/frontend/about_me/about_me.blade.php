@@ -3,8 +3,11 @@
     <div class="pagepiling">
         <div data-anchor="page1" class="pp-scrollable text-white section section-1">
             <div class="scroll-wrap">
-                <div class="section-bg" style="background-image:url({{ asset('storage/' . ($media->sec1_photo ?? '')) }});">
-                </div>
+                @if(isset($media->sec1_photo))
+                <div class="section-bg" style="background-image:url({{ asset('storage/' . $media->sec1_photo ) }});"></div>
+                @else
+                <div class="section-bg" style="background-image:url({{ asset('about_me_assets/about3.jpg') }});"></div>
+                @endif                
                 <div class="scrollable-content">
                     <div class="vertical-centred">
                         <div class="boxed boxed-inner">
@@ -31,8 +34,11 @@
         </div>
         <div data-anchor="page3" class="pp-scrollable text-white section section-3">
             <div class="scroll-wrap">
-                <div class="section-bg mask"
-                    style="background-image:url({{ asset('storage/' . ($media->sec2_photo ?? '')) }});"></div>
+                @if(isset($media->sec2_photo))
+                <div class="section-bg mask" style="background-image:url({{ asset('storage/' . ($media->sec2_photo ?? '')) }});"></div>
+                @else
+                <div class="section-bg mask" style="background-image:url({{ asset('about_me_assets/about6.jpg') }});"></div>
+                @endif                
                 <div class="scrollable-content">
                     <div class="vertical-title d-none d-lg-block"><span></span></div>
                     <div class="vertical-centred">
@@ -125,7 +131,11 @@
         </div>
         <div data-anchor="page7" class="pp-scrollable text-white section section-7">
             <div class="scroll-wrap">
-                <div class="section-bg" style="background-image:url({{ asset('storage/' . $media->sec4_photo) }});"></div>
+                @if(isset($media->sec4_photo))
+                <div class="section-bg" style="background-image:url({{ asset('storage/' . ($media->sec4_photo ?? '')) }});"></div>
+                @else
+                <div class="section-bg" style="background-image:url({{ asset('about_me_assets/about1.jpg') }});"></div>
+                @endif
                 <div class="bg-quote"></div>
                 <div class="scrollable-content">
                     <div class="vertical-title  d-none d-lg-block"><span></span></div>

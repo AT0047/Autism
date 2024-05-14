@@ -63,6 +63,13 @@
                                     <td>
                                         <a href="{{ route('about-photos.edit', $aboutPhoto->id) }}"
                                             class="btn btn-primary btn-sm">Edit</a>
+
+                                        <!-- Delete Form -->
+                                        <form action="{{ route('about-photos.destroy', $aboutPhoto->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @else

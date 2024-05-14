@@ -7,6 +7,7 @@ use App\Models\SocialLinks;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class SocialLinksController extends Controller
 {
@@ -34,7 +35,7 @@ class SocialLinksController extends Controller
     {
 
         $request->validate([
-            'platform' => 'required',
+            'platform' => 'required|unique:social_links',
             'link' => 'required',
         ]);
         try{
@@ -64,7 +65,10 @@ class SocialLinksController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'platform' => 'required',
+            'platform' => [
+                'required',
+                Rule::unique('social_links')->ignore($id),
+            ],
             'link' => 'required',
         ]);
         $socialLink = SocialLinks::findOrFail($id);

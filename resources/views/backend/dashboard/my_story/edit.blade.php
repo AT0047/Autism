@@ -42,11 +42,25 @@
                             </div>
                         </div>
                         <div class="pl-lg-4 ">
-                            <label class="form-control-label ">Upload Image</label>
+                            <label class="form-control-label ">Upload Image 1</label>
                             <div class="input-group">
-                                <input type="file" name="photo" class="form-control">
+                                <input type="file" name="photo1" class="form-control">
                             </div>
-                            <img width = "150" height = "100" src="{{asset('dashboard/img/'. $mystory->photo)}}"/>
+                            <img width = "150" height = "100" src="{{asset('dashboard/img/'. $mystory->photo1)}}"/>
+                        </div>
+                        <div class="pl-lg-4 ">
+                            <label class="form-control-label ">Upload Image 2</label>
+                            <div class="input-group">
+                                <input type="file" name="photo2" class="form-control">
+                            </div>
+                            <img width = "150" height = "100" src="{{asset('dashboard/img/'. $mystory->photo2)}}"/>
+                        </div>
+                        <div class="pl-lg-4 ">
+                            <label class="form-control-label ">Upload Image 3</label>
+                            <div class="input-group">
+                                <input type="file" name="photo3" class="form-control">
+                            </div>
+                            <img width = "150" height = "100" src="{{asset('dashboard/img/'. $mystory->photo3)}}"/>
                         </div>
                         <div class="d-flex mt-3 justify-content-end">
                             <a href="{{route('mystory.index')}}" class="btn btn-secondary">Back</a>
