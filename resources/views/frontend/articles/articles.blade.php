@@ -163,50 +163,6 @@
                                     </div>
                                 </div><!-- Single Most Populer Item End -->
                             </div>
-                            <div class="col-lg-4">
-                                <!-- Single Most Populer Item Start -->
-                                <div class="single-most-populer-item" data-aos="fade-up">
-                                    <a href="blog-details.html" class="most-populer-thum">
-                                        <img src="assets/images/banners/03-special-banner.jpg" alt="" />
-                                    </a>
-                                    <div class="most-populer-content">
-                                        <div class="most-populer-post-author">
-                                            By <a href="blog-details.html">Andrew Hoffman</a>
-                                        </div>
-                                        <h3 class="title"><a href="blog-details.html">WooCommerce comes with an
-                                                intuitive drag-and-drop...</a>
-                                        </h3>
-                                        <div class="most-populer-post-meta">
-                                            <span class="post-date">
-                                                <a href="blog-details.html">03 April, 2023</a>
-                                            </span>
-                                            <span>10 min read</span>
-                                        </div>
-                                    </div>
-                                </div><!-- Single Most Populer Item End -->
-                            </div>
-                            <div class="col-lg-4">
-                                <!-- Single Most Populer Item Start -->
-                                <div class="single-most-populer-item" data-aos="fade-up">
-                                    <a href="blog-details.html" class="most-populer-thum">
-                                        <img src="assets/images/banners/04-special-banner.jpg" alt="" />
-                                    </a>
-                                    <div class="most-populer-content">
-                                        <div class="most-populer-post-author">
-                                            By <a href="blog-details.html">Andrew Hoffman</a>
-                                        </div>
-                                        <h3 class="title"><a href="blog-details.html">Create beautiful designs that
-                                                will help convert more...</a>
-                                        </h3>
-                                        <div class="most-populer-post-meta">
-                                            <span class="post-date">
-                                                <a href="blog-details.html">03 April, 2023</a>
-                                            </span>
-                                            <span>10 min read</span>
-                                        </div>
-                                    </div>
-                                </div><!-- Single Most Populer Item End -->
-                            </div>
                         </div>
                     </div>
                 </div>

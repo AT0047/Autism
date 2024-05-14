@@ -55,12 +55,12 @@
                             </div>
                             <div class="single-footer-menu">
                                 <div class="footer-widget-title">
-                                    <h4 style="color: black;" class="title">Category</h4>
+                                    <h4 style="color: black;" class="title">Library</h4>
                                 </div>
                                 <ul class="footer-widget-menu-list">
-                                    @php($categories = App\Models\Category::all())
-                                    @foreach($categories as $category)
-                                    <li><a style="color: black;" href="#!">{{$category->name}}</a></li>
+                                    @php($libraries = App\Models\Library::all())
+                                    @foreach($libraries as $library)
+                                    <li><a style="color: black;" href="{{route('Autism&Me.libraryDetails', $library->id)}}">{{$library->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
