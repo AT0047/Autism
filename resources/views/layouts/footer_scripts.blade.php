@@ -37,3 +37,4 @@
     </script>
     <!-- Main JS -->
     <script src="{{ asset('comment_and_news_assets/js/main.js') }}"></script>
+    @livewireScripts

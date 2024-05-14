@@ -7,14 +7,20 @@ use Livewire\Component;
 
 class ShowBooks extends Component
 {
-    public $category = '';
+    public $category;
     public $books = [];
 
-    public function loadBooks($categoryId){
-        $this->category = Category::findOrFail($categoryId);
-        $this->books = $this->category->books();
-        dd($this->books);
-    }   
+    public function mount($categoryId = null)
+    {
+        if ($categoryId) {
+            $this->loadBooks($categoryId);
+        }
+    }
+    public function loadBooks($categoryId)
+    {
+        $this->category = Category::with('books')->find($categoryId);
+        $this->books = $this->category->books;
+    }
 
     public function render()
     {

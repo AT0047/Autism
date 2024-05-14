@@ -19,3 +19,4 @@
     <link rel="stylesheet" href="{{ asset('home_assets/css/style.css') }}">
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('home_assets/favicon.png') }}" type="image/png">
+    @livewireStyles

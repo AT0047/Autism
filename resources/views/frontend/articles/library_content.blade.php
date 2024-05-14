@@ -119,7 +119,7 @@
                                         </a>
                                     </div>
                                     <div class="archive-post-content">
-                                        <h6 class="title"><button type="button" wire:click='loadBooks({{ $libraryCategory->id }})'>{{ $libraryCategory->name }}</button></h6>
+                                        <h6 class="title"><a href="#" wire:click="loadBooks({{ $libraryCategory->id }})">{{ $libraryCategory->name }}</a></h6>
                                         <div class="archive-post-meta">
                                             <span class="post-date">
                                                 <i class="icofont-ui-calendar"></i>
@@ -142,18 +142,7 @@
                 </div>
                 <!-- Special For Beginner Area Start -->
                 <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-title-three text-center" data-aos="fade-up">
-                                    <h2 class="title">Category</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row--30">
-                            <livewire:show-books>
-                        </div>
-                    </div>
+                    @livewire('show-books')
                 </div>
                     <!-- Special For Beginner Area End -->
                     <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
