@@ -50,35 +50,35 @@
                         @foreach ($libraryBooks as $preferred_lib)
                             @foreach ($preferred_lib->categories as $preferred_cate)
                                 @forelse ($preferred_cate->books as $preferred_Book)
-                                    <div class="col-lg-6 col-md-6">
-                                        <!-- Single Most Populer Item Start -->
-                                        <div class="single-most-populer-item" data-aos="fade-up">
-                                            <a href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}"
-                                                class="most-populer-thum">
-                                                <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}"
-                                                    alt="" />
-                                            </a>
-                                            <div class="most-populer-content">
-                                                <div class="most-populer-post-author">
-                                                    By <a
-                                                        href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->author_name }}</a>
+                                        <div class="col-lg-6 col-md-6">
+                                            <!-- Single Most Populer Item Start -->
+                                            <div class="single-most-populer-item" data-aos="fade-up">
+                                                <a href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}"
+                                                    class="most-populer-thum">
+                                                    <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}"
+                                                        alt="" />
+                                                </a>
+                                                <div class="most-populer-content">
+                                                    <div class="most-populer-post-author">
+                                                        By <a
+                                                            href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->author_name }}</a>
+                                                    </div>
+                                                    <h3 class="title"><a
+                                                            href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->name }}</a>
+                                                    </h3>
+                                                    {{-- <p class="dec mt-2">{!! Str::limit($preferred_Book->content, 15)  !!}</p> --}}
+                                                    <div class="most-populer-post-meta">
+                                                        <span class="post-date">
+                                                            <a
+                                                                href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->publication_date }}</a>
+                                                        </span>
+                                                        {{-- <span>10 min read</span> --}}
+                                                    </div>
                                                 </div>
-                                                <h3 class="title"><a
-                                                        href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->name }}</a>
-                                                </h3>
-                                                {{-- <p class="dec mt-2">{!! Str::limit($preferred_Book->content, 15)  !!}</p> --}}
-                                                <div class="most-populer-post-meta">
-                                                    <span class="post-date">
-                                                        <a
-                                                            href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}">{{ $preferred_Book->publication_date }}</a>
-                                                    </span>
-                                                    {{-- <span>10 min read</span> --}}
-                                                </div>
-                                            </div>
-                                        </div><!-- Single Most Populer Item End -->
-                                    </div>
-                                @empty
-                                    No Books Yet...
+                                            </div><!-- Single Most Populer Item End -->
+                                        </div>
+                                    @empty
+                                        No Books Yet...
                                 @endforelse
                             @endforeach
                         @endforeach
@@ -112,18 +112,13 @@
                             <!-- Single Archive Post Start -->
                             @foreach ($libraryCategories as $libraryCategory)
                                 <div class="single-archive-post" data-aos="fade-up">
-                                    <div class="archive-post-thum">
-                                        <a href="Articles.html">
-                                            <img src="{{ asset('dashboard/img/' . $libraryCategory->photo) }}"
-                                                alt="">
-                                        </a>
-                                    </div>
+                                    <livewire:category-photo :libraryCategory='$libraryCategory'>
                                     <div class="archive-post-content">
-                                        <h6 class="title"><button type="button" wire:click='loadBooks({{ $libraryCategory->id }})'>{{ $libraryCategory->name }}</button></h6>
+                                        <livewire:library-button :libraryCategory='$libraryCategory'>
                                         <div class="archive-post-meta">
                                             <span class="post-date">
                                                 <i class="icofont-ui-calendar"></i>
-                                                <a href="Articles.html">{{ $libraryCategory->created_at }}</a>
+                                                <a >{{ $libraryCategory->created_at }}</a>
                                             </span>
                                             {{-- <span>10 min read</span> --}}
                                         </div>
@@ -151,98 +146,99 @@
                             </div>
                         </div>
                         <div class="row row--30">
-                            <livewire:show-books>
+                            <livewire:show-books />
                         </div>
                     </div>
                 </div>
-                    <!-- Special For Beginner Area End -->
-                    <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
-                        <div class="col content-div" id="content1">
-                            <section id="about" class="section pb-0">
-                                <section class="container">
-                                    <div class="row mx-0 align-items-center">
-                                        <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
-                                            <img alt="" class="w-100" style="border-radius: 10px; "
-                                                src="img/doctor.jpg">
-                                        </div>
-                                        <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
-                                            <div
-                                                class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                                                <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
-                                                        class="text-primary">mission</span> is develope the best
-                                                    websites<br> <span class="text-primary">around</span></h2>
-                                            </div>
-                                            <a href= "about me/index.html"><button type="submit" class="btn"
-                                                    style="border-radius: 10%; margin: 100px;">take a look</button></a>
-                                        </div>
+                <!-- Special For Beginner Area End -->
+                <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
+                    <div class="col content-div" id="content1">
+                        <section id="about" class="section pb-0">
+                            <section class="container">
+                                <div class="row mx-0 align-items-center">
+                                    <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
+                                        <img alt="" class="w-100" style="border-radius: 10px; "
+                                            src="img/doctor.jpg">
                                     </div>
-                                </section>
-                            </section>
-                        </div>
-                        <div class="col content-div" id="content2">
-                            <section id="" class="section feature feature-3 bg-white pb-80">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12 col-md-12 col-lg-12">
-                                            <div class="heading heading-1 text-center">
-                                                <h2 class="heading-title">Our services</h2>
-                                            </div>
+                                    <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
+                                        <div
+                                            class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
+                                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
+                                                    class="text-primary">mission</span> is develope the best
+                                                websites<br> <span class="text-primary">around</span></h2>
                                         </div>
+                                        <a href= "about me/index.html"><button type="submit" class="btn"
+                                                style="border-radius: 10%; margin: 100px;">take a look</button></a>
                                     </div>
-                                    <div class="row">
-                                        <!-- Panel #1 -->
-                                        @foreach ($ourServices as $ourService)
-                                            <div class="col-12 col-md-4 col-lg-4">
-                                                <div class="feature-panel">
-                                                    <div class="feature-img">
-                                                        <img src="{{ asset('dashboard/img/' . $ourService->photo) }}"
-                                                            alt="target">
-                                                    </div>
-                                                    <div class="feature-content">
-                                                        <h3>{{ $ourService->title }}</h3>
-                                                        <p>{!! $ourService->description !!}.</p>
-                                                    </div>
-                                                </div>
-                                                <!-- .feature-panel end -->
-                                            </div>
-                                        @endforeach
-                                        <!-- .col-md-4 end -->
-                                    </div>
-                                    <!-- .row end -->
                                 </div>
-                                <!-- .container end -->
                             </section>
-                        </div>
-                        <div class="col content-div" id="content3">
-                            <section class="section pb-0">
-                                @foreach ($preferredBooks as $preferredBook)
-                                    <div class="row mx-0 align-items-center" data-aos="fade-up">
-                                        <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                                            <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
-                                                <figure class="hover"><img alt="" class="w-100"
-                                                        style="border-radius: 10px;"
-                                                        src="{{ asset('dashboard/img/' . $preferredBook->photo) }}">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
-                                            <h4 class="my-0 mb-2"><a
-                                                    href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">{{ $preferredBook->name }}</a>
-                                            </h4>
-                                            <p><a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}"
-                                                    class="text-dark font-weight-bold">{{ $preferredBook->author_name }}</a>
-                                                /
-                                                {{ $preferredBook->publication_date }}
-                                            </p>
+                        </section>
+                    </div>
+                    <div class="col content-div" id="content2">
+                        <section id="" class="section feature feature-3 bg-white pb-80">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="heading heading-1 text-center">
+                                            <h2 class="heading-title">Our services</h2>
                                         </div>
                                     </div>
-                                @endforeach
-                            </section>
-                        </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Panel #1 -->
+                                    @foreach ($ourServices as $ourService)
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <div class="feature-panel">
+                                                <div class="feature-img">
+                                                    <img src="{{ asset('dashboard/img/' . $ourService->photo) }}"
+                                                        alt="target">
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h3>{{ $ourService->title }}</h3>
+                                                    <p>{!! $ourService->description !!}.</p>
+                                                </div>
+                                            </div>
+                                            <!-- .feature-panel end -->
+                                        </div>
+                                    @endforeach
+                                    <!-- .col-md-4 end -->
+                                </div>
+                                <!-- .row end -->
+                            </div>
+                            <!-- .container end -->
+                        </section>
+                    </div>
+                    <div class="col content-div" id="content3">
+                        <section class="section pb-0">
+                            @foreach ($preferredBooks as $preferredBook)
+                                <div class="row mx-0 align-items-center" data-aos="fade-up">
+                                    <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
+                                        <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
+                                            <figure class="hover"><img alt="" class="w-100"
+                                                    style="border-radius: 10px;"
+                                                    src="{{ asset('dashboard/img/' . $preferredBook->photo) }}">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mt-5 mt-md-0 px-sm-0 pl-md-30px pr-lg-30px">
+                                        <h4 class="my-0 mb-2"><a
+                                                href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">{{ $preferredBook->name }}</a>
+                                        </h4>
+                                        <p><a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}"
+                                                class="text-dark font-weight-bold">{{ $preferredBook->author_name }}</a>
+                                            /
+                                            {{ $preferredBook->publication_date }}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <!-- Remove the container if you want to extend the Footer to full width. -->
 @endsection
+
