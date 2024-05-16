@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
 use App\Models\Book;
 use App\Models\BookQuestion;
 use App\Models\Category;
@@ -72,7 +73,9 @@ class ArticleController extends Controller
         $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
 
         // ----------------- Categories ------------------
-        $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+        if (isset($cate_id)) {
+            $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+        }
 
         // ----------------- Our Services ------------------
         $ourServices = OurService::all();
@@ -80,15 +83,18 @@ class ArticleController extends Controller
         // ----------------- News ------------------
         $preferredBooks = Book::where('prefer',1)->get(); 
 
+        $aboutUs=AboutUs::first();
+
         return view('frontend.articles.library_content',[
             'title' => $title,
             'libraries' => $libraries,
             'libraryContent' => $libraryContent,
             'libraryCategories' => $libraryCategories,
             'libraryBooks' => $libraryBooks,
-            'preferred_Books' => $preferred_Books,
+            'preferred_Books' => ($preferred_Books ?? ''),
             'ourServices' => $ourServices,
-            'preferredBooks' => $preferredBooks
+            'preferredBooks' => $preferredBooks,
+            'aboutUs' => $aboutUs,
         ]); 
     }
 }

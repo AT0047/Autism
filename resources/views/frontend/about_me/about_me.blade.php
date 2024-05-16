@@ -158,12 +158,12 @@
                                                                     <div class="review-author">
 
                                                                         <div class="author-name">
-                                                                            {{ $aboutSec4[$i]->name }}</div>
-                                                                        <i>{{ $aboutSec4[$i]->title }}</i>
+                                                                            {{ $aboutSec4[$i]->name ?? '' }}</div>
+                                                                        <i>{{ $aboutSec4[$i]->title ?? ''}}</i>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-7 text">
-                                                                    <p>{{ $aboutSec4[$i]->description }}</p>
+                                                                    <p>{{ $aboutSec4[$i]->description ?? ''}}</p>
                                                                 </div>
                                                             </div>
                                                             @php
@@ -174,13 +174,13 @@
                                                             <div class="row">
                                                                 <div class="col-md-5">
                                                                     <div class="review-author">
-                                                                        <div class="author-name">{{ $aboutSec4[$y]->name }}
+                                                                        <div class="author-name">{{ $aboutSec4[$y]->name ?? ''}}
                                                                         </div>
-                                                                        <i>{{ $aboutSec4[$y]->title }}</i>
+                                                                        <i>{{ $aboutSec4[$y]->title ?? ''}}</i>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-7 text">
-                                                                    <p>{{ $aboutSec4[$y]->description }}</p>
+                                                                    <p>{{ $aboutSec4[$y]->description ?? ''}}</p>
                                                                 </div>
                                                             </div>
                                                             @php
