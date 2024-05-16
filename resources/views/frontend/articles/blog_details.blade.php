@@ -54,27 +54,33 @@
                                         </h3>
                                         <div class="post-details-text">
                                             <p>{!! $bookdetails->content !!}</p>
-                                            <div class="video-banner-area video-popup mb-4">
-                                                <a href="{{asset('dashboard/img/'. $bookdetails->video)}}"
-                                                        class="video-link mt-30">
-                                                        <div class="single-popup-wrap">
-                                                            <img class="img-fluid"
+                                            {{-- <div class="video-banner-area video-popup mb-4"> --}}
+                                            <a href="{{ asset('dashboard/img/' . $bookdetails->video) }}"
+                                                class="video-link mt-30">
+                                                <div class="single-popup-wrap">
+                                                    {{-- <img class="img-fluid"
                                                                 src="{{ asset('dashboard/img/'. $bookdetails->photo) }}"
-                                                                alt="">
-                                                            <div class="ht-popup-video video-button">
-                                                                <div class="video-mark">
-                                                                    <div class="wave-pulse wave-pulse-1"></div>
-                                                                    <div class="wave-pulse wave-pulse-2"></div>
-                                                                </div>
-                                                                <div class="video-button__two">
-                                                                    <div class="video-play">
-                                                                        <span class="video-play-icon"></span>
-                                                                    </div>
-                                                                </div>
+                                                                alt=""> --}}
+                                                    <video controls class="img-fluid rounded shadow"
+                                                        style="width: 100%; max-height: 500px;">
+                                                        <source src="{{ asset('dashboard/img/' . $bookdetails->video) }}"
+                                                            type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                    <div class="ht-popup-video video-button">
+                                                        <div class="video-mark">
+                                                            <div class="wave-pulse wave-pulse-1"></div>
+                                                            <div class="wave-pulse wave-pulse-2"></div>
+                                                        </div>
+                                                        <div class="video-button__two">
+                                                            <div class="video-play">
+                                                                {{-- <span class="video-play-icon"></span> --}}
                                                             </div>
                                                         </div>
-                                                    </a>
-                                            </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            {{-- </div> --}}
                                         </div>
                                     </div>
                                 </div>
