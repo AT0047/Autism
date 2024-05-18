@@ -72,7 +72,9 @@ class ArticleController extends Controller
         $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
 
         // ----------------- Categories ------------------
-        $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+        if(isset($cate_id)){
+            $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+        }
 
         // ----------------- Our Services ------------------
         $ourServices = OurService::all();
