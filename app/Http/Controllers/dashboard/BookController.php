@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Library;
 use App\Traits\upload_imgs;
 use App\Traits\upload_vidoes;
 use Exception;
@@ -29,7 +30,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        $categories = Category::orderBy('name')->pluck('name', 'id')->toArray();
+        $categories = Category::orderBy('name')->get();
         return view('backend.dashboard.books.create', compact('categories'));
     }
 
@@ -72,7 +73,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::orderBy('name')->pluck('name', 'id')->toArray();
+        $categories = Category::orderBy('name')->get();
         $books = Book::findOrFail($id);
         return view('backend.dashboard.books.edit', compact('categories', 'books'));
     }

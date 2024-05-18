@@ -43,8 +43,8 @@
                                             <label class="form-control-label" for="input-username">Category Name</label>
                                             <select name="category_id" class ="form-control">
                                                 <option disabled selected value="">Select Category</option>
-                                                @foreach ($categories as $id => $name)
-                                                    <option value="{{ $id }}">{{ $name }}</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->library->name }}-{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
