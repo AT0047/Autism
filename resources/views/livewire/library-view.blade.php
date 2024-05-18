@@ -8,7 +8,7 @@
             <div class="single-archive-post" data-aos="fade-up">
                 <div class="archive-post-thum">
                     <a href="#category" wire:click="$dispatch('loadBooks', {categoryId: {{ $category->id }} })">
-                        <img src="{{ asset('dashboard/img/' . $category->photo) }}" alt="">
+                        <img src="{{ asset('dashboard/img/' . $category->photo) }}" class="fixed-size-img" style="height: 200px" alt="">
                     </a>
                 </div>
                 <div class="archive-post-content">

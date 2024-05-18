@@ -93,16 +93,15 @@
                                 <div class="row mx-0 align-items-center">
                                     <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
                                         <img alt="" class="w-100" style="border-radius: 10px; "
-                                            src="img/doctor.jpg">
+                                            src="{{asset('storage/'.$aboutUs->dr_photo)}}">
                                     </div>
                                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                                         <div
                                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
-                                                    class="text-primary">mission</span> is develope the best
-                                                websites<br> <span class="text-primary">around</span></h2>
-                                        </div>
-                                        <a href= "about me/index.html"><button type="submit" class="btn"
+                                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->dr_name }}</h2>
+                                            <h5 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->job_specialization }}</h5>
+                                                        </div>
+                                        <a href="{{ route('frontend.aboutUs.index') }}"><button type="submit" class="btn"
                                                 style="border-radius: 10%; margin: 100px;">take a look</button></a>
                                     </div>
                                 </div>

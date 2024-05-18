@@ -5,7 +5,7 @@
                 <!-- Single Most Populer Item Start -->
                 <div class="single-most-populer-item">
                     <a href="{{ route('Autism&Me.bookDetails', $book->id) }}" class="most-populer-thum">
-                        <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
+                        <img src="{{ asset('dashboard/img/' . $book->photo) }}"  class="fixed-size-img" style="height: 200px" alt="" />
                     </a>
                     <div class="most-populer-content">
                         <div class="most-populer-post-author">

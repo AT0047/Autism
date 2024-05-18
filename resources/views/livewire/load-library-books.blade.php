@@ -7,7 +7,7 @@
                         <!-- Single Most Populer Item Start -->
                         <div class="single-most-populer-item" >
                             <a href="{{ route('Autism&Me.bookDetails', $preferred_Book->id) }}" class="most-populer-thum">
-                                <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}" alt="" />
+                                <img src="{{ asset('dashboard/img/' . $preferred_Book->photo) }}" class="fixed-size-img" style="height:200px" alt="" />
                             </a>
                             <div class="most-populer-content">
                                 <div class="most-populer-post-author">
@@ -29,7 +29,7 @@
                         </div><!-- Single Most Populer Item End -->
                     </div>
                 @empty
-                    No Books Yet...
+                    {{-- No Books Yet... --}}
                 @endforelse
             @endforeach
         @endforeach

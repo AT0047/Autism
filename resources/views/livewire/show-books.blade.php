@@ -3,7 +3,7 @@
     @forelse($books as $book)
         <div class="single-most-populer-item" data-aos="fade-up">
             <a href="blog-details.html" class="most-populer-thum">
-                <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
+                <img src="{{ asset('dashboard/img/' . $book->photo) }}" class="fixed-size-img" style="height: 200px" alt="" />
             </a>
             <div class="most-populer-content">
                 <div class="most-populer-post-author">

@@ -29,13 +29,17 @@ class ArticleController extends Controller
 
         // ----------------- News ------------------
         $preferredBooks = Book::where('prefer',1)->get(); 
+        
+        $aboutUs=AboutUs::first();
+
 
         return view('frontend.articles.articles',[
             'title' => $title,
             'libraries' => $libraries,
             'categories' => $categories,
             'ourServices' => $ourServices,
-            'preferredBooks' => $preferredBooks
+            'preferredBooks' => $preferredBooks,
+            'aboutUs' => $aboutUs
         ]);
     }
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <title>ِAutism dashboard</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('dashboard/img/brand/favicon.png') }}" type="image/png">
     <!-- Fonts -->
@@ -51,7 +51,7 @@
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="{{ asset('dashboard/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+                    {{-- <img src="{{ asset('home_assets/favicon.png') }}" class="navbar-brand-img" alt="..."> --}}
                 </a>
             </div>
             <div class="navbar-inner">
@@ -180,9 +180,9 @@
                         <div class="form-group mb-0">
                             <div class="input-group input-group-alternative input-group-merge">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    {{-- <span class="input-group-text"><i class="fas fa-search"></i></span> --}}
                                 </div>
-                                <input class="form-control" placeholder="Search" type="text">
+                                <input class="form-control" placeholder="Search" type="hidden">
                             </div>
                         </div>
                         <button type="button" class="close" data-action="search-close"
@@ -190,7 +190,7 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </form>
-                    <div class="col-lg-6 col-5 text-right" style="margin-left: 17%;">
+                    <div class="col-lg-6 col-5 text-right text-center" style="margin-left: 17%;">
                         <a href="{{ route('Autism&Me.home') }}" target="_blank" class="btn btn-sm btn-neutral">Go To
                             Site</a>
                     </div>
@@ -213,7 +213,7 @@
                                 <i class="ni ni-zoom-split-in"></i>
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link notification-bell-wrapper" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="notification-circle">4</span>
@@ -337,7 +337,7 @@
                                 <a href="#!"
                                     class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                     <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
                         <li class="nav-item dropdown">
@@ -345,8 +345,8 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder"
-                                            src="{{ asset('dashboard/img/theme/team-1.jpg') }}">
+                                        <img src="{{ asset('home_assets/favicon.png') }}" class="navbar-brand-img" alt="...">
+
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
@@ -355,9 +355,9 @@
                             </a>
                             <div class="dropdown-menu  dropdown-menu-right ">
                                 <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Welcome!</h6>
+                                    <h6 class="text-overflow m-0">{{ Auth::user()->email }}</h6>
                                 </div>
-                                <a href="#!" class="dropdown-item">
+                                {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>My profile</span>
                                 </a>
@@ -372,7 +372,7 @@
                                 <a href="#!" class="dropdown-item">
                                     <i class="ni ni-support-16"></i>
                                     <span>Support</span>
-                                </a>
+                                </a> --}}
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
