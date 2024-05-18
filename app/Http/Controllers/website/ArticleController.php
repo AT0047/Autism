@@ -24,9 +24,6 @@ class ArticleController extends Controller
         // ----------------- Categories ------------------
         $categories = Category::all();
 
-        // ----------------- Books ------------------
-        $books = Book::all();
-
         // ----------------- Our Services ------------------
         $ourServices = OurService::all();
 
@@ -37,7 +34,6 @@ class ArticleController extends Controller
             'title' => $title,
             'libraries' => $libraries,
             'categories' => $categories,
-            'books' => $books,
             'ourServices' => $ourServices,
             'preferredBooks' => $preferredBooks
         ]);
@@ -70,7 +66,7 @@ class ArticleController extends Controller
         }
 
         // ----------------- Library Books ------------------
-        $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
+        // $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
 
         // ----------------- Categories ------------------
         if (isset($cate_id)) {
@@ -85,16 +81,18 @@ class ArticleController extends Controller
 
         $aboutUs=AboutUs::first();
 
+        // dd($libraryBooks);
         return view('frontend.articles.library_content',[
             'title' => $title,
             'libraries' => $libraries,
             'libraryContent' => $libraryContent,
             'libraryCategories' => $libraryCategories,
-            'libraryBooks' => $libraryBooks,
+            // 'libraryBooks' => $libraryBooks,
             'preferred_Books' => ($preferred_Books ?? ''),
             'ourServices' => $ourServices,
             'preferredBooks' => $preferredBooks,
             'aboutUs' => $aboutUs,
+            'id' => $id,
         ]); 
     }
 }
