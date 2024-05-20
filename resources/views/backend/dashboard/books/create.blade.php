@@ -44,7 +44,7 @@
                                             <select name="category_id" class ="form-control">
                                                 <option disabled selected value="">Select Category</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->library->name }}-{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')

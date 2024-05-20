@@ -47,6 +47,7 @@ class BookController extends Controller
             'publication_date' => 'required',
             'author_name' => 'required',
             'photo' => 'required',
+            'video' => 'mimes:mp4,mov,ogg,qt,flv,avi,wmv,mkv,flv'
         ],[
             'category_id.required' => 'The category name is required.'
         ]);
@@ -90,6 +91,7 @@ class BookController extends Controller
             'prefer' => 'required',
             'publication_date' => 'required',
             'author_name' => 'required',
+            'video' => 'mimes:mp4,mov,ogg,qt,flv,avi,wmv,mkv,flv'
         ],[
             'category_id.required' => 'The category name is required.'
         ]);

@@ -18,18 +18,30 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7">
-                                <div class="hero-five-text text-left">
-                                    <h1 class="title">
-                                        <span class="hero-five-title">{{ $title->title }}
-                                    </h1>
-                                    <p class="hero-text-dec">{!! $title->description !!}</p>
-                                </div>
+                                @if (!$title)
+                                    <div class="hero-five-text text-left">
+                                        <h1 class="title">
+                                            <span class="hero-five-title">Unlimited Advice & Resource
+                                        </h1>
+                                        <p class="hero-text-dec">That necessitates a robust ecommerce platform that
+                                            optimizes your store & products</p>
+                                    </div>
+                                @else
+                                    <div class="hero-five-text text-left">
+                                        <h1 class="title">
+                                            <span class="hero-five-title">{{ $title->title }}
+                                        </h1>
+                                        <p class="hero-text-dec">{!! $title->description !!}</p>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-lg-5">
                                 <div class="hero-five-category" data-aos="fade-up">
-                                    @foreach ($libraries as $library)
-                                        <a href="{{ route('Autism&Me.libraryDetails', $library->id) }}"
-                                            class="btn-large woocommerce">{{ $library->name }}</a>
+                                    @foreach ($categories as $category)
+                                        {{-- <a href="{{ route('Autism&Me.libraryDetails', $category->id) }}"
+                                            class="btn-large woocommerce">{{ $category->name }}</a> --}}
+                                        <a href="#category1"
+                                            class="btn-large woocommerce">{{ $category->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -61,13 +73,13 @@
                             </div>
                         </div>
                         <livewire:library-view>
-                        <!-- Add Banner Area Start -->
-                        <div class="add-banner-area mt-5" data-aos="fade-up">
-                            <a href="Articles.html">
-                                <img src="assets/images/archive-post/add-banner-01.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Add Banner Area End -->
+                            <!-- Add Banner Area Start -->
+                            <div class="add-banner-area mt-5" data-aos="fade-up">
+                                <a href="Articles.html">
+                                    <img src="assets/images/archive-post/add-banner-01.jpg" alt="">
+                                </a>
+                            </div>
+                            <!-- Add Banner Area End -->
                     </div> <!-- Latest Post Area End -->
                 </div>
                 <!-- Special For Beginner Area Start -->
@@ -81,33 +93,61 @@
                             </div>
                         </div>
                         <div class="row row--30">
-                            <livewire:show-books />
+                            <livewire:show-books/>
                         </div>
                     </div>
                 </div>
                 <!-- Special For Beginner Area End -->
                 <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
-                    <div class="col content-div" id="content1">
+                    @if (!$aboutUs)
                         <section id="about" class="section pb-0">
                             <section class="container">
                                 <div class="row mx-0 align-items-center">
                                     <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
                                         <img alt="" class="w-100" style="border-radius: 10px; "
-                                            src="{{asset('storage/'.$aboutUs->dr_photo)}}">
+                                            src="{{ asset('home_assets/doctor.jpg') }}">
                                     </div>
                                     <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                                         <div
                                             class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->dr_name }}</h2>
-                                            <h5 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $aboutUs->job_specialization }}</h5>
-                                                        </div>
-                                        <a href="{{ route('frontend.aboutUs.index') }}"><button type="submit" class="btn"
+                                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">My <span
+                                                    class="text-primary">mission</span> is develope the best
+                                                websites<br><span class="text-primary">around</span></h2>
+                                        </div>
+                                        <a href= "{{ route('frontend.aboutUs.index') }}" target="_blank"><button
+                                                type="submit" class="btn"
                                                 style="border-radius: 10%; margin: 100px;">take a look</button></a>
                                     </div>
                                 </div>
                             </section>
                         </section>
-                    </div>
+                    @else
+                        <div class="col content-div" id="content1">
+                            <section id="about" class="section pb-0">
+                                <section class="container">
+                                    <div class="row mx-0 align-items-center">
+                                        <div class="col-md-6 col-lg-4 px-0" style="margin: 20px;" data-aos="blur">
+                                            <img alt="" class="w-100" style="border-radius: 10px; "
+                                                src="{{ asset('storage/' . $aboutUs->dr_photo) }}">
+                                        </div>
+                                        <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
+                                            <div
+                                                class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
+                                                <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">
+                                                    {{ $aboutUs->dr_name }}
+                                                </h2>
+                                                <h5 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">
+                                                    {{ $aboutUs->job_specialization }}</h5>
+                                            </div>
+                                            <a href="{{ route('frontend.aboutUs.index') }}"><button type="submit"
+                                                    class="btn" style="border-radius: 10%; margin: 100px;">take a
+                                                    look</button></a>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    @endif
                     <div class="col content-div" id="content2">
                         <section id="services" class="section feature feature-3 bg-white pb-80">
                             <div class="container">
@@ -173,4 +213,3 @@
     </div>
     <!-- Remove the container if you want to extend the Footer to full width. -->
 @endsection
-

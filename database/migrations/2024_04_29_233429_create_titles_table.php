@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('place', ['home', 'articles']);
+            $table->enum('place', ['home', 'articles'])->unique();
             $table->string('photo')->nullable();
             $table->timestamps();
         });

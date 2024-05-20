@@ -87,12 +87,16 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
                             <div class="footer-logo">
-                                <a href="index.html">
+                                <a href="{{route('Autism&Me.home')}}">
                                     <img src="{{asset('home_assets/favicon.png')}}" style="width: 50px;" alt="">
                                     {{-- <img src="favicon.png" style="width: 50px;" alt=""> --}}
                                 </a>
                             </div>
-                            <p style="color: black;" class="footer-dec-text">{{ App\Models\AboutUs::first()->description }}</p>
+                            @if(! App\Models\AboutUs::first())
+                                <p style="color: black;" class="footer-dec-text">dgdfgdfgdfg</p>
+                            @else
+                                <p style="color: black;" class="footer-dec-text">{{ App\Models\AboutUs::first()->description }}</p>
+                            @endif
                             <ul class="footer-socail-share">
                                 @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
                                 <li><a href="{{$facebook}}" target="_blank" style="background-color: black;"><i style="color: white; " class="icofont-facebook"></i></a></li>
@@ -137,8 +141,13 @@
                         <div class="footer-widget">
                             <h4 class="footer-widget-title text-dark">Contact Us</h4>
                             <ul class="footer-widget-menu-list">
-                                <li><a href="#!" class="text-dark">{{ App\Models\AboutUs::first()->phone_number }}</a></li>
-                                <li><a href="#!" class="text-dark">{{ App\Models\AboutUs::first()->email }}</a></li>
+                                @if(! App\Models\AboutUs::first())
+                                    <li><a href="#!" class="text-dark">0147852369</a></li>
+                                    <li><a href="#!" class="text-dark">email@email.com</a></li>
+                                @else
+                                    <li><a href="#!" class="text-dark">{{ App\Models\AboutUs::first()->phone_number }}</a></li>
+                                    <li><a href="#!" class="text-dark">{{ App\Models\AboutUs::first()->email }}</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

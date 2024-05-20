@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <header class="navbar navbar-fullpage boxed">
     <div class="navbar-bg"></div>
-    <a class="brand" href="#">
+    <a class="brand" href="{{route('Autism&Me.home')}}">
         @if (isset($media->logo))
         <img alt="" style="width: 50px;" src="{{asset('storage/'.$media->logo)}}">
         @else

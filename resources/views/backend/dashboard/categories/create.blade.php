@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="pl-lg-4">
+                            {{-- <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="pl-lg-4 ">
                                 <label class="form-control-label ">Upload Image</label>
                                 <div class="input-group">

@@ -117,7 +117,6 @@ Route::resource('about-sec4', AboutSec4Controller::class);
 Route::resource('about-photos', AboutPhotoController::class);
 
 
-
 Route::get('/frontend/home', function () {
     return view('frontend.home_personal');
 });
@@ -127,18 +126,6 @@ Route::prefix('Autism&Me')->as('Autism&Me.')->group(function(){
     Route::get('/articles', [ArticleController::class, 'articles'])->name('articles');
     Route::get('/articles/{id}/book_detials', [ArticleController::class, 'bookDetails'])->name('bookDetails');
     Route::get('/articles/library/{id}', [ArticleController::class, 'libraryDetails'])->name('libraryDetails');
-});
-
-
-
-
-
-Route::get('/frontend/articles/blog_details', function () {
-    return view('frontend.articles.blog_details');
-});
-
-Route::get('/frontend/about_me', function () {
-    return view('frontend.about_me.about_me');
 });
 
 

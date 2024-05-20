@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Laravel-Blog Dashboard</title>
+    <title>Autism & Me Dashboard</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('dashboard/img/brand/favicon.png')}}" type="image/png">
     <!-- Fonts -->
@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand">
                 <img src="{{ asset('dashboard/img/brand/white.png')}}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                 <div class="navbar-collapse-header">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href="dashboard.html">
+                            <a>
                                 <img src="assets/img/brand/blue.png">
                             </a>
                         </div>
@@ -57,27 +57,43 @@
                 <hr class="d-lg-none" />
                 <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" data-original-title="Like us on Facebook">
+                        @php($facebook = App\Models\SocialLinks::where('platform', 'facebook')->pluck('link')->first())
+                        <a class="nav-link nav-link-icon" href="{{ $facebook }}" target="_blank"
+                            data-toggle="tooltip" data-original-title="Like us on Facebook">
                             <i class="fab fa-facebook-square"></i>
                             <span class="nav-link-inner--text d-lg-none">Facebook</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" data-original-title="Follow us on Instagram">
+                        @php($instagram = App\Models\SocialLinks::where('platform', 'instagram')->pluck('link')->first())
+                        <a class="nav-link nav-link-icon" href="{{$instagram}}" target="_blank" data-toggle="tooltip"
+                            data-original-title="Follow us on Instagram">
                             <i class="fab fa-instagram"></i>
                             <span class="nav-link-inner--text d-lg-none">Instagram</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" data-original-title="Follow us on Twitter">
+                        @php($linkedin = App\Models\SocialLinks::where('platform', 'linkedin')->pluck('link')->first())
+                        <a class="nav-link nav-link-icon" href="{{$linkedin}}" target="_blank" data-toggle="tooltip"
+                            data-original-title="Follow us on LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                            <span class="nav-link-inner--text d-lg-none">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        @php($twitter = App\Models\SocialLinks::where('platform', 'twitter')->pluck('link')->first())
+                        <a class="nav-link nav-link-icon" href="{{ $twitter }}" target="_blank"
+                            data-toggle="tooltip" data-original-title="Follow us on Twitter">
                             <i class="fab fa-twitter-square"></i>
                             <span class="nav-link-inner--text d-lg-none">Twitter</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" data-original-title="Star us on Github">
-                            <i class="fab fa-github"></i>
-                            <span class="nav-link-inner--text d-lg-none">Github</span>
+                        @php($youtube = App\Models\SocialLinks::where('platform', 'youtube')->pluck('link')->first())
+                        <a class="nav-link nav-link-icon" href="{{ $youtube }}" target="_blank"
+                            data-toggle="tooltip" data-original-title="Subscribe To Our Youtube Channel">
+                            <i class="fab fa-youtube"></i>
+                            <span class="nav-link-inner--text d-lg-none">Youtube</span>
                         </a>
                     </li>
                 </ul>
@@ -178,22 +194,19 @@
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
-                        &copy; 2023 <a href="" class="font-weight-bold ml-1" target="_blank"></a>
+                        &copy; Autism & Me <a href="" class="font-weight-bold ml-1" target="_blank"></a>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                         <li class="nav-item">
-                            <a href="" class="nav-link" target="_blank"></a>
+                            <a href="{{route('Autism&Me.home')}}" class="nav-link" target="_blank">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link" target="_blank">About Us</a>
+                            <a href="{{route('frontend.aboutUs.index')}}" class="nav-link" target="_blank">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link" target="_blank">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link" target="_blank">MIT License</a>
+                            <a href="{{route('Autism&Me.articles')}}" class="nav-link" target="_blank">Articles</a>
                         </li>
                     </ul>
                 </div>

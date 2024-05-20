@@ -18,8 +18,8 @@ class ArticleController extends Controller
         // ----------------- Title ------------------
         $title = Title::where('place', 'articles')->first();
 
-        // ----------------- Library ------------------
-        $libraries = Library::all();
+        // // ----------------- Library ------------------
+        // $libraries = Library::all();
 
         // ----------------- Categories ------------------
         $categories = Category::all();
@@ -35,7 +35,7 @@ class ArticleController extends Controller
 
         return view('frontend.articles.articles',[
             'title' => $title,
-            'libraries' => $libraries,
+            // 'libraries' => $libraries,
             'categories' => $categories,
             'ourServices' => $ourServices,
             'preferredBooks' => $preferredBooks,

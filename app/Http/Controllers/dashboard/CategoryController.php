@@ -27,8 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $libraries = Library::orderBy('name')->pluck('name', 'id')->toArray();
-        return view('backend.dashboard.categories.create', compact('libraries'));
+        return view('backend.dashboard.categories.create');
     }
 
     /**
@@ -38,12 +37,10 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'library_id' => 'required',
         ]);
         try{
             Category::create([
                 'name' => $request->name,
-                'library_id' => $request->library_id,
                 'photo' =>  $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories','upload_imgs')
             ]);
             return redirect()->route('categories.index')->with('message', 'Entery Add Successfully');
@@ -56,8 +53,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $categories = Category::findOrFail($id);
-        $libraries = Library::orderBy('name')->pluck('name', 'id')->toArray();
-        return view('backend.dashboard.categories.edit', compact('categories', 'libraries'));
+        return view('backend.dashboard.categories.edit', compact('categories'));
     }
 
     /**
@@ -67,12 +63,10 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'library_id' => 'required',
         ]);
         $Category = Category::findOrFail($id);
         try{
             $Category->name = $request->name;
-            $Category->library_id = $request->library_id;
             if($request->has('photo')){
                 if($Category->photo){
                     $oldImg = $Category->photo;

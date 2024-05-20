@@ -41,7 +41,7 @@
                             <tr>
                                 <th scope="col" class="sort" data-sort="Photo">Photo</th>
                                 <th scope="col" class="sort" data-sort="Name">Name</th>
-                                <th scope="col" class="sort" data-sort="Libraries">Libraries</th>
+                                {{-- <th scope="col" class="sort" data-sort="Libraries">Libraries</th> --}}
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
@@ -61,9 +61,9 @@
                                     <td class="Name">
                                     {{ $category->name }}
                                     </td>
-                                    <td class="Libraries">
+                                    {{-- <td class="Libraries">
                                         {{ $category->library->name }}
-                                    </td>
+                                    </td> --}}
                                     <td class="Created At">
                                         {{ $category->created_at->diffForHumans() }}
                                     </td>
