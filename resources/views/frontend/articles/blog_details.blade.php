@@ -16,12 +16,13 @@
                 <div class="site-wrapper-reveal">
                     <!-- Blog Details Wrapper Start -->
                     <div class="blog-details-wrapper section-space--ptb_80">
-                        <div class="container">
+                        <div class="container" style="margin-top: 95px;">
                             <div class="row">
                                 <!-- Latest Post Area End -->
                                 <div class="row">
                                     <div class="blog-details-thum">
-                                        <img src="{{ asset('dashboard/img/' . $bookdetails->photo) }}" alt="">
+                                        <img src="{{ asset('dashboard/img/' . $bookdetails->photo) }}" alt=""
+                                            style="border-radius: 4%;">
                                     </div>
                                     <div class="blog-details-post-content">
                                         <div class="blog-details-meta-box">
@@ -30,7 +31,7 @@
                                                     <a href="#">{{ $bookdetails->category->name }}</a>
                                                 </div>
                                                 <div class="following-blog-post-author">
-                                                    By <a href="#">{{ $bookdetails->author_name }}</a>
+                                                    By <a href="">{{ $bookdetails->author_name }}</a>
                                                 </div>
                                             </div>
                                             <div class="post-mid-side mb-2">
@@ -109,27 +110,31 @@
                                                         <!-- Single Following Post Start -->
                                                         <div class="single-related-post">
                                                             <div class="related-post-thum">
-                                                                <img src="{{ asset('dashboard/img/' . $cat->photo) }}"
-                                                                    alt="">
+                                                                <a href="{{ route('Autism&Me.bookDetails', $cat->id) }}">
+                                                                    <img src="{{ asset('dashboard/img/' . $cat->photo) }}"
+                                                                        alt="" style="border-radius: 4%;">
+                                                                </a>
                                                             </div>
                                                             <div class="following-post-content">
                                                                 <div class="following-blog-post-top">
                                                                     <div class="trending-blog-post-category">
-                                                                        <a href="#">{{ $cat->category->name }}</a>
+                                                                        <a>{{ $cat->category->name }}</a>
                                                                     </div>
                                                                     <div class="following-blog-post-author">
-                                                                        By <a href="#">{{ $cat->author_name }}</a>
+                                                                        By <a
+                                                                            href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->author_name }}</a>
                                                                     </div>
                                                                 </div>
                                                                 <h5 class="following-blog-post-title">
-                                                                    <a href="#">{{ $cat->name }}</a>
+                                                                    <a
+                                                                        href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->name }}</a>
                                                                 </h5>
                                                                 <div class="following-blog-post-meta">
                                                                     <div class="post-meta-left-side">
                                                                         <span class="post-date">
                                                                             <i class="icofont-ui-calendar"></i>
                                                                             <a
-                                                                                href="#">{{ $cat->publication_date }}</a>
+                                                                                href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->publication_date }}</a>
                                                                         </span>
                                                                         {{-- <span>10 min read</span> --}}
                                                                     </div>

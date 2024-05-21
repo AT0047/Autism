@@ -61,6 +61,9 @@
                                     <input type="file" name="photo" class="form-control" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                 </div>
+                                @error('photo')
+                                    <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="d-flex mt-3 justify-content-end">
                                 <a href="{{ route('categories.index') }}" class="btn btn-secondary">Back</a>

@@ -40,8 +40,7 @@
                                     @foreach ($categories as $category)
                                         {{-- <a href="{{ route('Autism&Me.libraryDetails', $category->id) }}"
                                             class="btn-large woocommerce">{{ $category->name }}</a> --}}
-                                        <a href="#category1"
-                                            class="btn-large woocommerce">{{ $category->name }}</a>
+                                        <a href="#category1" class="btn-large woocommerce">{{ $category->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -63,15 +62,6 @@
                 <div class="col-lg-4">
                     <!-- Latest Post Area Start -->
                     <div class="archive-post-inner-wrap">
-                        <div class="archive-search-wrap">
-                            <div class="section-title" data-aos="fade-up">
-                                <h4>Search Here</h4>
-                            </div>
-                            <div class="archive-search-box" data-aos="fade-up">
-                                <input class="search-input" type="text" placeholder="Search Here">
-                                <button class="search-button" type="submit"><i class="icofont-search-1"></i></button>
-                            </div>
-                        </div>
                         <livewire:library-view>
                             <!-- Add Banner Area Start -->
                             <div class="add-banner-area mt-5" data-aos="fade-up">
@@ -83,20 +73,7 @@
                     </div> <!-- Latest Post Area End -->
                 </div>
                 <!-- Special For Beginner Area Start -->
-                <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-title-three text-center" data-aos="fade-up">
-                                    <h2 class="title" id='category'>Category</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row--30">
-                            <livewire:show-books/>
-                        </div>
-                    </div>
-                </div>
+                            <livewire:show-books />
                 <!-- Special For Beginner Area End -->
                 <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
                     @if (!$aboutUs)
@@ -140,8 +117,7 @@
                                                     {{ $aboutUs->job_specialization }}</h5>
                                             </div>
                                             <a href="{{ route('frontend.aboutUs.index') }}"><button type="submit"
-                                                    class="btn" style="border-radius: 10%; margin: 100px;">take a
-                                                    look</button></a>
+                                                    class="btn" style="border-radius: 10%; margin: 100px;">take a look</button></a>
                                         </div>
                                     </div>
                                 </section>

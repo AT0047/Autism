@@ -37,6 +37,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'photo' => 'required|image',
         ]);
         try{
             Category::create([
@@ -63,6 +64,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'photo' => 'image',
         ]);
         $Category = Category::findOrFail($id);
         try{

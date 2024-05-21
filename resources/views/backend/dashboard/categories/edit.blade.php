@@ -11,7 +11,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('categories.update', $categories->id) }}" method ="POST" enctype="multipart/form-data">
+                    <form action="{{ route('categories.update', $categories->id) }}" method ="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <h6 class="heading-small text-muted mb-4">Information</h6>
@@ -55,6 +56,9 @@
                                 <input type="file" name="photo" class="form-control">
                             </div>
                             <img width = "150" height = "100" src="{{ asset('dashboard/img/' . $categories->photo) }}" />
+                            @error('photo')
+                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="d-flex mt-3 justify-content-end">
                             <a href="{{ route('categories.index') }}" class="btn btn-secondary">Back</a>
