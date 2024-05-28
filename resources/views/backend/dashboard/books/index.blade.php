@@ -5,13 +5,13 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">Books</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">Articles</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                <li class="breadcrumb-item active" aria-current="page">Books</li>
+                                <li class="breadcrumb-item active" aria-current="page">Articles</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,7 +27,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Books</h3>
+                    <h3 class="mb-0">Articles</h3>
                 </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success" role="alert">
@@ -40,12 +40,12 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="Name">Name</th>
-                                {{-- <th scope="col" class="sort" data-sort="content">Content</th> --}}
                                 <th scope="col" class="sort" data-sort="categories">Categories</th>
                                 <th scope="col" class="sort" data-sort="prefer">Prefer Stauts</th>
                                 <th scope="col" class="sort" data-sort="video">Video</th>
                                 <th scope="col" class="sort" data-sort="publication_date">Publication Date</th>
                                 <th scope="col" class="sort" data-sort="author_name">Author Name</th>
+                                <th scope="col" class="sort" data-sort="display_order">Display Order</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
@@ -65,9 +65,6 @@
                                             </div>
                                         </div>
                                     </th>
-                                    {{-- <td class="content">
-                                        {!! Str::limit($book->content, 15) !!}
-                                    </td> --}}
                                     <td class="Categories">
                                         {{ $book->category->name }}
                                     </td>
@@ -95,6 +92,9 @@
                                     <td class="author_name">
                                         {{ $book->author_name }}
                                     </td>
+                                    <td class="display_order">
+                                        {{$book->display_order}}
+                                    </td> 
                                     <td class="Created At">
                                         {{ $book->created_at->diffForHumans() }}
                                     </td>

@@ -18,8 +18,8 @@ class ArticleController extends Controller
         // ----------------- Title ------------------
         $title = Title::where('place', 'articles')->first();
 
-        // // ----------------- Library ------------------
-        // $libraries = Library::all();
+        //----------------- Books ------------------
+        $books = Book::orderBy('display_order')->get();
 
         // ----------------- Categories ------------------
         $categories = Category::all();
@@ -35,7 +35,7 @@ class ArticleController extends Controller
 
         return view('frontend.articles.articles',[
             'title' => $title,
-            // 'libraries' => $libraries,
+            'books' => $books,
             'categories' => $categories,
             'ourServices' => $ourServices,
             'preferredBooks' => $preferredBooks,
@@ -52,51 +52,51 @@ class ArticleController extends Controller
     }
 
 
-    public function libraryDetails($id){
-        // ----------------- Title ------------------
-        $title = Title::where('place', 'articles')->first();
+    // public function libraryDetails($id){
+    //     // ----------------- Title ------------------
+    //     $title = Title::where('place', 'articles')->first();
 
-        // ----------------- Library ------------------
-        $libraries = Library::all();
+    //     // ----------------- Library ------------------
+    //     $libraries = Library::all();
         
-        // ----------------- Library Content ------------------
-        $libraryContent = Library::findOrFail($id);
+    //     // ----------------- Library Content ------------------
+    //     $libraryContent = Library::findOrFail($id);
 
-        // ----------------- Library Content ------------------
-        $libraryCategories = Category::where('library_id', $id)->get();
+    //     // ----------------- Library Content ------------------
+    //     $libraryCategories = Category::where('library_id', $id)->get();
 
-        foreach ($libraryCategories as $libraryCategory){
-            $cate_id = $libraryCategory->id;
-        }
+    //     foreach ($libraryCategories as $libraryCategory){
+    //         $cate_id = $libraryCategory->id;
+    //     }
 
-        // ----------------- Library Books ------------------
-        // $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
+    //     // ----------------- Library Books ------------------
+    //     // $libraryBooks = Library::where('id', $id)->with('categories.books')->get();
 
-        // ----------------- Categories ------------------
-        if (isset($cate_id)) {
-            $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
-        }
+    //     // ----------------- Categories ------------------
+    //     if (isset($cate_id)) {
+    //         $preferred_Books = Book::where('category_id', $cate_id)->where('prefer', 1)->get();
+    //     }
 
-        // ----------------- Our Services ------------------
-        $ourServices = OurService::all();
+    //     // ----------------- Our Services ------------------
+    //     $ourServices = OurService::all();
 
-        // ----------------- News ------------------
-        $preferredBooks = Book::where('prefer',1)->get(); 
+    //     // ----------------- News ------------------
+    //     $preferredBooks = Book::where('prefer',1)->get(); 
 
-        $aboutUs=AboutUs::first();
+    //     $aboutUs=AboutUs::first();
 
-        // dd($libraryBooks);
-        return view('frontend.articles.library_content',[
-            'title' => $title,
-            'libraries' => $libraries,
-            'libraryContent' => $libraryContent,
-            'libraryCategories' => $libraryCategories,
-            // 'libraryBooks' => $libraryBooks,
-            'preferred_Books' => ($preferred_Books ?? ''),
-            'ourServices' => $ourServices,
-            'preferredBooks' => $preferredBooks,
-            'aboutUs' => $aboutUs,
-            'id' => $id,
-        ]); 
-    }
+    //     // dd($libraryBooks);
+    //     return view('frontend.articles.library_content',[
+    //         'title' => $title,
+    //         'libraries' => $libraries,
+    //         'libraryContent' => $libraryContent,
+    //         'libraryCategories' => $libraryCategories,
+    //         // 'libraryBooks' => $libraryBooks,
+    //         'preferred_Books' => ($preferred_Books ?? ''),
+    //         'ourServices' => $ourServices,
+    //         'preferredBooks' => $preferredBooks,
+    //         'aboutUs' => $aboutUs,
+    //         'id' => $id,
+    //     ]); 
+    // }
 }

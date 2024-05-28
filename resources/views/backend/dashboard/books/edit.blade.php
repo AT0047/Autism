@@ -19,9 +19,9 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-username">Book Title</label>
+                                        <label class="form-control-label" for="input-username">Article's Title</label>
                                         <input type="text" value="{{ old('name', $books->name) }}" name="name"
-                                            class="form-control" placeholder="Write Book's Title Here">
+                                            class="form-control" placeholder="Write Article's Title Here">
                                         @error('name')
                                             <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                             </div>
@@ -40,7 +40,7 @@
                                             @foreach ($categories as $category)
                                                 <option
                                                     value="{{ $category->id }}"{{ $category->id == $books->category_id ? 'selected' : '' }}>
-                                                {{ $category->name }}</option>
+                                                    {{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('category_id')
@@ -89,13 +89,27 @@
                                         <label class="form-control-label" for="input-username">Status</label>
                                         <select name="prefer" class ="form-control">
                                             <option disabled selected value="">Select Status</option>
-                                            <option value='1'
-                                                {{ $books->prefer == 1 ? 'selected' : '' }}>Preferd</option>
-                                            <option value='0'
-                                                {{ $books->prefer == 0 ? 'selected' : '' }}>Not Preferd
+                                            <option value='1' {{ $books->prefer == 1 ? 'selected' : '' }}>Preferd
+                                            </option>
+                                            <option value='0' {{ $books->prefer == 0 ? 'selected' : '' }}>Not Preferd
                                             </option>
                                         </select>
                                         @error('prefer')
+                                            <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Display Order</label>
+                                        <input type="number" value="{{ old('display_order', $books->display_order) }}" name="display_order"
+                                            class="form-control" placeholder="Decide Article's Display Order Here">
+                                        @error('display_order')
                                             <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                             </div>
                                         @enderror
@@ -129,8 +143,7 @@
                                     aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
                             <div>
-                                <img width = "150" height = "100"
-                                    src="{{ asset('dashboard/img/'.$books->photo) }}" />
+                                <img width = "150" height = "100" src="{{ asset('dashboard/img/' . $books->photo) }}" />
                             </div>
                             @error('photo')
                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>

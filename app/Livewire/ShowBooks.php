@@ -9,18 +9,18 @@ use Livewire\Attributes\On;
 
 class ShowBooks extends Component
 {
-    public $categoryId;
-    public $books = [];
+    // public $categoryId;
+    // public $books = [];
 
-    #[On('loadBooks')]
-    public function book($categoryId){
-        $this->books = Book::where('category_id',$categoryId)->get();
-        return view('livewire.show-books' , [
-            'books' => $this->books
-        ]);
-    }
-    public function render()
-    {   
-        return view('livewire.show-books');
-    }
+    // #[On('loadBooks')]
+    // public function book($categoryId){
+    //     $this->books = Book::where('category_id',$categoryId)->get();
+    //     return view('livewire.show-books' , [
+    //         'books' => $this->books
+    //     ]);
+    // }
+    // public function render()
+    // {   
+    //     return view('livewire.show-books');
+    // }
 }

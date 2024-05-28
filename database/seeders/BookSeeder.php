@@ -20,6 +20,7 @@ class BookSeeder extends Seeder
             'category_id' => 1,
             'prefer' => true,
             'author_name' => 'A1',
+            'display_order' => 1,
             'content' => 'Physicians provide comprehensive medical evaluations and primary care for patients of all ages.'
         ]);
     }

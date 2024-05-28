@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('photo');
             $table->date('publication_date');
             $table->string('author_name');
+            $table->integer('display_order')->unique();
             $table->timestamps();
         });
     }

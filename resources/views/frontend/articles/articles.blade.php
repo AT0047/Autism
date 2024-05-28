@@ -47,6 +47,113 @@
                         </div>
                     </div>
                 </div><!-- Hero Area End -->
+                {{-- <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title-three text-center" data-aos="fade-up">
+                                    <h2 class="title" id=''>Category</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row--30">
+                            @foreach ($books as $book)
+                                <!-- Single Most Populer Item Start -->
+                                <div class="col-lg-4 single-most-populer-item" data-aos="fade-up">
+                                    <a href="{{ route('Autism&Me.bookDetails', $book->id) }}" class="most-populer-thum">
+                                        <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
+                                    </a>
+                                    <div class="most-populer-content">
+                                        <div class="most-populer-post-author">
+                                            By <a
+                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a>
+                                        </div>
+                                        <h3 class="title"><a
+                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->name }}</a>
+                                        </h3>
+                                        <div class="most-populer-post-meta">
+                                            <span class="post-date">
+                                                <a
+                                                    href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- Single Most Populer Item End -->
+                            @endforeach
+                        </div>
+                    </div>
+                </div> --}}
+                <div class="row">
+                    <div class="related-post-area section-space--pt_60">
+                        <div class="row">
+                            <div class="col-lg-8 col-7">
+                                <div class="section-title mb-30">
+                                    <h3 class="title">Category</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-5">
+                                <div class="related-post-slider-navigation text-end">
+                                    <div class="related-post-button-prev navigation-button"><i
+                                            class="icofont-long-arrow-left"></i></div>
+                                    <div class="related-post-button-next navigation-button"><i
+                                            class="icofont-long-arrow-right"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Swiper -->
+                        <div class="swiper-container related-post-slider-active">
+                            <div class="swiper-wrapper">
+                                @foreach ($books as $book)
+                                    <div class="swiper-slide">
+                                        <!-- Single Following Post Start -->
+                                        <div class="single-related-post">
+                                            <div class="related-post-thum">
+                                                <a href="{{ route('Autism&Me.bookDetails', $book->id) }}">
+                                                    <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt=""
+                                                        style="border-radius: 4%; width: 50%;">
+                                                </a>
+                                            </div>
+                                            <div class="following-post-content">
+                                                <div class="following-blog-post-top">
+                                                    <div class="trending-blog-post-category">
+                                                        <a>{{ $book->category->name }}</a>
+                                                    </div>
+                                                    <div class="following-blog-post-author">
+                                                        By <a
+                                                            href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a>
+                                                    </div>
+                                                </div>
+                                                <h5 class="following-blog-post-title">
+                                                    <a
+                                                        href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->name }}</a>
+                                                </h5>
+                                                <div class="following-blog-post-meta">
+                                                    <div class="post-meta-left-side">
+                                                        <span class="post-date">
+                                                            <i class="icofont-ui-calendar"></i>
+                                                            <a
+                                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a>
+                                                        </span>
+                                                        {{-- <span>10 min read</span> --}}
+                                                    </div>
+                                                    {{-- <div class="post-meta-right-side mb-2">
+                                                                    <a href="#"><img
+                                                                            src="{{ asset('home_assets/small-bookmark.png') }}"
+                                                                            alt="" /></a>
+                                                                    <a href="#"><img
+                                                                            src="{{ asset('home_assets/heart.png') }}"
+                                                                            alt="" /></a>
+                                                                </div> --}}
+                                                </div>
+                                            </div>
+                                        </div><!-- Single Following Post End -->
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Banner Area End -->
+                </div>
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-12">
@@ -73,7 +180,7 @@
                     </div> <!-- Latest Post Area End -->
                 </div>
                 <!-- Special For Beginner Area Start -->
-                            <livewire:show-books />
+                {{-- <livewire:show-books /> --}}
                 <!-- Special For Beginner Area End -->
                 <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
                     @if (!$aboutUs)
@@ -117,7 +224,8 @@
                                                     {{ $aboutUs->job_specialization }}</h5>
                                             </div>
                                             <a href="{{ route('frontend.aboutUs.index') }}"><button type="submit"
-                                                    class="btn" style="border-radius: 10%; margin: 100px;">take a look</button></a>
+                                                    class="btn" style="border-radius: 10%; margin: 100px;">take a
+                                                    look</button></a>
                                         </div>
                                     </div>
                                 </section>

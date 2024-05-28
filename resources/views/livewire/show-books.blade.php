@@ -1,4 +1,4 @@
-<!-- Single Most Populer Item Start -->
+{{-- <!-- Single Most Populer Item Start -->
 <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
     <div class="container">
         <div class="row">
@@ -35,4 +35,4 @@
             @endforelse
         </div>
     </div>
-</div>
+</div> --}}

@@ -12,7 +12,7 @@ trait upload_imgs{
         if($request->hasFile($inputname)){
             $photo = $request->file($inputname);
             $name = \Str::slug(now(). $photoname);
-            $filename = $name.'.'.$photo->getClientOriginalExtension();
+            $filename = $name.'.'.$photo->extension();
             return $request->file($inputname)->storeAs($foldername, $filename, $disk);
         }
         return null;

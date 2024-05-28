@@ -13,7 +13,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Add To Books Section</h3>
+                                <h3 class="mb-0">Add New Article</h3>
                             </div>
                         </div>
                     </div>
@@ -25,9 +25,9 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Book Title</label>
+                                            <label class="form-control-label" for="input-username">Article's Title</label>
                                             <input type="text" value="{{ old('name') }}" name="name"
-                                                class="form-control" placeholder="Write Book's Title Here">
+                                                class="form-control" placeholder="Write Article's Title Here">
                                             @error('name')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Category Name</label>
+                                            <label class="form-control-label" for="input-username">Category's Name</label>
                                             <select name="category_id" class ="form-control">
                                                 <option disabled selected value="">Select Category</option>
                                                 @foreach ($categories as $category)
@@ -75,8 +75,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Publication Date</label>
-                                            <input type="date" value="{{ old('publication_date') }}" name="publication_date"
-                                                class="form-control" placeholder="Publication Date">
+                                            <input type="date" value="{{ old('publication_date') }}"
+                                                name="publication_date" class="form-control" placeholder="Publication Date">
                                             @error('publication_date')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
@@ -96,6 +96,21 @@
                                                 <option value='0'>Not Preferd</option>
                                             </select>
                                             @error('prefer')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pl-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Display Order</label>
+                                            <input type="number" value="{{ old('display_order') }}" name="display_order"
+                                                class="form-control" placeholder="Decide Article's Display Order Here">
+                                            @error('display_order')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
                                             @enderror
@@ -123,7 +138,7 @@
                                 @enderror
                             </div>
                             <div class="pl-lg-4 ">
-                                <label class="form-control-label ">Upload image</label>
+                                <label class="form-control-label ">Upload Image</label>
                                 <div class="input-group">
                                     <input type="file" name="photo" class="form-control" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04" aria-label="Upload">

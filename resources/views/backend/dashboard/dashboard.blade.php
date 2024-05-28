@@ -110,7 +110,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('books.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
-                                <span class="nav-link-text">Books</span>
+                                <span class="nav-link-text">Articles</span>
                             </a>
                         </li>
                         <nav class="navbar navbar-expand-lg navbar-light bg-light"

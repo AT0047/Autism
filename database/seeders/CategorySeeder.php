@@ -14,9 +14,24 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'Category1',
-            'photo' => fake()->imageUrl($width = 40, $height = 80), 
-            'library_id' => 1
+            'name' => 'Heavy Metal & Environmental toxins',
+            'photo' => fake()->imageUrl(), 
+        ]);
+        Category::create([
+            'name' => 'Genes & Detoxifications',
+            'photo' => fake()->imageUrl(), 
+        ]);
+        Category::create([
+            'name' => 'Mitochondrial Dysfunctions',
+            'photo' => fake()->imageUrl(), 
+        ]);
+        Category::create([
+            'name' => 'Immune Dysregulations ',
+            'photo' => fake()->imageUrl(), 
+        ]);
+        Category::create([
+            'name' => 'Microbiome',
+            'photo' => fake()->imageUrl(), 
         ]);
     }
 }

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SaveVideoJob;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Library;
 use App\Traits\upload_imgs;
 use App\Traits\upload_vidoes;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -21,7 +23,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('created_at', 'desc')->paginate(5);
+        $books = Book::orderBy('display_order')->paginate(5);
         return view('backend.dashboard.books.index', compact('books'));
     }
 
@@ -46,10 +48,12 @@ class BookController extends Controller
             'prefer' => 'required',
             'publication_date' => 'required',
             'author_name' => 'required',
+            'display_order' => 'required|unique:books|numeric',
             'photo' => 'required|image',
             'video' => 'mimes:mp4,mov,ogg,qt,flv,avi,wmv,mkv,flv'
         ],[
-            'category_id.required' => 'The category name is required.'
+            'category_id.required' => 'The category name is required.',
+            'display_order.unique' => 'There are other articles with the same order.'
         ]);
         try {
             Book::create([
@@ -59,6 +63,7 @@ class BookController extends Controller
                 'prefer' => $request->prefer,
                 'publication_date' => $request->publication_date,
                 'author_name' => $request->author_name,
+                'display_order' => $request->display_order,
                 'photo' => $this->uploadImg($request, 'photo', 'BookImgs', 'books', 'upload_imgs'),
                 'video' => $this->uploadVids($request, 'video', 'BookImgs', 'books', 'upload_imgs'),
             ]);
@@ -84,6 +89,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $books = Book::findOrFail($id);
         $request->validate([
             'name' => 'required',
             'content' => 'required',
@@ -91,12 +97,13 @@ class BookController extends Controller
             'prefer' => 'required',
             'publication_date' => 'required',
             'author_name' => 'required',
+            'display_order' => $books->display_order == $request->display_order ? 'required|numeric': 'required|unique:books|numeric',
             'video' => 'mimes:mp4,mov,ogg,qt,flv,avi,wmv,mkv,flv',
             'photo' => 'image'
         ],[
-            'category_id.required' => 'The category name is required.'
+            'category_id.required' => 'The category name is required.',
+            'display_order.unique' => 'There are other articles with the same order.'
         ]);
-        $books = Book::findOrFail($id);
         try {
             $books->name = $request->name;
             $books->content = $request->content;
@@ -104,6 +111,7 @@ class BookController extends Controller
             $books->prefer = $request->prefer;
             $books->publication_date = $request->publication_date;
             $books->author_name = $request->author_name;
+            $books->display_order = $request->display_order;
             if($request->has('photo')){
                 if($books->photo){
                     $oldImg = $books->photo;

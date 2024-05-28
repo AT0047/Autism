@@ -11,7 +11,7 @@ trait upload_vidoes{
         if($request->hasFile($inputname)){
             $video = $request->file($inputname);
             $name = \Str::slug(now(). $videoname);
-            $filename = $name.'.'.$video->getClientOriginalExtension();
+            $filename = $name.'.'.$video->extension();
             return $request->file($inputname)->storeAs($foldername, $filename, $disk);
         }
         return null;
