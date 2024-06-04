@@ -112,17 +112,7 @@
                     <!-- Library and Category Section -->
                     <div class="col-lg-5">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="footer-widget">
-                                    <h4 class="footer-widget-title text-dark">Libraries</h4>
-                                    <ul class="footer-widget-menu-list">
-                                        @php($libraries = App\Models\Library::take(3)->get())
-                                        @foreach($libraries as $library)
-                                            <li><a href="{{ route('Autism&Me.articles') }}" class="text-dark">{{$library->name}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
+                           
                             <div class="col-md-6">
                                 <div class="footer-widget">
                                     <h4 class="footer-widget-title text-dark">Categories</h4>
@@ -130,6 +120,18 @@
                                         @php($categories = App\Models\Category::take(3)->get())
                                         @foreach($categories as $category)
                                             <li><a href="{{ route('Autism&Me.articles') }}" class="text-dark">{{$category->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="footer-widget">
+                                    <h4 class="footer-widget-title text-dark">Books</h4>
+                                    <ul class="footer-widget-menu-list">
+                                        @php($books = App\Models\Book::where('prefer',1)->take(3)->get())
+                                        @foreach($books as $book)
+                                            <li><a href="{{ route('Autism&Me.articles') }}" class="text-dark">{{$book->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>

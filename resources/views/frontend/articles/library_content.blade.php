@@ -51,7 +51,7 @@
                 <div class="col-lg-4">
                     <!-- Latest Post Area Start -->
                     <div class="archive-post-inner-wrap">
-                        <div class="archive-search-wrap">
+                        {{-- <div class="archive-search-wrap">
                             <div class="section-title" data-aos="fade-up">
                                 <h4>Search Here</h4>
                             </div>
@@ -59,7 +59,7 @@
                                 <input class="search-input" type="text" placeholder="Search Here">
                                 <button class="search-button" type="submit"><i class="icofont-search-1"></i></button>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="archive-post-wrap mt-5" id="Category">
                             <div class="section-title" data-aos="fade-up">
                                 <h4>Category</h4>

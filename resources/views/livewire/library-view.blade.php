@@ -1,5 +1,5 @@
 <div>
-    <div class="archive-search-wrap">
+    {{-- <div class="archive-search-wrap">
         <div class="section-title">
             <h4>Search Here</h4>
         </div>
@@ -7,7 +7,7 @@
             <input class="search-input" wire:model.live.debounce.300ms="searchItem" type="text" placeholder="Search Here">
             <button class="search-button" type="button"><i class="icofont-search-1"></i></button>
         </div>
-    </div>
+    </div> --}}
     <div class="archive-post-wrap mt-5" id="Category">
         <div class="section-title">
             <h4>Category</h4>

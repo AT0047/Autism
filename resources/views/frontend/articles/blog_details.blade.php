@@ -50,10 +50,10 @@
                                                             alt="" /></a>
                                                 </div> --}}
                                         </div>
-                                        <h3 class="following-blog-post-title">
+                                        <h3 class="following-blog-post-title text-center">
                                             <a href="#">{{ $bookdetails->name }}</a>
                                         </h3>
-                                        <div class="post-details-text">
+                                        <div class="post-details-text text-center">
                                             <p>{!! $bookdetails->content !!}</p>
                                             {{-- <div class="video-banner-area video-popup mb-4"> --}}
                                             <a href="{{ asset('dashboard/img/' . $bookdetails->video) }}"
@@ -112,7 +112,7 @@
                                                             <div class="related-post-thum">
                                                                 <a href="{{ route('Autism&Me.bookDetails', $cat->id) }}">
                                                                     <img src="{{ asset('dashboard/img/' . $cat->photo) }}"
-                                                                        alt="" style="border-radius: 4%;">
+                                                                    class="fixed-size-img" style="height: 200px;width:400px">
                                                                 </a>
                                                             </div>
                                                             <div class="following-post-content">

@@ -87,9 +87,9 @@
                     <div class="related-post-area section-space--pt_60">
                         <div class="row">
                             <div class="col-lg-8 col-7">
-                                <div class="section-title mb-30">
+                                {{-- <div class="section-title mb-30">
                                     <h3 class="title">Category</h3>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-lg-4 col-5">
                                 <div class="related-post-slider-navigation text-end">
@@ -110,7 +110,7 @@
                                             <div class="related-post-thum">
                                                 <a href="{{ route('Autism&Me.bookDetails', $book->id) }}">
                                                     <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt=""
-                                                        style="border-radius: 4%; width: 50%;">
+                                                        style="border-radius: 4%; width: 350px;height:400px">
                                                 </a>
                                             </div>
                                             <div class="following-post-content">
@@ -272,8 +272,7 @@
                                 <div class="row mx-0 align-items-center" data-aos="fade-up">
                                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
                                         <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
-                                            <figure class="hover"><img alt="" class="w-100"
-                                                    style="border-radius: 10px;"
+                                            <figure class="hover"><img alt="" class="fixed-size-img" style="height: 200px;width:400px"
                                                     src="{{ asset('dashboard/img/' . $preferredBook->photo) }}"></figure>
                                         </a>
                                     </div>

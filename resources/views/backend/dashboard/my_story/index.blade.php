@@ -46,7 +46,7 @@
                                 <th class="sort" data-sort="name">Photo 3</th>
                                 <th scope="col" class="sort" data-sort="Title 1">Title 1</th>
                                 <th scope="col" class="sort" data-sort="Title 2">Title 2</th>
-                                <th scope="col" class="sort" data-sort="Contant">Contant</th>
+                                <th scope="col" class="sort" data-sort="Content">Contant</th>
                                 <th scope="col" class="sort" data-sort="Created At">Created At</th>
                                 <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
@@ -86,7 +86,7 @@
                                     <td class="Title 2">
                                         {!! Str::limit($mystory->title2, 15)  !!}
                                     </td>
-                                    <td class="Contant">
+                                    <td class="Content">
                                         {!! Str::limit($mystory->content, 15)  !!}
                                     </td>
                                     <td class="Created At">

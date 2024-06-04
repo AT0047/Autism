@@ -84,7 +84,10 @@
                                         </td>
                                     @endif
                                     <td class="video">
-                                        {{ $book->video }}
+                                        <video controls width="150">
+                                            <source src="{{ asset('dashboard/img/' . $book->video) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
                                     </td>
                                     <td class="publication_date">
                                         {{ $book->publication_date }}

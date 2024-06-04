@@ -95,12 +95,12 @@
                                 <span class="nav-link-text">Our Services</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('libraries.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
                                 <span class="nav-link-text">Libraries</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categories.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>

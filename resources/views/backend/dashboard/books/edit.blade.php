@@ -132,6 +132,15 @@
                                 <input type="file" name="video" class="form-control" id="inputGroupFile04"
                                     aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
+                            @if ($books->video)
+                            <div >
+                                <video controls width="150">
+                                    <source src="{{ asset('dashboard/img/' . $books->video) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        @endif
+
                             @error('video')
                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                             @enderror

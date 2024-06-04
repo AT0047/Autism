@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+<style></style>
     <!-- Masthead -->
     @if (!$homeTitle)
         <main id="home" class="masthead jarallax"
@@ -43,6 +44,7 @@
                     <div class="row mx-0">
                         <div class="col-md-4 px-0">
                             <h1 class="my-0"><span class="text-primary">{{ $homeTitle->title }}</h1>
+                            <h5 class="my-0"><span >{!! $homeTitle->description !!}</h5>
                         </div>
                     </div>
                 </div>
@@ -119,18 +121,27 @@
                         <div class="ocol-md-6 col-lg-4 px-0 mt-5 mt-lg-0" data-aos="fade-right">
                             <div
                                 class="experience-number font-weight-bold text-dark d-inline-block d-lg-block align-middle">
-                                <img alt="" class="w-100" style="border-radius: 10px;"
+                                <img alt="" class="w-100" style="border-radius: 10px; width:300px; height:400px"
                                     src="{{ asset('dashboard/img/' . $myStory->photo1) }}">
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 px-0">
-                            {{-- <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">In Argentina, <span
-                                class="text-primary">WHO and partner</span>Training (CST) programme.<br> <span
-                                class="text-primary">around</span></h2> --}}
-                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">{{ $myStory->title1 }}</h2>
-                        </div>
+                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">
+                                @php
+                                    $title1_words = explode(' ', $myStory->title1);
+                                @endphp
+                                <span style="color: red;">{{ $title1_words[0] }}</span>
+                                @for($i = 1; $i < count($title1_words); $i++)
+                                @if($i== 2)
+                                <span style="color: red;">{{ $title1_words[$i] }}</span>
+                                @else
+                                {{ $title1_words[$i] }}
+                                @endif
+                                @endfor
+                            </h2>
+                        </div>                     
                         <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
-                            <img alt="" class="w-100" style="border-radius: 10px;"
+                            <img alt="" class="w-100" style="border-radius: 10px; width:300px; height:400px"
                                 src="{{ asset('dashboard/img/' . $myStory->photo2) }}">
                         </div>
                     </div>
@@ -140,20 +151,28 @@
             <section id="specialization" class="section py-0">
                 <div class="container">
                     <div class="row mx-0 align-items-center">
-                        <div class="col-md-6 order-md-2 order-lg-1 col-lg-4 px-0">
-                            {{-- <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
-                            data-aos="fade-right">I <span class="text-primary">use</span> is a long established fact
-                            that a reader</h2> --}}
-                            <h2 class="my-0 wide-lg float-md-right float-lg-none offset-lg-5 mb-5 mb-md-0"
-                                data-aos="fade-right">{{ $myStory->title2 }}</h2>
-                        </div>
+                        <div class="col-md-6 col-lg-4 px-0">
+                            <h2 class="mt-0 wide-lg mb-5 mb-md-0" data-aos="fade-up">
+                                @php
+                                    $title2_words = explode(' ', $myStory->title2);
+                                @endphp
+                                <span style="color: red;">{{ $title2_words[0] }}</span>
+                                @for($i = 1; $i < count($title2_words); $i++)
+                                @if($i== 2)
+                                <span style="color: red;">{{ $title2_words[$i] }}</span>
+                                @else
+                                {{ $title2_words[$i] }}
+                                @endif
+                                @endfor
+                            </h2>
+                        </div> 
                         <div class="col-md-6 order-md-1 order-lg-2 col-lg-4 px-0" data-aos="blur">
-                            <img alt="" class="w-100" style="border-radius: 10px;"
+                            <img alt="" class="w-100" style="border-radius: 10px; width:300px; height:400px"
                                 src="{{ asset('dashboard/img/' . $myStory->photo3) }}">
                         </div>
                         <div class="col-md-6 offset-md-6 offset-lg-0 order-md-3 order-lg-3 col-lg-4 mt-5 pl-0 pl-md-30 mt-md-0"
                             data-aos="fade-up">
-                            <p class="mb-0 pl-md-30px">{{ $myStory->content }}</p>
+                            <p class="mb-0 pl-md-30px">{!! $myStory->content !!}</p>
                         </div>
                     </div>
                 </div>
@@ -254,9 +273,8 @@
                                         <div class="swiper-slide">
                                             <div class="single-testimonial-item" data-aos="fade-up">
                                                 <div class="testimonial-post-author">
-                                                    <div class="testimonial-author-image">
-                                                        <img src="{{ asset('dashboard/img/' . $peopleStory->photo) }}"
-                                                            alt="">
+                                                    <div class="testimonial-author-image" >
+                                                        <img class="rounded-circle" style="width: 75px; height: 75px;" src="{{ asset('dashboard/img/' . $peopleStory->photo) }}" alt="">
                                                     </div>
                                                     <div class="testimonial-author-info">
                                                         <h4>{{ $peopleStory->name }}</h4>
@@ -296,8 +314,7 @@
                         <div class="row mx-0 align-items-center" data-aos="fade-up">
                             <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
                                 <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
-                                    <figure class="hover"><img alt="" class="w-100"
-                                            style="border-radius: 10px;"
+                                    <figure class="hover"><img alt="" class="fixed-size-img" style="height: 200px;width:400px"
                                             src="{{ asset('dashboard/img/' . $preferredBook->photo) }}"></figure>
                                 </a>
                             </div>

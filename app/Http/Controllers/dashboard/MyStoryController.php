@@ -44,11 +44,10 @@ class MyStoryController extends Controller
         return view('backend.dashboard.my_story.edit', compact('mystory'));
     }
     public function update(Request $request, $id){
-        // dd($request->all());
         try{
             $mystory = MyStory::findOrFail($id);
-            $mystory->title1 = $request->titel1;
-            $mystory->title2 = $request->titel2;
+            $mystory->title1 = $request->title1;
+            $mystory->title2 = $request->title2;
             $mystory->content = $request->content;
             if($request->has('photo1')){
                 if($mystory->photo1){

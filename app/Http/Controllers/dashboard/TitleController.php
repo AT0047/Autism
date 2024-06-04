@@ -68,7 +68,7 @@ class TitleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'place' => 'required|unique:titles'
+            'place' => 'required|unique:titles,place,'. $id,
         ]);
         try{
             $Title = Title::findOrFail($id);

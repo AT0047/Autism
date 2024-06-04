@@ -13,14 +13,14 @@
                 <div class="card-body">
                     <form action="{{route('mystory.update', $mystory->id)}}" method ="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('patch')
+                        @method('put')
                         <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 1</label>
-                                            <input type="text" value="{{old('title1', $mystory->title1)}}" name="title1" class="form-control" placeholder="Write your title here">
+                                            <input type="text"  name="title1" value="{{$mystory->title1}}" class="form-control" placeholder="Write your title here">
                                         </div>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Title 2</label>
-                                            <input type="text" value="{{old('title1', $mystory->title2)}}" name="title2" class="form-control" placeholder="Write your title here">
+                                            <input type="text" name="title2" value="{{$mystory->title2}}"  class="form-control" placeholder="Write your title here">
                                         </div>
                                     </div>
                                 </div>
