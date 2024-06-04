@@ -38,7 +38,7 @@
                         <div class="pl-lg-4 ">
                             <div class="form-group ">
                                 <label class="form-control-label ">Content</label>
-                                <textarea id="postContent" name="content" rows="15" class="form-control">{{old('content', $mystory->content)}}</textarea>
+                                <textarea id="editor" name="content" rows="15" class="form-control">{{old('content', $mystory->content)}}</textarea>
                             </div>
                         </div>
                         <div class="pl-lg-4 ">

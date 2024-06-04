@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-username">Content</label>
-                                    <textarea id="postContent" name="content" rows="6" class="form-control"
+                                    <textarea id="editor" name="content" rows="6" class="form-control"
                                         placeholder="Enter Content Here">{{ old('content') }}</textarea>
                                 </div>
                                 <div class="form-group">

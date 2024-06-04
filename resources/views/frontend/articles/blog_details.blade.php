@@ -1,7 +1,12 @@
 @extends('layouts.master')
 @section('content')
     <!-- Content -->
-    <div class="content">
+    <style>
+        a{
+            color:blue;
+        }
+    </style>
+    <div >
         <div class="lines">
             <div class="container">
                 <div class="row">
@@ -38,7 +43,7 @@
                                                 <span class="post-meta-left-side">
                                                     <span class="post-date">
                                                         <i class="icofont-ui-calendar"></i>
-                                                        <a href="#">{{ $bookdetails->publication_date }}</a>
+                                                        <a href="" style="color:red">{{ $bookdetails->publication_date }}</a>
                                                     </span>
                                                 </span>
                                                 {{-- <span>10 min read</span> --}}
@@ -133,7 +138,7 @@
                                                                     <div class="post-meta-left-side">
                                                                         <span class="post-date">
                                                                             <i class="icofont-ui-calendar"></i>
-                                                                            <a
+                                                                            <a style="color:red"
                                                                                 href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->publication_date }}</a>
                                                                         </span>
                                                                         {{-- <span>10 min read</span> --}}

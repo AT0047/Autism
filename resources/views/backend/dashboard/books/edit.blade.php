@@ -123,14 +123,14 @@
                                 @error('content')
                                     <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                 @enderror
-                                <textarea id="postContent" name="content" rows="19" class="form-control " placeholder="Enter Book Content Here">{{ old('content', $books->content) }}</textarea>
+                                <textarea id="editor" name="content" rows="19" class="form-control " placeholder="Enter Book Content Here">{{ old('content', $books->content) }}</textarea>
                             </div>
                         </div>
                         <div class="pl-lg-4 ">
                             <label class="form-control-label ">Upload Video</label>
                             <div class="input-group">
                                 <input type="file" name="video" class="form-control" id="inputGroupFile04"
-                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="video/mp4,video/x-m4v,video/*">
                             </div>
                             @if ($books->video)
                             <div >
@@ -149,7 +149,7 @@
                             <label class="form-control-label ">Upload Image</label>
                             <div class="input-group">
                                 <input type="file" name="photo" class="form-control" id="inputGroupFile04"
-                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*">
                             </div>
                             <div>
                                 <img width = "150" height = "100" src="{{ asset('dashboard/img/' . $books->photo) }}" />

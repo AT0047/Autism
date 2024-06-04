@@ -39,7 +39,7 @@
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
                                     <label class="form-control-label ">Answer</label>
-                                    <textarea id="postContent" name="answer" rows="19" class="form-control " placeholder="Enter post title">{{ old('answer') }}</textarea>
+                                    <textarea id="editor" name="answer" rows="19" class="form-control " placeholder="Enter post title">{{ old('answer') }}</textarea>
                                     @error('answer')
                                         <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                     @enderror
