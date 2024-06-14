@@ -16,10 +16,10 @@ class ArticleController extends Controller
 {
     public function articles(){
         // ----------------- Title ------------------
-        $title = Title::where('place', 'articles')->first();
+        $title = Title::first();
 
         //----------------- Books ------------------
-        $books = Book::orderBy('display_order')->get();
+        $books = Book::orderBy('display_order')->take(3)->get();
 
         // ----------------- Categories ------------------
         $categories = Category::all();
@@ -28,7 +28,7 @@ class ArticleController extends Controller
         $ourServices = OurService::all();
 
         // ----------------- News ------------------
-        $preferredBooks = Book::where('prefer',1)->get(); 
+        $preferredBooks = Book::orderBy('display_order')->where('prefer',1)->get(); 
         
         $aboutUs=AboutUs::first();
 

@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('book_questions', function (Blueprint $table) {
             $table->id();
-            $table->text('question');
-            $table->text('answer');
+            $table->text('ar_question');
+            $table->text('en_question');
+            $table->text('ar_answer');
+            $table->text('en_answer');
             $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
             $table->timestamps();
         });

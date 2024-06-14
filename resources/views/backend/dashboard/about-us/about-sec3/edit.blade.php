@@ -26,18 +26,18 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter the title" value="{{ $aboutSec3->title }}" required>
-                                            @error('title')
+                                            <label class="form-control-label" for="input-username">Title (Arabic)</label>
+                                            <input type="text" name="ar_title" class="form-control" placeholder="Enter the Arabic title" value="{{ $aboutSec3->ar_title }}" required>
+                                            @error('ar_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Description</label>
-                                            <textarea name="description" rows="6" class="form-control" placeholder="Enter description" required>{{ $aboutSec3->description }}</textarea>
-                                            @error('description')
+                                            <label class="form-control-label" for="input-username">Title (English)</label>
+                                            <input type="text" name="en_title" class="form-control" placeholder="Enter the English title" value="{{ $aboutSec3->en_title }}" required>
+                                            @error('en_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -46,15 +46,33 @@
                             </div>
                             <div class="pl-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label">Current Photo</label>
-                                    <img src="{{ asset('storage/'.$aboutSec3->photo) }}" alt="Current Photo" style="max-width: 200px;">
+                                    <label class="form-control-label">Description (Arabic)</label>
+                                    <textarea id="editor-ar" name="ar_description" rows="6" class="form-control" placeholder="Enter Arabic description" required>{{ $aboutSec3->ar_description }}</textarea>
+                                    @error('ar_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label"> Photo</label>
+                                    <label class="form-control-label">Description (English)</label>
+                                    <textarea id="editor-en" name="en_description" rows="6" class="form-control" placeholder="Enter English description" required>{{ $aboutSec3->en_description }}</textarea>
+                                    @error('en_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="pl-lg-4">
+                            
+                                <div class="form-group">
+                                    <label class="form-control-label">Photo</label>
                                     <input type="file" name="photo" class="form-control">
                                     @error('photo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    @if ($aboutSec3->photo)
+                                    <img src="{{ asset('storage/'.$aboutSec3->photo) }}" alt="Current Photo" style="max-width: 200px;">
+                                    @endif
                                 </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">

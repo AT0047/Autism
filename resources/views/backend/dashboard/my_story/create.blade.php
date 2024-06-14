@@ -25,35 +25,79 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title 1</label>
-                                            <input type="text" value="{{ old('title1') }}" name="title1" class="form-control"
-                                                placeholder="Write your title here">
+                                            <label class="form-control-label" for="ar_title1">Title 1 (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_title1') }}" name="ar_title1" class="form-control"
+                                                placeholder="Write your title here in Arabic">
+                                            @error('ar_title1')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title 2</label>
-                                            <input type="text" value="{{ old('title2') }}" name="title2" class="form-control"
-                                                placeholder="Write your title here">
+                                            <label class="form-control-label" for="en_title1">Title 1 (English)</label>
+                                            <input type="text" value="{{ old('en_title1') }}" name="en_title1" class="form-control"
+                                                placeholder="Write your title here in English">
+                                            @error('en_title1')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="ar_title2">Title 2 (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_title2') }}" name="ar_title2" class="form-control"
+                                                placeholder="Write your second title here in Arabic">
+                                            @error('ar_title2')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="en_title2">Title 2 (English)</label>
+                                            <input type="text" value="{{ old('en_title2') }}" name="en_title2" class="form-control"
+                                                placeholder="Write your second title here in English">
+                                            @error('en_title2')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-username">Content</label>
-                                    <textarea id="editor" name="content" rows="6" class="form-control"
-                                        placeholder="Enter Content Here">{{ old('content') }}</textarea>
+                                    <label class="form-control-label" for="ar_content">Content (Arabic)</label>
+                                    <textarea id="editor-ar" name="ar_content" rows="6" class="form-control" placeholder="Enter content here in Arabic">{{ old('ar_content') }}</textarea>
+                                    @error('ar_content')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="en_content">Content (English)</label>
+                                    <textarea id="editor-en" name="en_content" rows="6" class="form-control" placeholder="Enter content here in English">{{ old('en_content') }}</textarea>
+                                    @error('en_content')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Upload Image 1</label>
                                     <input type="file" name="photo1" class="form-control" accept="image/*">
+                                    @error('photo1')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Upload Image 2</label>
                                     <input type="file" name="photo2" class="form-control" accept="image/*">
+                                    @error('photo2')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Upload Image 3</label>
                                     <input type="file" name="photo3" class="form-control" accept="image/*">
+                                    @error('photo3')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">

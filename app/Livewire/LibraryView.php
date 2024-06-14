@@ -12,7 +12,7 @@ class LibraryView extends Component
 
     public function render()
     {
-        $categories = Category::query()->where('name', 'like', '%' . $this->searchItem . '%')->get();
+        $categories = Category::query()->where(app()->getLocale().'_name', 'like', '%' . $this->searchItem . '%')->get();
         foreach($categories as $category){
             $this->categoryId = $category->id;
         }

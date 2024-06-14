@@ -12,6 +12,11 @@ class AboutSec4 extends Model
     protected $table = 'about_sec4';
 
     protected $fillable = [
-        'name', 'title', 'description',
+        'ar_name',
+        'en_name',
+        'ar_title',
+        'en_title',
+        'ar_description',
+        'en_description',
     ];
 }

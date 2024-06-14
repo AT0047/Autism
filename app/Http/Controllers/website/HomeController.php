@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function home(){
         // ----------------- Title ------------------
-        $homeTitle = Title::where('place', 'home')->first();
+        $homeTitle = Title::first();
 
         // ----------------- My Store ------------------
         $myStory = MyStory::first();

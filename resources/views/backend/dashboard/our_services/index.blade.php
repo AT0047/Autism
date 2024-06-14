@@ -8,8 +8,7 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Our Services Section</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
-                                </li>
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                                 <li class="breadcrumb-item active" aria-current="page">Our Services Section</li>
                             </ol>
@@ -39,12 +38,14 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th class="sort" data-sort="name">Photo</th>
-                                <th scope="col" class="sort" data-sort="Title">Title</th>
-                                <th scope="col" class="sort" data-sort="description">Description</th>
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
-                                <th scope="col" class="sort" data-sort="Actions">Actions</th>
+                                <th class="sort" data-sort="photo">Photo</th>
+                                <th class="sort" data-sort="ar_title">Title (Arabic)</th>
+                                <th class="sort" data-sort="en_title">Title (English)</th>
+                                <th class="sort" data-sort="ar_description">Description (Arabic)</th>
+                                <th class="sort" data-sort="en_description">Description (English)</th>
+                                {{-- <th class="sort" data-sort="created_at">Created At</th> --}}
+                                {{-- <th class="sort" data-sort="updated_at">Updated At</th> --}}
+                                <th class="sort" data-sort="actions">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="list">
@@ -52,33 +53,37 @@
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
-                                            <a class="avatar  mr-3">
-                                                <img width = '60' height = '48'
-                                                    src="{{ asset('dashboard/img/' . $ourService->photo) }}" />
+                                            <a class="avatar mr-3">
+                                                <img width="60" height="48" src="{{ asset('dashboard/img/' . $ourService->photo) }}" />
                                             </a>
                                         </div>
                                     </th>
-                                    <td class="Title">
-                                        {{ $ourService->title }}
+                                    <td class="ar_title">
+                                        {{ $ourService->ar_title }}
                                     </td>
-                                    <td class="description">
-                                        {!! Str::limit($ourService->description, 15)  !!}
+                                    <td class="en_title">
+                                        {{ $ourService->en_title }}
                                     </td>
-                                    <td class="Created At">
+                                    <td class="ar_description">
+                                        {!! Str::limit($ourService->ar_description, 15) !!}
+                                    </td>
+                                    <td class="en_description">
+                                        {!! Str::limit($ourService->en_description, 15) !!}
+                                    </td>
+                                    {{-- <td class="created_at">
                                         {{ $ourService->created_at->diffForHumans() }}
                                     </td>
-                                    <td class="Updated At">
+                                    <td class="updated_at">
                                         {{ $ourService->updated_at->diffForHumans() }}
-                                    </td>
-                                    <td class="text-right">
+                                    </td> --}}
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item"
-                                                    href="{{ route('our-services.edit', $ourService->id) }}">Edit</a>
+                                                <a class="dropdown-item" href="{{ route('our-services.edit', $ourService->id) }}">Edit</a>
                                                 <form method="post" action="{{ route('our-services.destroy', $ourService->id) }}">
                                                     @csrf
                                                     @method('delete')
@@ -89,9 +94,9 @@
                                     </td>
                                 </tr>
                             @empty
-                                <td class="Updated At" colspan='7' style='text-align: center;'>
-                                    No Data Yet....
-                                </td>
+                                <tr>
+                                    <td colspan="8" class="text-center">No Data Yet....</td>
+                                </tr>
                             @endforelse
                         </tbody>
                     </table>

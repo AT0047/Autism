@@ -27,6 +27,8 @@
                                                 <option @selected($socialLink->platform =='twitter' ) value="twitter">Twitter</option>
                                                 <option @selected($socialLink->platform =='linkedin' ) value="linkedin">Linkedin</option>
                                                 <option @selected($socialLink->platform =='youtube' ) value="youtube">youtube</option>
+                                                <option @selected($socialLink->platform =='tiktok' ) value="tiktok">Tiktok</option>
+                                                <option @selected($socialLink->platform =='whatsapp' ) value="whatsapp">Whatsapp</option>
                                             </select>
                                             @error('platform')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
@@ -40,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Link</label>
+                                            <label class="form-control-label" for="input-username">Link or number</label>
                                             <input type="link" value="{{ old('link', $socialLink->link) }}" name="link"
                                                 class="form-control" placeholder="Paste your link here">
                                             @error('link')

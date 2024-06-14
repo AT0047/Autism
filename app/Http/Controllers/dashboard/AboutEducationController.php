@@ -58,7 +58,7 @@ class AboutEducationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, AboutEducation $aboutEducation)
+    public function update(AboutEducationRequest $request, AboutEducation $aboutEducation)
     {
         $aboutEducation->update($request->all());
 

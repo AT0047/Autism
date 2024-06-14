@@ -23,62 +23,109 @@
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
+                                    <!-- Arabic Name -->
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Name</label>
-                                            <input type="text" value="{{ old('name') }}" name="name" class="form-control" placeholder="Write your title here">
-                                            @error('name')
+                                            <label class="form-control-label" for="ar_name">Name (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_name') }}" name="ar_name" class="form-control" placeholder="Write the name in Arabic here">
+                                            @error('ar_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- English Name -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="en_name">Name (English)</label>
+                                            <input type="text" value="{{ old('en_name') }}" name="en_name" class="form-control" placeholder="Write the name in English here">
+                                            @error('en_name')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="pl-lg-4">
+
                                 <div class="row">
+                                    <!-- Arabic Job -->
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Job</label>
-                                            <input type="text" value="{{ old('job') }}" name="job" class="form-control" placeholder="Write your title here">
-                                            @error('job')
+                                            <label class="form-control-label" for="ar_job">Job (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_job') }}" name="ar_job" class="form-control" placeholder="Write the job in Arabic here">
+                                            @error('ar_job')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- English Job -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="en_job">Job (English)</label>
+                                            <input type="text" value="{{ old('en_job') }}" name="en_job" class="form-control" placeholder="Write the job in English here">
+                                            @error('en_job')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="pl-lg-4">
+
                                 <div class="row">
+                                    <!-- Arabic Title -->
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" value="{{ old('title') }}" name="title" class="form-control" placeholder="Write your title here">
-                                            @error('title')
+                                            <label class="form-control-label" for="ar_title">Title (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_title') }}" name="ar_title" class="form-control" placeholder="Write the title in Arabic here">
+                                            @error('ar_title')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- English Title -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="en_title">Title (English)</label>
+                                            <input type="text" value="{{ old('en_title') }}" name="en_title" class="form-control" placeholder="Write the title in English here">
+                                            @error('en_title')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="pl-lg-4 ">
-                                <div class="form-group ">
-                                    <label class="form-control-label ">Content</label>
-                                    @error('content')
+
+                                <div class="row">
+                                    <!-- Arabic Content -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Content (Arabic)</label>
+                                            @error('ar_content')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                            <textarea id="editor-ar" name="ar_content" rows="10" class="form-control" placeholder="Enter content in Arabic">{{ old('ar_content') }}</textarea>
+                                        </div>
+                                    </div>
+                                    <!-- English Content -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Content (English)</label>
+                                            @error('en_content')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                            <textarea id="editor-en" name="en_content" rows="10" class="form-control" placeholder="Enter content in English">{{ old('en_content') }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="pl-lg-4">
+                                    <label class="form-control-label">Upload Image</label>
+                                    <div class="input-group">
+                                        <input type="file" name="photo" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    </div>
+                                    @error('photo')
                                         <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                     @enderror
-                                    <textarea id="postContent" name="content" rows="19" class="form-control " placeholder="Enter post title">{{ old('content') }}</textarea>
                                 </div>
                             </div>
-                            <div class="pl-lg-4 ">
-                                <label class="form-control-label ">Upload Image</label>
-                                <div class="input-group">
-                                    <input type="file" name="photo" class="form-control" id="inputGroupFile04"
-                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div>
-                                @error('photo')
-                                    <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            
                             <div class="d-flex mt-3 justify-content-end">
                                 <a href="{{ route('people-stories.index') }}" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-success">Add</button>
@@ -88,4 +135,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

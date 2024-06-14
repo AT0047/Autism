@@ -4,7 +4,6 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Library;
 use App\Traits\upload_imgs;
 use Exception;
 use Illuminate\Http\Request;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 class CategoryController extends Controller
 {
     use upload_imgs;
+
     /**
      * Display a listing of the resource.
      */
@@ -36,25 +36,32 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'ar_name' => 'required',
+            'en_name' => 'required',
             'photo' => 'required|image',
         ]);
-        try{
+
+        try {
             Category::create([
-                'name' => $request->name,
-                'photo' =>  $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories','upload_imgs')
+                'ar_name' => $request->ar_name,
+                'en_name' => $request->en_name,
+                'photo' => $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories', 'upload_imgs')
             ]);
-            return redirect()->route('categories.index')->with('message', 'Entery Add Successfully');
-        }catch(Exception $e){
+
+            return redirect()->route('categories.index')->with('message', 'Entry Added Successfully');
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('categories.index')->with('message', $e->getMessage());
         }
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit($id)
     {
-        $categories = Category::findOrFail($id);
-        return view('backend.dashboard.categories.edit', compact('categories'));
+        $category = Category::findOrFail($id);
+        return view('backend.dashboard.categories.edit', compact('category'));
     }
 
     /**
@@ -63,22 +70,29 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            'ar_name' => 'required',
+            'en_name' => 'required',
             'photo' => 'image',
         ]);
-        $Category = Category::findOrFail($id);
-        try{
-            $Category->name = $request->name;
-            if($request->has('photo')){
-                if($Category->photo){
-                    $oldImg = $Category->photo;
-                    $Category->photo = $this->deleteImg('upload_imgs', $oldImg);
+
+        $category = Category::findOrFail($id);
+
+        try {
+            $category->ar_name = $request->ar_name;
+            $category->en_name = $request->en_name;
+
+            if ($request->has('photo')) {
+                if ($category->photo) {
+                    $oldImg = $category->photo;
+                    $this->deleteImg('upload_imgs', $oldImg);
                 }
-            $Category->photo = $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories','upload_imgs');
+                $category->photo = $this->uploadImg($request, 'photo', 'CategoryImgs', 'categories', 'upload_imgs');
             }
-            $Category->save();
-            return redirect()->route('categories.index')->with('message', 'Entery Updated Successfully');
-        }catch(Exception $e){
+
+            $category->save();
+
+            return redirect()->route('categories.index')->with('message', 'Entry Updated Successfully');
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('categories.index')->with('message', $e->getMessage());
         }
@@ -89,15 +103,16 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $Category = Category::findOrFail($id);
-            if($Category->photo){
-                $oldImg = $Category->photo;
+        try {
+            $category = Category::findOrFail($id);
+            if ($category->photo) {
+                $oldImg = $category->photo;
                 $this->deleteImg('upload_imgs', $oldImg);
             }
-            $Category->delete();
-            return redirect()->route('categories.index')->with('message', 'Entery Deleted Successfully');
-        }catch(Exception $e){
+            $category->delete();
+
+            return redirect()->route('categories.index')->with('message', 'Entry Deleted Successfully');
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('categories.index')->with('message', $e->getMessage());
         }

@@ -40,9 +40,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="Platform">Platform</th>
-                                <th scope="col" class="sort" data-sort="Links">Links</th>
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
+                                <th scope="col" class="sort" data-sort="Links">Links or number</th>
+                                {{-- <th scope="col" class="sort" data-sort="Created At">Created At</th> --}}
+                                {{-- <th scope="col" class="sort" data-sort="Updated At">Updated At</th> --}}
                                 <th scope="col" class="sort" data-sort="Actions">Actions</th>
                             </tr>
                         </thead>
@@ -55,13 +55,13 @@
                                     <td class="Links">
                                         <a href="{{ $socialLink->link }}" class="mr-3" target="_blanck">{{ $socialLink->link }}</a>
                                     </td>
-                                    <td class="Created At">
+                                    {{-- <td class="Created At">
                                         {{ $socialLink->created_at->diffForHumans() }}
                                     </td>
                                     <td class="Updated At">
                                         {{ $socialLink->updated_at->diffForHumans() }}
-                                    </td>
-                                    <td class="text-right">
+                                    </td> --}}
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

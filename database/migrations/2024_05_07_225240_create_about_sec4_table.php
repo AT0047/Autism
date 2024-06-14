@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('about_sec4', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('title');
-            $table->text('description');
+            $table->string('ar_name');
+            $table->string('en_name');
+            $table->string('ar_title');
+            $table->string('en_title');
+            $table->text('ar_description');
+            $table->text('en_description');
             $table->timestamps();
         });
     }

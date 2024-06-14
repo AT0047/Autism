@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('people_stories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('job')->nullable();
-            $table->string('title');
-            $table->text('content');
+            $table->string('ar_name');
+            $table->string('en_name');
+            $table->string('ar_job')->nullable();
+            $table->string('en_job')->nullable();
+            $table->string('ar_title');
+            $table->string('en_title');
+            $table->text('ar_content');
+            $table->text('en_content');
             $table->string('photo');
             $table->timestamps();
         });

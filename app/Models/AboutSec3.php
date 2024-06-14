@@ -9,6 +9,11 @@ class AboutSec3 extends Model
 {
     use HasFactory;
     protected $table = 'about_sec3'; 
-    protected $fillable = ['title', 'description', 'photo']; 
-
+    protected $fillable = [
+        'ar_title',
+        'en_title',
+        'ar_description',
+        'en_description',
+        'photo',
+    ];
 }

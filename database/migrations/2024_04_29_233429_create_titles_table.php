@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->enum('place', ['home', 'articles'])->unique();
-            $table->string('photo')->nullable();
+            $table->string('ar_title');
+            $table->string('en_title');
+            $table->text('ar_description')->nullable();
+            $table->text('en_description')->nullable();
+            // $table->enum('place', ['home', 'articles'])->unique();
+            $table->string('ar_photo');
+            $table->string('en_photo');
+            $table->string('home_photo');
             $table->timestamps();
         });
     }

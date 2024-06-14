@@ -32,6 +32,7 @@ class AboutUsController extends Controller
      */
     public function store(AboutUsRequest $request)
     {
+        
         $data = $request->except('dr_photo');
         // Handling photo upload
         if ($request->hasFile('dr_photo')) {
@@ -84,8 +85,14 @@ class AboutUsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AboutUs $aboutUs)
+    public function destroy($id)
     {
-        //
+       $aboutUs=AboutUs::findOrFail($id);
+        // Delete associated photo
+        if ($aboutUs->dr_photo) {
+            Storage::disk('public')->delete($aboutUs->dr_photo);
+        }
+        $aboutUs->delete();
+        return redirect()->route('about-us.create')->with('success', 'Data deleted successfully');
     }
 }

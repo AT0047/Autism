@@ -16,144 +16,67 @@
                 <!-- Hero Area Start -->
                 <div class="hero-area-five">
                     <div class="container">
-                        <div class="row">
+                        <div class="row mb-0 pb-0">
                             <div class="col-lg-7">
-                                @if (!$title)
-                                    <div class="hero-five-text text-left">
-                                        <h1 class="title">
-                                            <span class="hero-five-title">Unlimited Advice & Resource
-                                        </h1>
-                                        <p class="hero-text-dec">That necessitates a robust ecommerce platform that
-                                            optimizes your store & products</p>
-                                    </div>
-                                @else
-                                    <div class="hero-five-text text-left">
-                                        <h1 class="title">
-                                            <span class="hero-five-title">{{ $title->title }}
-                                        </h1>
-                                        <p class="hero-text-dec">{!! $title->description !!}</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="hero-five-category" data-aos="fade-up">
-                                    @foreach ($categories as $category)
-                                        {{-- <a href="{{ route('Autism&Me.libraryDetails', $category->id) }}"
-                                            class="btn-large woocommerce">{{ $category->name }}</a> --}}
-                                        <a href="#category1" class="btn-large woocommerce">{{ $category->name }}</a>
-                                    @endforeach
+                                <div class="hero-five-text text-left">
+
+                                    <h1 class="title">
+                                        <span class="hero-five-title">{{ $title->{app()->getLocale() . '_title'} }}</span>
+
+                                    </h1>
+                                    <p class="hero-text-dec">{!! $title->{app()->getLocale() . '_description'} !!}</p>
+
                                 </div>
+                            </div>
+                            <div class="col-lg-5 mb-0 pb-0 text-center">
+                                <img src="{{ asset('dashboard/img/' . $title->{app()->getLocale() . '_photo'}) }}"
+                                    class="img-fluid w-100 mb-0 pb-0 m-auto" alt="">
                             </div>
                         </div>
                     </div>
-                </div><!-- Hero Area End -->
-                {{-- <div style="margin-top: 30px;" class="special-for-beginner-area section-space--pb_120">
+
+                </div>
+                <!-- -------------------------------------------------Hero Area End-------------------------------------------------- -->
+
+                {{-- ------------------------------------------------------------------------------------------------------------- --}}
+                <div class="special-for-beginner-area section-space--pb_120 mt-0 pt-0">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-title-three text-center" data-aos="fade-up">
-                                    <h2 class="title" id=''>Category</h2>
+                        <div class="row mt-0 pt-0">
+                            <div class="col-lg-12 mt-0 pt-0">
+                                <div class="section-title-three text-start" data-aos="fade-up">
+                                    <h2 class="title">{{ __('start here') }}</h2>
                                 </div>
                             </div>
                         </div>
+
                         <div class="row row--30">
                             @foreach ($books as $book)
+                            <div class="col-lg-4">
                                 <!-- Single Most Populer Item Start -->
-                                <div class="col-lg-4 single-most-populer-item" data-aos="fade-up">
+                                <div class="single-most-populer-item" data-aos="fade-up">
                                     <a href="{{ route('Autism&Me.bookDetails', $book->id) }}" class="most-populer-thum">
-                                        <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" />
+                                        <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt="" style="border-radius: 4%; width: 450px;height:250px" />
                                     </a>
                                     <div class="most-populer-content">
-                                        <div class="most-populer-post-author">
-                                            By <a
-                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a>
-                                        </div>
-                                        <h3 class="title"><a
-                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->name }}</a>
+                                        <!-- <div class="most-populer-post-author">
+                                            By <a href="blog-details.html">Andrew Hoffman</a>
+                                        </div> -->
+                                        <h3 class="title"><a href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->{app()->getLocale().'_name'} }}</a>
                                         </h3>
-                                        <div class="most-populer-post-meta">
+                                        <!-- <div class="most-populer-post-meta">
                                             <span class="post-date">
-                                                <a
-                                                    href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a>
-                                            </span>
-                                        </div>
+                                            <a href="blog-details.html">03 April, 2023</a>
+                                        </span>
+                                            <span>10 min read</span>
+                                        </div> -->
                                     </div>
                                 </div><!-- Single Most Populer Item End -->
+                            </div>
                             @endforeach
                         </div>
                     </div>
-                </div> --}}
-                <div class="row">
-                    <div class="related-post-area section-space--pt_60">
-                        <div class="row">
-                            <div class="col-lg-8 col-7">
-                                {{-- <div class="section-title mb-30">
-                                    <h3 class="title">Category</h3>
-                                </div> --}}
-                            </div>
-                            <div class="col-lg-4 col-5">
-                                <div class="related-post-slider-navigation text-end">
-                                    <div class="related-post-button-prev navigation-button"><i
-                                            class="icofont-long-arrow-left"></i></div>
-                                    <div class="related-post-button-next navigation-button"><i
-                                            class="icofont-long-arrow-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Swiper -->
-                        <div class="swiper-container related-post-slider-active">
-                            <div class="swiper-wrapper">
-                                @foreach ($books as $book)
-                                    <div class="swiper-slide">
-                                        <!-- Single Following Post Start -->
-                                        <div class="single-related-post">
-                                            <div class="related-post-thum">
-                                                <a href="{{ route('Autism&Me.bookDetails', $book->id) }}">
-                                                    <img src="{{ asset('dashboard/img/' . $book->photo) }}" alt=""
-                                                        style="border-radius: 4%; width: 350px;height:400px">
-                                                </a>
-                                            </div>
-                                            <div class="following-post-content">
-                                                <div class="following-blog-post-top">
-                                                    <div class="trending-blog-post-category">
-                                                        <a>{{ $book->category->name }}</a>
-                                                    </div>
-                                                    <div class="following-blog-post-author">
-                                                        By <a
-                                                            href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a>
-                                                    </div>
-                                                </div>
-                                                <h5 class="following-blog-post-title">
-                                                    <a
-                                                        href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->name }}</a>
-                                                </h5>
-                                                <div class="following-blog-post-meta">
-                                                    <div class="post-meta-left-side">
-                                                        <span class="post-date">
-                                                            <i class="icofont-ui-calendar"></i>
-                                                            <a
-                                                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a>
-                                                        </span>
-                                                        {{-- <span>10 min read</span> --}}
-                                                    </div>
-                                                    {{-- <div class="post-meta-right-side mb-2">
-                                                                    <a href="#"><img
-                                                                            src="{{ asset('home_assets/small-bookmark.png') }}"
-                                                                            alt="" /></a>
-                                                                    <a href="#"><img
-                                                                            src="{{ asset('home_assets/heart.png') }}"
-                                                                            alt="" /></a>
-                                                                </div> --}}
-                                                </div>
-                                            </div>
-                                        </div><!-- Single Following Post End -->
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add Banner Area End -->
                 </div>
+                {{-- ------------------------------------------------------------------------------ --}}
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-12">
@@ -182,7 +105,7 @@
                 <!-- Special For Beginner Area Start -->
                 {{-- <livewire:show-books /> --}}
                 <!-- Special For Beginner Area End -->
-                <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
+                {{-- <div class="row" style=" box-shadow:15px 15px 15px 18px whitesmoke; margin-bottom:20px;">
                     @if (!$aboutUs)
                         <section id="about" class="section pb-0">
                             <section class="container">
@@ -272,7 +195,8 @@
                                 <div class="row mx-0 align-items-center" data-aos="fade-up">
                                     <div class="col-md-6 col-lg-4 px-0" data-aos="blur">
                                         <a href="{{ route('Autism&Me.bookDetails', $preferredBook->id) }}">
-                                            <figure class="hover"><img alt="" class="fixed-size-img" style="height: 200px;width:400px"
+                                            <figure class="hover"><img alt="" class="fixed-size-img"
+                                                    style="height: 200px;width:400px"
                                                     src="{{ asset('dashboard/img/' . $preferredBook->photo) }}"></figure>
                                         </a>
                                     </div>
@@ -289,10 +213,46 @@
                             @endforeach
                         </section>
                     </div>
+                </div> --}}
+                        <!-- Latest Works -->
+        <section id="services" class="section feature feature-3 bg-white pb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="heading heading-1 text-center">
+                            <h2 class="heading-title">{{ __('Our services') }}</h2>
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <!-- Panel #1 -->
+                    @foreach ($ourServices as $ourService)
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <div class="feature-panel">
+                                <div class="feature-img">
+                                    <img src="{{ asset('dashboard/img/' . $ourService->photo) }}" alt="target">
+                                </div>
+                                <br>
+                                <div class="feature-content">
+                                    <h3>{{ $ourService->{app()->getLocale().'_title'} ?? '' }}</h3>
+                                    <p>{!! $ourService->{app()->getLocale().'_description'} ?? '' !!}</p>
+                                </div>
+                            </div>
+                            <!-- .feature-panel end -->
+                        </div>
+                    @endforeach
+                    <!-- .col-md-4 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
             </div>
         </div>
     </div>
     </div>
+    @php
+        $footer_description=\App\Models\AboutUS::first()->{app()->getLocale().'_footer_description'} ?? '';
+    @endphp
     <!-- Remove the container if you want to extend the Footer to full width. -->
 @endsection

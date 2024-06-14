@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 class TitleController extends Controller
 {
     use upload_imgs;
+
     /**
      * Display a listing of the resource.
      */
@@ -35,20 +36,29 @@ class TitleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'place' => 'required|unique:titles',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'nullable|string',
+            'en_description' => 'nullable|string',
+            'ar_photo' => 'required|image',
+            'en_photo' => 'required|image',
+            'home_photo' => 'required|image',
         ]);
-        try{
+
+        try {
             Title::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'place' => $request->place,
-                'photo' =>  $this->uploadImg($request, 'photo', 'TitleImgs', 'titles', 'upload_imgs')
+                'ar_title' => $request->ar_title,
+                'en_title' => $request->en_title,
+                'ar_description' => $request->ar_description,
+                'en_description' => $request->en_description,
+                'ar_photo' => $request->has('ar_photo') ? $this->uploadImg($request, 'ar_photo', 'TitleImgs', 'ar_photo', 'upload_imgs') : null,
+                'en_photo' => $request->has('en_photo') ? $this->uploadImg($request, 'en_photo', 'TitleImgs', 'en_photo', 'upload_imgs') : null,
+                'home_photo' => $request->has('home_photo') ? $this->uploadImg($request, 'home_photo', 'TitleImgs', 'home_photo', 'upload_imgs') : null,
             ]);
-            return redirect()->route('titles.index')->with(['message' => 'Entery Added Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('titles.index')->with(['message' => 'Entry Added Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('titles.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('titles.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -67,26 +77,47 @@ class TitleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'place' => 'required|unique:titles,place,'. $id,
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'nullable|string',
+            'en_description' => 'nullable|string',
+            'ar_photo' => 'image',
+            'en_photo' => 'image',
+            'home_photo' => 'image',
         ]);
-        try{
-            $Title = Title::findOrFail($id);
-            $Title->title = $request->title;
-            $Title->place = $request->place;
-            $Title->description = $request->description;
-            if($request->has('photo')){
-                if($Title->photo){
-                    $oldImg = $Title->photo;
-                    $Title->photo = $this->deleteImg('upload_imgs', $oldImg);
+
+        try {
+            $title = Title::findOrFail($id);
+            $title->ar_title = $request->ar_title;
+            $title->en_title = $request->en_title;
+            $title->ar_description = $request->ar_description;
+            $title->en_description = $request->en_description;
+
+            if ($request->has('ar_photo')) {
+                if ($title->ar_photo) {
+                    $this->deleteImg('upload_imgs', $title->ar_photo);
                 }
-            $Title->photo = $this->uploadImg($request, 'photo', 'TitleImgs', 'titles', 'upload_imgs');
+                $title->ar_photo = $this->uploadImg($request, 'ar_photo', 'TitleImgs', 'ar_photo', 'upload_imgs');
             }
-            $Title->save();
-            return redirect()->route('titles.index')->with(['message' => 'Entery Updated Successfully']);
-        }catch(Exception $e){
+
+            if ($request->has('en_photo')) {
+                if ($title->en_photo) {
+                    $this->deleteImg('upload_imgs', $title->en_photo);
+                }
+                $title->en_photo = $this->uploadImg($request, 'en_photo', 'TitleImgs', 'en_photo', 'upload_imgs');
+            }
+            if ($request->has('home_photo')) {
+                if ($title->home_photo) {
+                    $this->deleteImg('upload_imgs', $title->home_photo);
+                }
+                $title->home_photo = $this->uploadImg($request, 'home_photo', 'TitleImgs', 'home_photo', 'upload_imgs');
+            }
+
+            $title->save();
+            return redirect()->route('titles.index')->with(['message' => 'Entry Updated Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('titles.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('titles.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -95,17 +126,22 @@ class TitleController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $Title = Title::findOrFail($id);
-            if($Title->photo){
-                $oldImg = $Title->photo;
-                $this->deleteImg('upload_imgs', $oldImg);
+        try {
+            $title = Title::findOrFail($id);
+            if ($title->ar_photo) {
+                $this->deleteImg('upload_imgs', $title->ar_photo);
             }
-            $Title->delete();
-            return redirect()->route('titles.index')->with(['message' => 'Entery is Deleted Successfully']);
-        }catch(Exception $e){
+            if ($title->en_photo) {
+                $this->deleteImg('upload_imgs', $title->en_photo);
+            }
+            if ($title->home_photo) {
+                $this->deleteImg('upload_imgs', $title->home_photo);
+            }
+            $title->delete();
+            return redirect()->route('titles.index')->with(['message' => 'Entry Deleted Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('titles.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('titles.index')->with(['message' => $e->getMessage()]);
         }
     }
 }

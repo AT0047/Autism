@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('about_sec3', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
+            $table->string('ar_title');
+            $table->string('en_title');
+            $table->text('ar_description');
+            $table->text('en_description');
             $table->string('photo');
             $table->timestamps();
         });

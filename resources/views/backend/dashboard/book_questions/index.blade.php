@@ -8,15 +8,14 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Book Questions</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
-                                </li>
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                                 <li class="breadcrumb-item active" aria-current="page">Book Questions</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="{{route('books.book-questions.create', $questions->first()->book->id  ?? $id) }}" class="btn btn-sm btn-neutral">Add New</a>
+                        <a href="{{ route('books.book-questions.create', $questions->first()->book->id ?? $id) }}" class="btn btn-sm btn-neutral">Add New</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +26,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Book - {{$book}} - Questions</h3>
+                    <h3 class="mb-0">Book - {{ $book->en_name }} - Questions</h3>
                 </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success" role="alert">
@@ -39,43 +38,32 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                {{-- <th scope="col" class="sort" data-sort="book_name">Book Name</th> --}}
-                                <th scope="col" class="sort" data-sort="questions">Question</th>
-                                <th scope="col" class="sort" data-sort="answers">Answer</th>
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
-                                <th scope="col" class="sort" data-sort="Actions">Actions</th>
+                                <th scope="col" class="sort" data-sort="ar_question">Question (Arabic)</th>
+                                <th scope="col" class="sort" data-sort="en_question">Question (English)</th>
+                                <th scope="col" class="sort" data-sort="ar_answer">Answer (Arabic)</th>
+                                <th scope="col" class="sort" data-sort="en_answer">Answer (English)</th>
+                                {{-- <th scope="col" class="sort" data-sort="created_at">Created At</th> --}}
+                                {{-- <th scope="col" class="sort" data-sort="updated_at">Updated At</th> --}}
+                                <th scope="col" class="sort" data-sort="actions">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="list">
-                            @forelse($questions as $key => $question)
+                            @forelse($questions as $question)
                                 <tr>
-                                    {{-- <td class="book_name">
-                                        {{ $question->book->name }}
-                                    </td> --}}
-                                    <td class="book_name">
-                                        {{ $question->question }}
-                                    </td>
-                                    <td class="Links">
-                                        {!! Str::limit($question->answer, 15)  !!}
-                                    </td>
-                                    <td class="Created At">
-                                        {{ $question->created_at->diffForHumans() }}
-                                    </td>
-                                    <td class="Updated At">
-                                        {{ $question->updated_at->diffForHumans() }}
-                                    </td>
-                                    <td class="text-right">
+                                    <td class="ar_question">{{ $question->ar_question }}</td>
+                                    <td class="en_question">{{ $question->en_question }}</td>
+                                    <td class="ar_answer">{!! Str::limit($question->ar_answer, 15) !!}</td>
+                                    <td class="en_answer">{!! Str::limit($question->en_answer, 15) !!}</td>
+                                    {{-- <td class="created_at">{{ $question->created_at->diffForHumans() }}</td> --}}
+                                    {{-- <td class="updated_at">{{ $question->updated_at->diffForHumans() }}</td> --}}
+                                    <td class="text-center">
                                         <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item"
-                                                    href="{{route('book-questions.edit', $question->id)}}">Edit</a>
-                                                <form method="post"
-                                                    action="{{route('book-questions.destroy', $question->id)}}">
+                                                <a class="dropdown-item" href="{{ route('book-questions.edit', $question->id) }}">Edit</a>
+                                                <form method="post" action="{{ route('book-questions.destroy', $question->id) }}">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="dropdown-item">Delete</button>
@@ -85,9 +73,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <td class="Updated At" colspan='7' style='text-align: center;'>
-                                    No Data Yet....
-                                </td>
+                                <td colspan='7' style='text-align: center;'>No Data Yet....</td>
                             @endforelse
                         </tbody>
                     </table>

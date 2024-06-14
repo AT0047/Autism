@@ -39,12 +39,12 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="Photo">Photo</th>
-                                <th scope="col" class="sort" data-sort="Name">Name</th>
-                                {{-- <th scope="col" class="sort" data-sort="Libraries">Libraries</th> --}}
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
-                                <th scope="col" class="sort" data-sort="Actions">Actions</th>
+                                <th scope="col" class="sort" data-sort="photo">Photo</th>
+                                <th scope="col" class="sort" data-sort="ar_name">Name (Arabic)</th>
+                                <th scope="col" class="sort" data-sort="en_name">Name (English)</th>
+                                {{-- <th scope="col" class="sort" data-sort="created_at">Created At</th> --}}
+                                {{-- <th scope="col" class="sort" data-sort="updated_at">Updated At</th> --}}
+                                <th scope="col" class="sort" data-sort="actions">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="list">
@@ -53,24 +53,24 @@
                                     <th scope="row">
                                         <div class="media align-items-center">
                                             <a class="avatar  mr-3">
-                                                <img width = '60' height = '48'
+                                                <img width='60' height='48'
                                                     src="{{ asset('dashboard/img/' . $category->photo) }}" />
                                             </a>
                                         </div>
                                     </th>
-                                    <td class="Name">
-                                    {{ $category->name }}
+                                    <td class="ar_name">
+                                        {{ $category->ar_name }}
                                     </td>
-                                    {{-- <td class="Libraries">
-                                        {{ $category->library->name }}
-                                    </td> --}}
-                                    <td class="Created At">
+                                    <td class="en_name">
+                                        {{ $category->en_name }}
+                                    </td>
+                                    {{-- <td class="created_at">
                                         {{ $category->created_at->diffForHumans() }}
                                     </td>
-                                    <td class="Updated At">
+                                    <td class="updated_at">
                                         {{ $category->updated_at->diffForHumans() }}
-                                    </td>
-                                    <td class="text-right">
+                                    </td> --}}
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,7 +90,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <td class="Updated At" colspan='7' style='text-align: center;'>
+                                <td class="updated_at" colspan='6' style='text-align: center;'>
                                     No Data Yet....
                                 </td>
                             @endforelse
@@ -98,9 +98,9 @@
                     </table>
                 </div>
                 <!-- Card footer -->
-                <div class="card-footer py-4">
+                {{-- <div class="card-footer py-4">
                     {{ $categories->links('vendor.pagination.custom_pagination') }}
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

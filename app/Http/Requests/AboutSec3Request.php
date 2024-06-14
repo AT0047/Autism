@@ -22,8 +22,10 @@ class AboutSec3Request extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'required|string',
+            'en_description' => 'required|string',
             'photo' => 'image|mimes:jpeg,png,jpg,gif',
 
         ];

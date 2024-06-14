@@ -18,42 +18,59 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{ route('our-services.store') }}" method ="POST" enctype="multipart/form-data">
+                        <form action="{{ route('our-services.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" value="{{ old('title') }}" name="title"
-                                                class="form-control" placeholder="Write your Title here">
-                                            @error('title')
+                                            <label class="form-control-label" for="input-ar_title">Title (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_title') }}" name="ar_title"
+                                                class="form-control" placeholder="Write your Title in Arabic here">
+                                            @error('ar_title')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-en_title">Title (English)</label>
+                                            <input type="text" value="{{ old('en_title') }}" name="en_title"
+                                                class="form-control" placeholder="Write your Title in English here">
+                                            @error('en_title')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="pl-lg-4 ">
-                                <div class="form-group ">
-                                    <label class="form-control-label ">Description</label>
-                                    @error('description')
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-ar_description">Description (Arabic)</label>
+                                    @error('ar_description')
                                         <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                     @enderror
-                                    <textarea id="postContent" name="description" rows="19" class="form-control " placeholder="Enter post title">{{ old('description') }}</textarea>
+                                    <textarea id="editor-ar" name="ar_description" rows="6" class="form-control"
+                                        placeholder="Enter Arabic description">{{ old('ar_description') }}</textarea>
                                 </div>
-                            </div>
-                            <div class="pl-lg-4 ">
-                                <label class="form-control-label ">Upload image</label>
-                                <div class="input-group">
-                                    <input type="file" name="photo" class="form-control" id="inputGroupFile04"
-                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-en_description">Description (English)</label>
+                                    @error('en_description')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
+                                    <textarea id="editor-en" name="en_description" rows="6" class="form-control"
+                                        placeholder="Enter English description">{{ old('en_description') }}</textarea>
                                 </div>
-                                @error('photo')
-                                    <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
-                                @enderror
+                                <div class="form-group">
+                                    <label class="form-control-label">Upload Image</label>
+                                    <div class="input-group">
+                                        <input type="file" name="photo" class="form-control" accept="image/*">
+                                    </div>
+                                    @error('photo')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="d-flex mt-3 justify-content-end">
                                 <a href="{{ route('our-services.index') }}" class="btn btn-secondary">Back</a>
@@ -64,4 +81,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

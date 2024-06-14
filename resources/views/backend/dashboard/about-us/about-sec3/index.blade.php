@@ -34,60 +34,69 @@
                         <thead class="thead-light">
                             <tr>
                                 <th class="sort" data-sort="photo">Photo</th>
-                                <th scope="col" class="sort" data-sort="title">Title</th>
-                                <th scope="col" class="sort" data-sort="description">Description</th>
-                                <th scope="col" class="sort" data-sort="created_at">Created At</th>
-                                <th scope="col" class="sort" data-sort="updated_at">Updated At</th>
+                                <th scope="col" class="sort" data-sort="title_ar">Title (Arabic)</th>
+                                <th scope="col" class="sort" data-sort="title_en">Title (English)</th>
+                                <th scope="col" class="sort" data-sort="description_ar">Description (Arabic)</th>
+                                <th scope="col" class="sort" data-sort="description_en">Description (English)</th>
+                                {{-- <th scope="col" class="sort" data-sort="created_at">Created At</th>
+                                <th scope="col" class="sort" data-sort="updated_at">Updated At</th> --}}
                                 <th scope="col" class="sort" data-sort="actions">Actions</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody class="list">
                             @forelse($aboutSec3Items as $aboutSec3)
-                                <tr>
-                                    <td class="photo">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar  mr-3">
-                                                <img width="60" height="48" src="{{ asset("storage/$aboutSec3->photo") }}" />
-                                            </a>
+                            <tr>
+                                <td class="photo">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar  mr-3">
+                                            <img width="60" height="48" src="{{ asset("storage/$aboutSec3->photo") }}" />
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="title_ar">
+                                    {{ $aboutSec3->ar_title }}
+                                </td>
+                                <td class="title_en">
+                                    {{ $aboutSec3->en_title }}
+                                </td>
+                                <td class="description_ar">
+                                    {!! Str::limit($aboutSec3->ar_description, 15) !!}
+                                </td>
+                                <td class="description_en">
+                                    {!! Str::limit($aboutSec3->en_description, 15) !!}
+                                </td>
+
+                                {{-- <td class="created_at">
+                                    {{ $aboutSec3->created_at->diffForHumans() }}
+                                </td>
+                                <td class="updated_at">
+                                    {{ $aboutSec3->updated_at->diffForHumans() }}
+                                </td> --}}
+                                <td class="text-right actions">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="{{ route('about-sec3.edit', $aboutSec3->id) }}">Edit</a>
+                                            <form action="{{ route('about-sec3.destroy', $aboutSec3->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item">Delete</button>
+                                            </form>
+                                            <!-- Add other actions as needed -->
                                         </div>
-                                    </td>
-                                    <td class="title">
-                                        {{ $aboutSec3->title }}
-                                    </td>
-                                    <td class="description">
-                                        {{ $aboutSec3->description }}
-                                    </td>
-                                    <td class="created_at">
-                                        {{ $aboutSec3->created_at->diffForHumans() }}
-                                    </td>
-                                    <td class="updated_at">
-                                        {{ $aboutSec3->updated_at->diffForHumans() }}
-                                    </td>
-                                    <td class="text-right actions">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{ route('about-sec3.edit', $aboutSec3->id) }}">Edit</a>
-                                                <form action="{{ route('about-sec3.destroy', $aboutSec3->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item">Delete</button>
-                                                </form>
-                                                <!-- Add other actions as needed -->
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr class="text-center">
-                                    <td colspan="7">No data available</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr class="text-center">
+                                <td colspan="9">No data available</td>
+                            </tr>
+                        @endforelse
+                                                </tbody>
                     </table>
                 </div>
                 <!-- Card footer -->

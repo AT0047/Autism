@@ -17,7 +17,7 @@ class BookQuestionController extends Controller
     public function index($id)
     {
         $questions = Book::findOrFail($id)->questions()->orderBy('created_at', 'desc')->paginate(10);
-        $book = Book::findOrFail($id)->getAttribute('name');
+        $book = Book::findOrFail($id); // Use en_name or ar_name based on the language preference
         return view('backend.dashboard.book_questions.index', compact('questions', 'id', 'book'));
     }
 
@@ -36,17 +36,21 @@ class BookQuestionController extends Controller
     public function store(Request $request, $id)
     {
         $request->validate([
-            'question' => 'required',
-            'answer' => 'required',
+            'ar_question' => 'required',
+            'en_question' => 'required',
+            'ar_answer' => 'required',
+            'en_answer' => 'required',
         ]);
-        try{
+        try {
             BookQuestion::create([
-                'question' => $request->question,
-                'answer' => $request->answer,
+                'ar_question' => $request->ar_question,
+                'en_question' => $request->en_question,
+                'ar_answer' => $request->ar_answer,
+                'en_answer' => $request->en_answer,
                 'book_id' => $id,
             ]);
-            return redirect()->route('books.book-questions.index' , $id)->with(['message' => 'Question Added Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('books.book-questions.index', $id)->with(['message' => 'Question Added Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('books.book-questions.index', $id)->with(['message' => $e->getMessage()]);
         }
@@ -75,17 +79,21 @@ class BookQuestionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'question' => 'required',
-            'answer' => 'required',
+            'ar_question' => 'required',
+            'en_question' => 'required',
+            'ar_answer' => 'required',
+            'en_answer' => 'required',
         ]);
         $bookQuestion = BookQuestion::findOrFail($id);
-        try{
+        try {
             $bookQuestion->update([
-                'question' => $request->question,
-                'answer' => $request->answer,
+                'ar_question' => $request->ar_question,
+                'en_question' => $request->en_question,
+                'ar_answer' => $request->ar_answer,
+                'en_answer' => $request->en_answer,
             ]);
             return redirect()->route('books.book-questions.index', $bookQuestion->book_id)->with(['message' => 'Question Updated Successfully']);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('books.book-questions.index', $bookQuestion->book_id)->with(['message' => $e->getMessage()]);
         }
@@ -96,11 +104,11 @@ class BookQuestionController extends Controller
      */
     public function destroy($id)
     {
-        try{
+        try {
             $bookQuestion = BookQuestion::findOrFail($id);
             $bookQuestion->delete();
-            return redirect()->route('books.book-questions.index', $bookQuestion->book_id)->with(['message' => 'Question Updated Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('books.book-questions.index', $bookQuestion->book_id)->with(['message' => 'Question Deleted Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
             return redirect()->route('books.book-questions.index', $bookQuestion->book_id)->with(['message' => $e->getMessage()]);
         }

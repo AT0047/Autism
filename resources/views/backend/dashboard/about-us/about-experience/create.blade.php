@@ -1,4 +1,5 @@
 @extends('backend.dashboard.dashboard')
+
 @section('content')
     <div class="header pb-6 d-flex align-items-center"
         style="min-height: 150px; background-image: url(../assets/backend/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
@@ -25,18 +26,40 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter the title" required>
-                                            @error('title')
+                                            <label class="form-control-label" for="input-username">Title (Arabic)</label>
+                                            <input type="text" name="ar_title" class="form-control"
+                                                placeholder="Enter the title in Arabic" required>
+                                            @error('ar_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Place</label>
-                                            <input type="text" name="place" class="form-control" placeholder="Enter the place" required>
-                                            @error('place')
+                                            <label class="form-control-label" for="input-username">Title (English)</label>
+                                            <input type="text" name="en_title" class="form-control"
+                                                placeholder="Enter the title in English" required>
+                                            @error('en_title')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Place (Arabic)</label>
+                                            <input type="text" name="ar_place" class="form-control"
+                                                placeholder="Enter the place in Arabic" required>
+                                            @error('ar_place')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Place (English)</label>
+                                            <input type="text" name="en_place" class="form-control"
+                                                placeholder="Enter the place in English" required>
+                                            @error('en_place')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -44,7 +67,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Date</label>
-                                            <input type="text" name="date" class="form-control"
+                                            <input type="date" name="date" class="form-control"
                                                 placeholder="Enter the date" required>
                                             @error('date')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -55,9 +78,16 @@
                             </div>
                             <div class="pl-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label">Description</label>
-                                    <textarea required name="description" rows="6" class="form-control" placeholder="Enter description"></textarea>
-                                    @error('description')
+                                    <label class="form-control-label">Description (Arabic)</label>
+                                    <textarea id="editor-ar"  name="ar_description" rows="6" class="form-control" placeholder="Enter description in Arabic" ></textarea>
+                                    @error('ar_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Description (English)</label>
+                                    <textarea id="editor-en"  name="en_description" rows="6" class="form-control" placeholder="Enter description in English"></textarea>
+                                    @error('en_description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

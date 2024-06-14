@@ -11,8 +11,8 @@ class AboutSec4Controller extends Controller
 {
     public function index()
     {
-        $about_sec4=AboutSec4::all();
-        return view('backend.dashboard.about-us.about-sec4.index',compact('about_sec4'));
+        $aboutSec4Items=AboutSec4::all();
+        return view('backend.dashboard.about-us.about-sec4.index',compact('aboutSec4Items'));
     }
 
     /**

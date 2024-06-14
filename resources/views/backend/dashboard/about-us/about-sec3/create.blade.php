@@ -25,22 +25,40 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter the title" required>
-                                            @error('title')
+                                            <label class="form-control-label" for="input-username">Title (Arabic)</label>
+                                            <input type="text" name="ar_title" class="form-control" placeholder="Enter the Arabic title" value="{{ old('ar_title') }}" required>
+                                            @error('ar_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Description</label>
-                                            <textarea name="description" rows="6" class="form-control" placeholder="Enter description" required></textarea>
-                                            @error('description')
+                                            <label class="form-control-label" for="input-username">Title (English)</label>
+                                            <input type="text" name="en_title" class="form-control" placeholder="Enter the English title" value="{{ old('en_title') }}" required>
+                                            @error('en_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="pl-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">Description (Arabic)</label>
+                                    <textarea id="editor-ar" name="ar_description" rows="6" class="form-control" placeholder="Enter Arabic description" >{{ old('ar_description') }}</textarea>
+                                    @error('ar_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="pl-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">Description (English)</label>
+                                    <textarea id="editor-en" name="en_description" rows="6" class="form-control" placeholder="Enter English description" >{{ old('en_description') }}</textarea>
+                                    @error('en_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="pl-lg-4">

@@ -13,15 +13,18 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('content');
+            $table->string('ar_name');
+            $table->string('en_name');
+            $table->longText('ar_content');
+            $table->longText('en_content');
             // $table->foreignId('library_id')->constrained('libraries')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->boolean('prefer')->default(true);
             $table->string('video')->nullable();
             $table->string('photo');
             $table->date('publication_date');
-            $table->string('author_name');
+            $table->string('ar_author_name');
+            $table->string('en_author_name');
             $table->integer('display_order')->unique();
             $table->timestamps();
         });

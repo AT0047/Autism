@@ -22,9 +22,12 @@ class AboutSec4Request extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'ar_name' => 'required|string|max:255',
+            'en_name' => 'required|string|max:255',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'required|string',
+            'en_description' => 'required|string',
         ];
     }
 }

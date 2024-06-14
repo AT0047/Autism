@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+@if (!\App\Models\User::get()->count() ==0 )
+ <script>
+    alert('you not allowed to register')
+ </script>
+@else
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,8 +25,15 @@
     <!-- Navbar -->
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand">
-                <img src="{{ asset('dashboard/img/brand/white.png')}}">
+            <a class="navbar-brand" >
+                @php
+                    $logo=\App\Models\AboutPhoto::first()->logo ?? '';
+                @endphp
+                @if ($logo)
+                <img src="{{ asset('storage/'.$logo) }}">
+                @else
+                <img src="{{ asset('home_assets/favicon.png') }}">
+                @endif
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -224,3 +236,5 @@
     <script src="{{ asset('dashboard/js/argon.js?v=1.2.0')}}"></script>
 </body>
 </html>
+
+@endif

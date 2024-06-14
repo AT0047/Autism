@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('about_education', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('place');
+            $table->string('ar_title');
+            $table->string('en_title');
+            $table->string('ar_place');
+            $table->string('en_place');
             $table->string('date');
-            $table->text('description');
+            $table->text('ar_description');
+            $table->text('en_description');
             $table->timestamps();
         });
     }

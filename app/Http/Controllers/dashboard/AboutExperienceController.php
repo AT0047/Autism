@@ -58,7 +58,7 @@ class AboutExperienceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, AboutExperience $aboutExperience)
+    public function update(AboutExperienceRequest $request, AboutExperience $aboutExperience)
     {
         $aboutExperience->update($request->all());
 

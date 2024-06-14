@@ -9,5 +9,14 @@ class MyStory extends Model
 {
     use HasFactory;
     public $table ='my_stories';
-    public $fillable = ['title1', 'title2', 'content', 'photo1', 'photo2', 'photo3'];
-}
+    protected $fillable = [
+        'ar_title1',
+        'en_title1',
+        'ar_title2',
+        'en_title2',
+        'ar_content',
+        'en_content',
+        'photo1',
+        'photo2',
+        'photo3',
+    ];}

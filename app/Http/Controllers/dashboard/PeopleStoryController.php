@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 class PeopleStoryController extends Controller
 {
     use upload_imgs;
+
     /**
      * Display a listing of the resource.
      */
@@ -35,23 +36,31 @@ class PeopleStoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'title' => 'required',
-            'content' => 'required',
-            'photo' => 'required',
+            'ar_name' => 'required|string|max:255',
+            'en_name' => 'required|string|max:255',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_content' => 'required|string',
+            'en_content' => 'required|string',
+            'photo' => 'required|image',
         ]);
-        try{
+
+        try {
             PeopleStory::create([
-                'name' => $request->name,
-                'job' => $request->job,
-                'title' => $request->title,
-                'content' => $request->content,
-                'photo' =>  $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs')
+                'ar_name' => $request->ar_name,
+                'en_name' => $request->en_name,
+                'ar_job' => $request->ar_job,
+                'en_job' => $request->en_job,
+                'ar_title' => $request->ar_title,
+                'en_title' => $request->en_title,
+                'ar_content' => $request->ar_content,
+                'en_content' => $request->en_content,
+                'photo' => $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs')
             ]);
-            return redirect()->route('people-stories.index')->with(['message' => 'Entery Added Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('people-stories.index')->with(['message' => 'Entry Added Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -70,28 +79,38 @@ class PeopleStoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
-            'title' => 'required',
-            'content' => 'required',
+            'ar_name' => 'required|string|max:255',
+            'en_name' => 'required|string|max:255',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_content' => 'required|string',
+            'en_content' => 'required|string',
+            'photo' => 'image',
         ]);
 
-        try{
+        try {
             $peopleStory = PeopleStory::findOrFail($id);
-            $peopleStory->name = $request->name;
-            $peopleStory->title = $request->title;
-            $peopleStory->content = $request->content;
-            if($request->has('photo')){
-                if($peopleStory->photo){
-                    $oldImg = $peopleStory->photo;
-                    $peopleStory->photo = $this->deleteImg('upload_imgs', $oldImg);
+            $peopleStory->ar_name = $request->ar_name;
+            $peopleStory->en_name = $request->en_name;
+            $peopleStory->ar_job = $request->ar_job;
+            $peopleStory->en_job = $request->en_job;
+            $peopleStory->ar_title = $request->ar_title;
+            $peopleStory->en_title = $request->en_title;
+            $peopleStory->ar_content = $request->ar_content;
+            $peopleStory->en_content = $request->en_content;
+
+            if ($request->has('photo')) {
+                if ($peopleStory->photo) {
+                    $this->deleteImg('upload_imgs', $peopleStory->photo);
                 }
                 $peopleStory->photo = $this->uploadImg($request, 'photo', 'peopleStoriesImgs', 'people_stories', 'upload_imgs');
             }
+
             $peopleStory->save();
-            return redirect()->route('people-stories.index')->with(['message' => 'Entery Updated Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('people-stories.index')->with(['message' => 'Entry Updated Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -100,17 +119,16 @@ class PeopleStoryController extends Controller
      */
     public function destroy($id)
     {
-        try{
+        try {
             $peopleStory = PeopleStory::findOrFail($id);
-            if($peopleStory->photo){
-                $oldImg = $peopleStory->photo;
-                $this->deleteImg('upload_imgs', $oldImg);
+            if ($peopleStory->photo) {
+                $this->deleteImg('upload_imgs', $peopleStory->photo);
             }
             $peopleStory->delete();
-            return redirect()->route('people-stories.index')->with(['message' => 'Entery is Deleted Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('people-stories.index')->with(['message' => 'Entry Deleted Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('people-stories.index')->with(['message' => $e->getMessage()]);
         }
     }
 }

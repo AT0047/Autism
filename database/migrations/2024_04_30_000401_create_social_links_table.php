@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('social_links', function (Blueprint $table) {
             $table->id();
-            $table->enum('platform', ['facebook', 'instagram', 'twitter', 'linkedin','youtube']);
+            $table->enum('platform', ['facebook', 'instagram', 'twitter', 'linkedin','youtube','tiktok','whatsapp']);
             $table->string('link');
             $table->timestamps();
         });

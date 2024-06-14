@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 class OurServiceController extends Controller
 {
     use upload_imgs;
+
     /**
      * Display a listing of the resource.
      */
@@ -35,20 +36,25 @@ class OurServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'photo' => 'required',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'required|string',
+            'en_description' => 'required|string',
+            'photo' => 'required|image',
         ]);
-        try{
+
+        try {
             OurService::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'photo' =>  $this->uploadImg($request, 'photo', 'OurServiceImgs', 'Our_Service', 'upload_imgs')
+                'ar_title' => $request->ar_title,
+                'en_title' => $request->en_title,
+                'ar_description' => $request->ar_description,
+                'en_description' => $request->en_description,
+                'photo' => $this->uploadImg($request, 'photo', 'OurServiceImgs', 'Our_Service', 'upload_imgs')
             ]);
-            return redirect()->route('our-services.index')->with(['message' => 'Entery Added Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('our-services.index')->with(['message' => 'Entry Added Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('our-services.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('our-services.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -67,26 +73,30 @@ class OurServiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'photo' => 'required',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'required|string',
+            'en_description' => 'required|string',
+            'photo' => 'image',
         ]);
-        try{
+
+        try {
             $ourService = OurService::findOrFail($id);
-            $ourService->title = $request->title;
-            $ourService->description = $request->description;
-            if($request->has('photo')){
-                if($ourService->photo){
-                    $oldImg = $ourService->photo;
-                    $ourService->photo = $this->deleteImg('upload_imgs', $oldImg);
+            $ourService->ar_title = $request->ar_title;
+            $ourService->en_title = $request->en_title;
+            $ourService->ar_description = $request->ar_description;
+            $ourService->en_description = $request->en_description;
+            if ($request->has('photo')) {
+                if ($ourService->photo) {
+                    $this->deleteImg('upload_imgs', $ourService->photo);
                 }
-            $ourService->photo = $this->uploadImg($request, 'photo', 'OurServiceImgs', 'Our_Service', 'upload_imgs');
+                $ourService->photo = $this->uploadImg($request, 'photo', 'OurServiceImgs', 'Our_Service', 'upload_imgs');
             }
             $ourService->save();
-            return redirect()->route('our-services.index')->with(['message' => 'Entery Updated Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('our-services.index')->with(['message' => 'Entry Updated Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('our-services.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('our-services.index')->with(['message' => $e->getMessage()]);
         }
     }
 
@@ -95,17 +105,16 @@ class OurServiceController extends Controller
      */
     public function destroy($id)
     {
-        try{
+        try {
             $ourService = OurService::findOrFail($id);
-            if($ourService->photo){
-                $oldImg = $ourService->photo;
-                $this->deleteImg('upload_imgs', $oldImg);
+            if ($ourService->photo) {
+                $this->deleteImg('upload_imgs', $ourService->photo);
             }
             $ourService->delete();
-            return redirect()->route('our-services.index')->with(['message' => 'Entery is Deleted Successfully']);
-        }catch(Exception $e){
+            return redirect()->route('our-services.index')->with(['message' => 'Entry Deleted Successfully']);
+        } catch (Exception $e) {
             Log::info($e->getMessage());
-            return redirect()->route('our-services.index')->with(['message' => $e->getMessage() ]);
+            return redirect()->route('our-services.index')->with(['message' => $e->getMessage()]);
         }
     }
 }

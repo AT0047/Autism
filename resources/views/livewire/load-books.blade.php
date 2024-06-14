@@ -9,16 +9,16 @@
                     </a>
                     <div class="most-populer-content">
                         <div class="most-populer-post-author">
-                            By <a href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a>
+                            {{-- By <a href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->author_name }}</a> --}}
                         </div>
                         <h3 class="title"><a
-                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->name }}</a>
+                                href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->{app()->getLocale().'_name'} }}</a>
                         </h3>
                         {{-- <p class="dec mt-2">{!! Str::limit($book->content, 15)  !!}</p> --}}
                         <div class="most-populer-post-meta">
                             <span class="post-date">
-                                <a
-                                    href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a>
+                                {{-- <a
+                                    href="{{ route('Autism&Me.bookDetails', $book->id) }}">{{ $book->publication_date }}</a> --}}
                             </span>
                             {{-- <span>10 min read</span> --}}
                         </div>

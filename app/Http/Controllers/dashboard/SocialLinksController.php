@@ -16,7 +16,7 @@ class SocialLinksController extends Controller
      */
     public function index()
     {
-        $socialLinks = SocialLinks::orderBy('platform')->paginate(6);
+        $socialLinks = SocialLinks::orderBy('platform')->paginate(10);
         return view('backend.dashboard.social_links.index', compact('socialLinks'));
     }
 

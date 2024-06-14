@@ -1,4 +1,5 @@
 @extends('backend.dashboard.dashboard')
+
 @section('content')
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
@@ -33,12 +34,15 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th class="sort" data-sort="title">Title</th>
-                                <th class="sort" data-sort="place">Place</th>
-                                <th class="sort" data-sort="place">Date</th>
-                                <th class="sort" data-sort="description">Description</th>
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
+                                <th class="sort" data-sort="title">Title (Arabic)</th>
+                                <th class="sort" data-sort="title">Title (English)</th>
+                                <th class="sort" data-sort="place">Place (Arabic)</th>
+                                <th class="sort" data-sort="place">Place (English)</th>
+                                <th class="sort" data-sort="date">Date</th>
+                                <th class="sort" data-sort="description">Description (Arabic)</th>
+                                <th class="sort" data-sort="description">Description (English)</th>
+                                {{-- <th scope="col" class="sort" data-sort="created_at">Created At</th> --}}
+                                {{-- <th scope="col" class="sort" data-sort="updated_at">Updated At</th> --}}
                                 <th class="sort" data-sort="actions">Actions</th>
                                 <th></th>
                             </tr>
@@ -46,16 +50,19 @@
                         <tbody class="list">
                             @forelse($about_education as $education)
                                 <tr>
-                                    <td>{{ $education->title }}</td>
-                                    <td>{{ $education->place }}</td>
+                                    <td>{{ $education->ar_title }}</td>
+                                    <td>{{ $education->en_title }}</td>
+                                    <td>{{ $education->ar_place }}</td>
+                                    <td>{{ $education->en_place }}</td>
                                     <td>{{ $education->date }}</td>
-                                    <td>{{ $education->description }}</td>
-                                    <td class="Created At">
+                                    <td>{!! Str::limit($education->ar_description, 15) !!}</td>
+                                    <td>{!! Str::limit($education->en_description, 15) !!}</td>
+                                    {{-- <td class="created_at">
                                         {{ $education->created_at->diffForHumans() }}
                                     </td>
-                                    <td class="Updated At">
+                                    <td class="updated_at">
                                         {{ $education->updated_at->diffForHumans() }}
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-light dropdown-toggle"
@@ -77,7 +84,7 @@
                                 </tr>
                             @empty
                                 <tr class="text-center">
-                                    <td colspan="6">No data available</td>
+                                    <td colspan="10">No data available</td>
                                 </tr>
                             @endforelse
                         </tbody>

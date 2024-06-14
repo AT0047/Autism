@@ -31,27 +31,33 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th class="sort" data-sort="name">Name</th>
-                                <th class="sort" data-sort="title">Title</th>
-                                <th class="sort" data-sort="description">Description</th>
-                                <th scope="col" class="sort" data-sort="Created At">Created At</th>
-                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th>
+                                <th class="sort" data-sort="ar_name">Name (Arabic)</th>
+                                <th class="sort" data-sort="en_name">Name (English)</th>
+                                <th class="sort" data-sort="ar_title">Title (Arabic)</th>
+                                <th class="sort" data-sort="en_title">Title (English)</th>
+                                <th class="sort" data-sort="ar_description">Description (Arabic)</th>
+                                <th class="sort" data-sort="en_description">Description (English)</th>
+                                {{-- <th scope="col" class="sort" data-sort="Created At">Created At</th>
+                                <th scope="col" class="sort" data-sort="Updated At">Updated At</th> --}}
                                 <th class="sort" data-sort="actions">Actions</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody class="list">
-                            @forelse($about_sec4 as $item)
+                            @forelse($aboutSec4Items as $item)
                                 <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->title }}</td>
-                                    <td>{{ $item->description }}</td>
-                                    <td class="Created At">
+                                    <td>{{ $item->ar_name }}</td>
+                                    <td>{{ $item->en_name }}</td>
+                                    <td>{{ $item->ar_title }}</td>
+                                    <td>{{ $item->en_title }}</td>
+                                    <td>{!! Str::limit($item->ar_description,15) !!}</td>
+                                    <td>{!! Str::limit($item->en_description,15) !!}</td>
+                                    {{-- <td class="Created At">
                                         {{ $item->created_at->diffForHumans() }}
                                     </td>
                                     <td class="Updated At">
                                         {{ $item->updated_at->diffForHumans() }}
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-light dropdown-toggle"
@@ -73,7 +79,7 @@
                                 </tr>
                             @empty
                                 <tr class="text-center">
-                                    <td colspan="6">No data available</td>
+                                    <td colspan="10">No data available</td>
                                 </tr>
                             @endforelse
                         </tbody>

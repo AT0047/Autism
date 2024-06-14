@@ -337,7 +337,7 @@ label.error{
 
 
 
-.btn{
+/* .btn{
   font-family: 'swanseabold';
   position: relative;
   display: inline-block;
@@ -356,7 +356,7 @@ label.error{
   border-width: 1px;
   -webkit-transition: all .3s ease-out!important;
           transition: all .3s ease-out!important;
-}
+} */
 
 .btn:hover,
 .btn:focus,
@@ -618,7 +618,7 @@ a.text-body:hover{
   color:#000;
 }
 
-.toggler{
+/* .toggler{
   position: absolute;
   right: 0;
   width:2rem;
@@ -626,7 +626,7 @@ a.text-body:hover{
   padding:0;
   background: none;
   border:0;
-}
+} */
 
 .toggler:focus{
   outline: none;
@@ -747,7 +747,7 @@ a.text-body:hover{
 .navbar-nav-desctop > li > a{
   display: flex;
   align-items: center;
-  padding:1rem 0;
+  /* padding:1rem 0; */
 }
 
 .navbar-nav-desctop > li > .active,
@@ -810,7 +810,7 @@ a.text-body:hover{
 .navbar-mobile{
   align-items: baseline;
   flex-wrap: unset;
-  padding:2.4rem 4.5rem 1.3rem;
+  padding:0 4.5rem 1.3rem;
   position: fixed;
   top:0;
   bottom:0;
@@ -828,7 +828,8 @@ a.text-body:hover{
   -o-transform: translateX(100%);
   transform: translateX(100%);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  /* flex-direction: column; */
   -webkit-transition: all 0.6s ease;
   -o-transition: all 0.6s ease;
   transition: all 0.6s ease;
@@ -1135,7 +1136,7 @@ main{
 
 @media (min-width: 768px){
   .section{
-    padding: 12.5rem 0;
+    padding: 5rem 0;
   }
 }
 
@@ -2155,4 +2156,75 @@ video {
 @font-face {
   font-family: Rubik;
   src: url("../style/font/AbrilFatface-Regular.ttf");
+}
+
+/* Edit Ahmed Ali */
+
+.overlay{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.199);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.testimonial-slider-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.testimonial-slider-navigation .navigation-button{
+  border: none;   
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #E82E31;
+  padding-top: 4px;
+  width: 50px;
+  height: 50px;
+  transition: all 0.4s;
+  opacity: 0.4;
+}
+.testimonial-slider-navigation .navigation-button:hover{
+  opacity: 1;
+}
+.testimonial-slider-navigation .navigation-button{
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+}
+.testimonial-slider-navigation .testimonial-button-prev{
+  right: -20px;
+}
+.testimonial-slider-navigation .testimonial-button-next{
+  left: -20px;
+}
+
+.testimonial-shadow:hover{
+  -moz-box-shadow: 0 10px 40px 0 rgba(32, 62, 84, 0.08);
+  -webkit-box-shadow: 0 10px 40px 0 rgba(32, 62, 84, 0.08);
+  box-shadow: 0 10px 40px 0 rgba(32, 62, 84, 0.08);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.navbarIcon{
+  top: -25%;
+}
+
+@media (max-width:767px) {
+  .footer-logo img {
+    width: 100px !important;
+    margin: auto !important;
+  }
+}
+
+
+.lang{
+  font-family: "Cairo", sans-serif;
+  position: absolute !important;
+  top: -5px;
 }

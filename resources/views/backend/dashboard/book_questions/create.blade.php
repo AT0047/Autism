@@ -13,34 +13,52 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Add Questions To - {{ $book->name }} Book</h3>
+                                <h3 class="mb-0">Add Questions To - {{ $book->en_name }} Book</h3>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{ route('books.book-questions.store', $id) }}" method ="POST">
+                        <form action="{{ route('books.book-questions.store', $id) }}" method="POST">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Question</label>
-                                            <input type="text" value="{{ old('question') }}" name="question"
-                                                class="form-control" placeholder="Paste your Question here">
-                                            @error('question')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                            <label class="form-control-label" for="input-username">Arabic Question</label>
+                                            <input type="text" value="{{ old('ar_question') }}" name="ar_question"
+                                                class="form-control" placeholder="Paste your Arabic Question here">
+                                            @error('ar_question')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">English Question</label>
+                                            <input type="text" value="{{ old('en_question') }}" name="en_question"
+                                                class="form-control" placeholder="Paste your English Question here">
+                                            @error('en_question')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pl-lg-4 ">
-                                <div class="form-group ">
-                                    <label class="form-control-label ">Answer</label>
-                                    <textarea id="editor" name="answer" rows="19" class="form-control " placeholder="Enter post title">{{ old('answer') }}</textarea>
-                                    @error('answer')
+                            <div class="pl-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">Arabic Answer</label>
+                                    <textarea id="editor-ar" name="ar_answer" rows="5" class="form-control" placeholder="Enter Arabic Answer">{{ old('ar_answer') }}</textarea>
+                                    @error('ar_answer')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="pl-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">English Answer</label>
+                                    <textarea id="editor-en" name="en_answer" rows="5" class="form-control" placeholder="Enter English Answer">{{ old('en_answer') }}</textarea>
+                                    @error('en_answer')
                                         <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -54,4 +72,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

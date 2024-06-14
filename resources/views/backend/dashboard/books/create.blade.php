@@ -13,24 +13,33 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Add New Article</h3>
+                                <h3 class="mb-0">Add New Book</h3>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{ route('books.store') }}" method ="POST" enctype="multipart/form-data">
+                        <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Article's Title</label>
-                                            <input type="text" value="{{ old('name') }}" name="name"
-                                                class="form-control" placeholder="Write Article's Title Here">
-                                            @error('name')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                            <label class="form-control-label" for="input-ar-name">Book's Title (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_name') }}" name="ar_name"
+                                                class="form-control" placeholder="Write Book's Title in Arabic Here">
+                                            @error('ar_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-en-name">Book's Title (English)</label>
+                                            <input type="text" value="{{ old('en_name') }}" name="en_name"
+                                                class="form-control" placeholder="Write Book's Title in English Here">
+                                            @error('en_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -40,16 +49,15 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Category's Name</label>
-                                            <select name="category_id" class ="form-control">
+                                            <label class="form-control-label" for="input-category">Category's Name</label>
+                                            <select name="category_id" class="form-control">
                                                 <option disabled selected value="">Select Category</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}">{{ $category->en_name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -59,12 +67,21 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Author's Name</label>
-                                            <input type="text" value="{{ old('author_name') }}" name="author_name"
-                                                class="form-control" placeholder="Write Author Name Here">
-                                            @error('author_name')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                            <label class="form-control-label" for="input-ar-author-name">Author's Name (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_author_name') }}" name="ar_author_name"
+                                                class="form-control" placeholder="Write Author's Name in Arabic Here">
+                                            @error('ar_author_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-en-author-name">Author's Name (English)</label>
+                                            <input type="text" value="{{ old('en_author_name') }}" name="en_author_name"
+                                                class="form-control" placeholder="Write Author's Name in English Here">
+                                            @error('en_author_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -74,12 +91,11 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Publication Date</label>
+                                            <label class="form-control-label" for="input-publication-date">Publication Date</label>
                                             <input type="date" value="{{ old('publication_date') }}"
                                                 name="publication_date" class="form-control" placeholder="Publication Date">
                                             @error('publication_date')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -89,15 +105,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Status</label>
-                                            <select name="prefer" class ="form-control">
+                                            <label class="form-control-label" for="input-prefer">Status</label>
+                                            <select name="prefer" class="form-control">
                                                 <option disabled selected value="">Select Status</option>
-                                                <option value='1'>Preferd</option>
-                                                <option value='0'>Not Preferd</option>
+                                                <option value='1'>Preferred</option>
+                                                <option value='0'>Not Preferred</option>
                                             </select>
                                             @error('prefer')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -107,12 +122,11 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Display Order</label>
+                                            <label class="form-control-label" for="input-display-order">Display Order</label>
                                             <input type="number" value="{{ old('display_order') }}" name="display_order"
-                                                class="form-control" placeholder="Decide Article's Display Order Here">
+                                                class="form-control" placeholder="Decide Book's Display Order Here">
                                             @error('display_order')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -120,11 +134,18 @@
                             </div>
                             <div class="pl-lg-4 ">
                                 <div class="form-group ">
-                                    <label class="form-control-label">Content</label>
-                                    @error('content')
+                                    <label class="form-control-label" for="input-ar-content">Content (Arabic)</label>
+                                    @error('ar_content')
                                         <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
                                     @enderror
-                                    <textarea id="editor" name="content" rows="19" class="form-control " placeholder="Enter Book Content Here">{{ old('content') }}</textarea>
+                                    <textarea id="editor-ar" name="ar_content" rows="19" class="form-control " placeholder="Enter Book Content in Arabic Here">{{ old('ar_content') }}</textarea>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="form-control-label" for="input-en-content">Content (English)</label>
+                                    @error('en_content')
+                                        <div class="alert text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                    @enderror
+                                    <textarea id="editor-en" name="en_content" rows="19" class="form-control " placeholder="Enter Book Content in English Here">{{ old('en_content') }}</textarea>
                                 </div>
                             </div>
                             <div class="pl-lg-4 ">

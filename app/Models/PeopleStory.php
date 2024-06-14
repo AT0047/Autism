@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PeopleStory extends Model
 {
     use HasFactory;
-    public $fillable = ['name', 'job', 'title', 'content', 'photo'];
-}
+    protected $fillable = [
+        'ar_name',
+        'en_name',
+        'ar_job',
+        'en_job',
+        'ar_title',
+        'en_title',
+        'ar_content',
+        'en_content',
+        'photo',
+    ];}

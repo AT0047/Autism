@@ -18,17 +18,28 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action ="{{ route('categories.store') }}" method ="POST" enctype="multipart/form-data">
+                        <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Name</label>
-                                            <input type="text" value="{{ old('name') }}" name="name"
-                                                class="form-control" placeholder="Write Category Name Here">
-                                            @error('name')
+                                            <label class="form-control-label" for="input-username">Name (Arabic)</label>
+                                            <input type="text" value="{{ old('ar_name') }}" name="ar_name"
+                                                class="form-control" placeholder="Write Arabic Category Name Here">
+                                            @error('ar_name')
+                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Name (English)</label>
+                                            <input type="text" value="{{ old('en_name') }}" name="en_name"
+                                                class="form-control" placeholder="Write English Category Name Here">
+                                            @error('en_name')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
                                             @enderror
@@ -36,25 +47,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Libraries</label>
-                                            <select name="library_id" class ="form-control">
-                                                <option disabled selected value="">Select Library</option>
-                                                @foreach ($libraries as $id => $name)
-                                                    <option value="{{ $id }}">{{ $name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('library_id')
-                                                <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="pl-lg-4 ">
                                 <label class="form-control-label ">Upload Image</label>
                                 <div class="input-group">

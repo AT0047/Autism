@@ -10,11 +10,14 @@ use App\Http\Controllers\dashboard\AboutPhotoController;
 use App\Http\Controllers\dashboard\AboutSec3Controller;
 use App\Http\Controllers\dashboard\AboutSec4Controller;
 use App\Http\Controllers\dashboard\AboutUsController;
+use App\Http\Controllers\dashboard\AdminController;
+use App\Http\Controllers\dashboard\FontSettingController;
 use App\Http\Controllers\dashboard\MyStoryController;
 use App\Http\Controllers\dashboard\OurServiceController;
 use App\Http\Controllers\dashboard\PeopleStoryController;
 use App\Http\Controllers\dashboard\SocialLinksController;
 use App\Http\Controllers\dashboard\TitleController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\website\ArticleController;
 use App\Http\Controllers\website\HomeController;
@@ -31,6 +34,7 @@ use App\Http\Controllers\website\AboutUsFrontController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/localization/{locale}',[LocaleController::class, 'changeLocale'])->name('localeChange');
 
 Route::get('/', function () {
     return view('auth.login');
@@ -115,6 +119,9 @@ Route::resource('about-experience', AboutExperienceController::class);
 Route::resource('about-sec3', AboutSec3Controller::class);
 Route::resource('about-sec4', AboutSec4Controller::class);
 Route::resource('about-photos', AboutPhotoController::class);
+Route::resource('font-settings', FontSettingController::class);
+Route::resource('admins', AdminController::class);
+
 
 
 Route::get('/frontend/home', function () {

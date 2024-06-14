@@ -1729,7 +1729,7 @@ input[type=checkbox] {
   position: relative;
   margin-top: 40px;
 }
-.single-testimonial-item::after,
+/* .single-testimonial-item::after,
 .single-testimonial-item-two::after {
   position: absolute;
   right: 35px;
@@ -1739,7 +1739,7 @@ input[type=checkbox] {
   background-repeat: no-repeat;
   height: 40px;
   width: 52px;
-}
+} */
 
 .single-testimonial-item-two::after {
   background: url("../../assets/images/icons/quote-2.png");

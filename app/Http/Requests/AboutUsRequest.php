@@ -22,13 +22,19 @@ class AboutUsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'dr_name' => 'required|string|max:255',
-            'job_specialization' => 'required|string|max:255',
+            'ar_drName' => 'required|string|max:255',
+            'en_drName' => 'required|string|max:255',
+            'ar_job_specialization' => 'required|string|max:255',
+            'en_job_specialization' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|email',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'ar_title' => 'required|string|max:255',
+            'en_title' => 'required|string|max:255',
+            'ar_description' => 'nullable|string',
+            'en_description' => 'nullable|string',
             'dr_photo' => 'image|mimes:jpeg,png,jpg,gif', 
+            'ar_footer_description' => 'nullable|string',
+            'en_footer_description' => 'nullable|string',
 
         ];
     }

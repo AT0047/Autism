@@ -66,9 +66,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admins.index') }}">
+                                <i class="fas fa-user-cog text-default"></i>
+                                <span class="nav-link-text">Admins</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('titles.index') }}">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">Titles</span>
+                                <span class="nav-link-text">Title and photos</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -111,6 +117,12 @@
                             <a class="nav-link" href="{{ route('books.index') }}">
                                 <i class="ni fa fa-list-alt text-default"></i>
                                 <span class="nav-link-text">Articles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('font-settings.create') }}">
+                                <i class="fas fa-font text-default"></i>
+                                <span class="nav-link-text">Font header settings</span>
                             </a>
                         </li>
                         <nav class="navbar navbar-expand-lg navbar-light bg-light"
@@ -345,8 +357,16 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img src="{{ asset('home_assets/favicon.png') }}" class="navbar-brand-img" alt="...">
+                                    @php
+                                        $logo=\App\Models\AboutPhoto::first()->logo ?? '';
+                                    @endphp
 
+                                    @if ($logo)
+                                    <img src="{{ asset('storage/'.$logo) }}" class="navbar-brand-img" alt="...">
+                                    @else
+                                    <img src="{{ asset('home_assets/favicon.png') }}" class="navbar-brand-img" alt="...">
+                                    @endif
+                                    
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
@@ -541,11 +561,27 @@
     </script> --}}
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+            .create(document.querySelector('#editor-ar'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editor-en'))
+            .catch(error => {
+                console.error(error);
+            });
+            ClassicEditor
+            .create(document.querySelector('#en_footer_description'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#ar_footer_description'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
+
 </body>
 
 </html>

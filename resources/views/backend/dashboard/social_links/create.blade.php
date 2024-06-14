@@ -32,7 +32,9 @@
                                                 <option value="instagram">Instagram</option>
                                                 <option value="twitter">Twitter</option>
                                                 <option value="linkedin">Linkedin</option>
-                                                <option value="youtube">youtube</option>
+                                                <option value="youtube">Youtube</option>
+                                                <option value="tiktok">Tiktok</option>
+                                                <option value="whatsapp">Whatsapp</option>
                                             </select>
                                             @error('platform')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
@@ -46,10 +48,12 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Link</label>
+                                            <label class="form-control-label" for="input-username">Link or number</label>
                                             <input type="link" value="{{ old('link') }}" name="link"
-                                                class="form-control" placeholder="Paste your link here">
-                                            @error('link')
+                                                class="form-control" placeholder="Paste your link or number here">
+                                                <div class="alert alert-info mt-2">
+                                                    <strong>Note:</strong> If WhatsApp, put it like this ( <code>201066943748</code>, <code>963959875843</code>)
+                                                </div>                                            @error('link')
                                                 <div class="alert text-danger" style="font-weight: bold;">{{ $message }}
                                                 </div>
                                             @enderror

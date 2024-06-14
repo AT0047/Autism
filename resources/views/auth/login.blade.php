@@ -24,7 +24,14 @@
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" >
-                <img src="{{ asset('dashboard/img/brand/white.png') }}">
+                @php
+                    $logo=\App\Models\AboutPhoto::first()->logo ?? '';
+                @endphp
+                @if ($logo)
+                <img src="{{ asset('storage/'.$logo) }}">
+                @else
+                <img src="{{ asset('home_assets/favicon.png') }}">
+                @endif
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
                 aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -157,13 +164,13 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                {{-- <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input" id=" customCheckLogin" type="checkbox"
                                         {{ old('remember') ? 'checked' : '' }}>
                                     <label class="custom-control-label" for=" customCheckLogin">
                                         <span class="text-muted">{{ __('Remember Me') }}</span>
                                     </label>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">{{ __('Login') }}</button>
                                 </div>
@@ -178,8 +185,10 @@
                             @endif
                         </div>
                         <div class="col-6 text-right">
+                            @if (\App\Models\User::get()->count() ==0 )
                             <a href="{{ route('register') }}" class="text-light"><small>Create new
-                                    account</small></a>
+                                account</small></a>
+                            @endif
                         </div>
                     </div>
                 </div>
