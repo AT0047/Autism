@@ -30,10 +30,10 @@
             <ul class="navbar-nav navbar-nav-desctop text-center w-50 m-auto fw-bold d-none d-lg-block">
                 <!-- <li><a class="nav-link text-white" href="home-personal.html">Home</a></li> -->
 
-                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} }}; font-size:{{ $font->{app()->getLocale().'_font_size'} }} px;" href="#mystory">{{ __('my story') }}</a></li>
+                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} ?? 'Times New Roman' }}; font-size:{{ $font->{app()->getLocale().'_font_size'} ?? 15 }} px;" href="#mystory">{{ __('my story') }}</a></li>
 
-                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} }}; font-size:{{ $font->{app()->getLocale().'_font_size'} }} px;" href="{{ route('Autism&Me.articles') }}">{{ __('Articles') }}</a></li>
-                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} }}; font-size:{{ $font->{app()->getLocale().'_font_size'} }} px;" href="#services">{{ __('Our service') }}</a></li>
+                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} ?? 'Times New Roman' }}; font-size:{{ $font->{app()->getLocale().'_font_size'} ?? 15}} px;" href="{{ route('Autism&Me.articles') }}">{{ __('Articles') }}</a></li>
+                <li><a class="nav-link text-white" style="font-family:{{ $font->{app()->getLocale().'_font_family'} ?? 'Times New Roman' }}; font-size:{{ $font->{app()->getLocale().'_font_size'} ?? 15}} px;" href="#services">{{ __('Our service') }}</a></li>
                 <!-- <li><a class="nav-link text-white" href="about me/index.html">About us</a></li> -->
 
             </ul>
@@ -54,9 +54,9 @@
                     </a></li>
                 <li>
                     @if (app()->getLocale()!='ar')
-                    <a href="{{ route('localeChange', 'ar') }}"><span class="text-white fw-bold lang" style="font-family:{{ $font->{app()->getLocale().'_font_family'} }}; font-size:{{ $font->{app()->getLocale().'_font_size'} }} px;">ض</span></a>
+                    <a href="{{ route('localeChange', 'ar') }}"><span class="text-white fw-bold lang" style="font-family:style="font-family:{{ $font->{app()->getLocale().'_font_family'} ?? 'Times New Roman' }}; font-size:{{ $font->{app()->getLocale().'_font_size'} ?? 15 }} px;">ض</span></a>
                     @else
-                    <a href="{{ route('localeChange', 'en') }}"><span class="text-white fw-bold lang" style="font-family:{{ $font->{app()->getLocale().'_font_family'} }}; font-size:{{ $font->{app()->getLocale().'_font_size'} }} px;">en</span></a>
+                    <a href="{{ route('localeChange', 'en') }}"><span class="text-white fw-bold lang" style="font-family:style="font-family:{{ $font->{app()->getLocale().'_font_family'} ?? 'Times New Roman' }}; font-size:{{ $font->{app()->getLocale().'_font_size'} ?? 15 }} px;">en</span></a>
                     @endif
                 </li>
 

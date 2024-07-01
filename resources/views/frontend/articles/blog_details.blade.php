@@ -26,17 +26,17 @@
                                 <!-- Latest Post Area End -->
                                 <div class="row">
                                     <div class="blog-details-thum">
-                                        <img src="{{ asset('dashboard/img/' . $bookdetails->photo) }}" alt=""
+                                        <img src="{{ asset('dashboard/img/' . $bookdetails->photo) }}" style="border-radius: 4%;height:400px" alt=""
                                             style="border-radius: 4%;">
                                     </div>
                                     <div class="blog-details-post-content">
                                         <div class="blog-details-meta-box">
                                             <div class="post-meta-left-side mb-2">
                                                 <div class="trending-blog-post-category">
-                                                    <a href="#">{{ $bookdetails->category->name }}</a>
+                                                    <a href="#">{{ $bookdetails->category->{app()->getLocale().'_name'} }}</a>
                                                 </div>
                                                 <div class="following-blog-post-author">
-                                                    By <a href="">{{ $bookdetails->author_name }}</a>
+                                                    By <a href="">{{ $bookdetails->{app()->getLocale().'_author_name'} }}</a>
                                                 </div>
                                             </div>
                                             <div class="post-mid-side mb-2">
@@ -56,10 +56,10 @@
                                                 </div> --}}
                                         </div>
                                         <h3 class="following-blog-post-title text-center">
-                                            <a href="#">{{ $bookdetails->name }}</a>
+                                            <a href="#">{{ $bookdetails->{app()->getLocale().'_name'} }}</a>
                                         </h3>
                                         <div class="post-details-text text-center">
-                                            <p>{!! $bookdetails->content !!}</p>
+                                            <p>{!! $bookdetails->{app()->getLocale().'_content'} !!}</p>
                                             {{-- <div class="video-banner-area video-popup mb-4"> --}}
                                             <a href="{{ asset('dashboard/img/' . $bookdetails->video) }}"
                                                 class="video-link mt-30">
@@ -123,16 +123,16 @@
                                                             <div class="following-post-content">
                                                                 <div class="following-blog-post-top">
                                                                     <div class="trending-blog-post-category">
-                                                                        <a>{{ $cat->category->name }}</a>
+                                                                        <a>{{ $cat->category->{app()->getLocale().'_name'} }}</a>
                                                                     </div>
                                                                     <div class="following-blog-post-author">
                                                                         By <a
-                                                                            href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->author_name }}</a>
+                                                                            href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->{app()->getLocale().'_author_name'} }}</a>
                                                                     </div>
                                                                 </div>
                                                                 <h5 class="following-blog-post-title">
                                                                     <a
-                                                                        href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->name }}</a>
+                                                                        href="{{ route('Autism&Me.bookDetails', $cat->id) }}">{{ $cat->{app()->getLocale().'_name'} }}</a>
                                                                 </h5>
                                                                 <div class="following-blog-post-meta">
                                                                     <div class="post-meta-left-side">
@@ -185,13 +185,13 @@
                                                             data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                                             aria-expanded="true" aria-controls="collapseOne">
                                                             <span
-                                                                class="number-of-accordion">0{{ $loop->iteration }}</span>{{ $question->question }}
+                                                                class="number-of-accordion">0{{ $loop->iteration }}</span>{{ $question->{app()->getLocale().'_question'} }}
                                                         </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse show"
                                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body faq-ans">
-                                                            <p>{!! $question->answer !!}</p>
+                                                            <p>{!! $question->{app()->getLocale().'_answer'} !!}</p>
                                                         </div>
                                                     </div>
                                                 </div>

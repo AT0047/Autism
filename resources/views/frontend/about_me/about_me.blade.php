@@ -54,10 +54,10 @@
                                                         <div class="resume-inner">
                                                             @foreach ($all_education as $education)
                                                                 <div class="resume-row">
-                                                                    <h6 class="resume-type">{{ $education->title }}</h6>
+                                                                    <h6 class="resume-type">{{ $education->{app()->getLocale().'_title'} }}</h6>
                                                                     <i
-                                                                        class="resume-study">{{ $education->place }}<br>{{ $education->date }}</i>
-                                                                    <p class="resume-text">{{ $education->description }}</p>
+                                                                        class="resume-study">{{ $education->{app()->getLocale().'_place'} }}<br>{{ $education->date }}</i>
+                                                                    <p class="resume-text">{{ $education->{app()->getLocale().'_description'} }}</p>
                                                                 </div>
                                                             @endforeach
                                                         </div>
@@ -73,10 +73,10 @@
                                                             <!-- Iterate over experience data and display each experience item -->
                                                             @foreach ($all_experience as $experience)
                                                                 <div class="resume-row">
-                                                                    <h6 class="resume-type">{{ $experience->title }}</h6>
+                                                                    <h6 class="resume-type">{{ $experience->{app()->getLocale().'_title'} }}</h6>
                                                                     <i
-                                                                        class="resume-study">{{ $experience->place }}<br>{{ $experience->date }}</i>
-                                                                    <p class="resume-text">{{ $experience->description }}
+                                                                        class="resume-study">{{ $experience->{app()->getLocale().'_place'} }}<br>{{ $experience->date }}</i>
+                                                                    <p class="resume-text">{{ $experience->{app()->getLocale().'_description'} }}
                                                                     </p>
                                                                 </div>
                                                             @endforeach
@@ -114,8 +114,8 @@
                                                     <div class="project-row">
                                                         <a class="{{ $key == 0 ? 'active' : '' }}" href="#">
                                                             <span class="project-number">{{ $key + 1 }}</span>
-                                                            <h2 class="project-title">{{ $value->title }}</h2>
-                                                            <div class="project-category">{{ $value->description }}</div>
+                                                            <h2 class="project-title">{{ $value->{app()->getLocale().'_title'} }}</h2>
+                                                            <div class="project-category">{{ $value->{app()->getLocale().'_description'} }}</div>
                                                         </a>
                                                     </div>
                                                 @endforeach
@@ -158,12 +158,12 @@
                                                                     <div class="review-author">
 
                                                                         <div class="author-name">
-                                                                            {{ $aboutSec4[$i]->name ?? '' }}</div>
-                                                                        <i>{{ $aboutSec4[$i]->title ?? ''}}</i>
+                                                                            {{ $aboutSec4[$i]->{app()->getLocale().'_name'} ?? '' }}</div>
+                                                                        <i>{{ $aboutSec4[$i]->{app()->getLocale().'_title'} ?? ''}}</i>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-7 text">
-                                                                    <p>{{ $aboutSec4[$i]->description ?? ''}}</p>
+                                                                    <p>{{ $aboutSec4[$i]->{app()->getLocale().'_description'} ?? ''}}</p>
                                                                 </div>
                                                             </div>
                                                             @php
@@ -174,13 +174,13 @@
                                                             <div class="row">
                                                                 <div class="col-md-5">
                                                                     <div class="review-author">
-                                                                        <div class="author-name">{{ $aboutSec4[$y]->name ?? ''}}
+                                                                        <div class="author-name">{{ $aboutSec4[$y]->{app()->getLocale().'_name'} ?? ''}}
                                                                         </div>
-                                                                        <i>{{ $aboutSec4[$y]->title ?? ''}}</i>
+                                                                        <i>{{ $aboutSec4[$y]->{app()->getLocale().'_title'} ?? ''}}</i>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-7 text">
-                                                                    <p>{{ $aboutSec4[$y]->description ?? ''}}</p>
+                                                                    <p>{{ $aboutSec4[$y]->{app()->getLocale().'_description'} ?? ''}}</p>
                                                                 </div>
                                                             </div>
                                                             @php
